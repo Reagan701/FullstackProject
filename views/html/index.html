@@ -4,29 +4,124 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Style Sheet -->
     <style>
         *{
             margin:0;
             padding:0;
+            color:white
+        }
+        .table-dark{
+            --bs-table-hover-color: rgb(7, 118, 170) !important;
+        }
+        th,td{
+            border-color:rgb(48, 57, 185) !important
         }
         body{
-            background: linear-gradient(rgb(53, 191, 204),rgb(26, 192, 31));
+            min-height: 100vh;
+            min-width: 100vw;
+            background: linear-gradient(rgb(39, 60, 78),rgb(11, 12, 20))
+        }
+        @media screen and (min-width:767px) {
+            th{
+                width:206.7px !important;
+            }
+            #endPoint{
+                width: 237.98px !important;
+            }
         }
     </style>
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
     <title>Document</title>
 </head>
 <body>
-    <div class="container vh-100">
-        <div class="row">
-            <div class="col-md-12">
-                <h1 class="text-white">Endpoints for this API</h1>
-                <ul>
-                    <li>GET: / <span>explains all end points</span></li>
-                    <li>GET: /products <span>Shows List of all available products</span></li>
-                </ul>
-            </div>
-        </div>
+    <div class="container">
+        <h1 class="pt-3 fw-bold text-white text-center">Welcome to the Store API</h1>
+        <h3 class="pt-2 fw-bold">Introduction</h3>
+        <p>Various Endpoints for this api</p>
+        <h3>End Points</h3>
+        <h5 class="ms-2">User Endpoints</h5>
+        <table class="table table-dark table-hover">
+            <tbody>
+                <tr>
+                    <th scope="row">GET</th>
+                    <td id="endPoint">/users</td>
+                    <td>Shows List of all users</td>
+                </tr>
+                <tr>
+                    <th scope="row">GET</th>
+                    <td id="endPoint">/users/:id</td>
+                    <td>Shows user with the specific id</td>
+                </tr>
+                <tr>
+                    <th scope="row">POST</th>
+                    <td id="endpoint">/users</td>
+                    <td>Registers user on the database</td>
+                </tr>
+                <tr>
+                    <th scope="row">PATCH</th>
+                    <td id="endPoint">/users</td>
+                    <td>Logins user on the database</td>
+                </tr>
+                <tr>
+                    <th scope="row">DELETE</th>
+                    <td id="endPoint">/users:id</td>
+                    <td>Deletes user with the specific id from the database</td>
+                </tr>
+            </tbody>
+        </table>
+        <h5 class="ms-2">User Cart Endpoints</h5>
+        <table class="table table-dark table-hover">
+            <tbody>
+                <tr>
+                    <th scope="row">GET</th>
+                    <td id="endPoint">/users/:id/cart</td>
+                    <td>Shows all items in the cart of the user with the specific id</td>
+                </tr>
+                <tr>
+                    <th scope="row">POST</th>
+                    <td id="endPoint">/users/:id/cart</td>
+                    <td>Updates the items in the cart of the user with the specific id</td>
+                </tr>
+                <tr>
+                    <th scope="row">DELETE</th>
+                    <td id="endPoint">/users/:id/cart</td>
+                    <td>Clears the cart of the user with the specific id</td>
+                </tr>
+            </tbody>
+        </table>
+        <h5 class="ms-2">Product Endpoints</h5>
+        <table class="table table-dark table-hover">
+            <tbody>
+                <tr>
+                    <th scope="row">GET</th>
+                    <td id="endPoint">/products</td>
+                    <td>Shows all available products</td>
+                </tr>
+                <tr>
+                    <th scope="row">GET</th>
+                    <td id="endPoint">/products/:id</td>
+                    <td>Gets the product with the specific id</td>
+                </tr>
+                <tr>
+                    <th scope="row">POST</th>
+                    <td id="endPoint">/products</td>
+                    <td>Adds a product to the database</td>
+                </tr>
+                <tr>
+                    <th scope="row">PUT</th>
+                    <td id="endPoint">/products/:id</td>
+                    <td>Edits product with the specific id on the database</td>
+                </tr>
+                <tr>
+                    <th scope="row">DELETE</th>
+                    <td id="endPoint">/products/:id</td>
+                    <td>Deletes product with the specific id</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
