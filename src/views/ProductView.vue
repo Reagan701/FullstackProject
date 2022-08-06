@@ -1,7 +1,8 @@
 <template>
 <div id="main">
-    <div class="wrapper">
-		<div class="img-area">
+		<div class="container">
+			    <div class="wrapper">
+		<div class="img-area bg-danger">
 			<img id="display-box" src="" height="280" width="380">
 		</div>
 		<div class="text-area">
@@ -15,11 +16,12 @@
 				</div>
 
 				<div class="btn-area">
-					<a href="#">Add to cart</a>
+					<a class="bg-danger" href="#">Add to cart</a>
 				</div>
 			</div>
 		</div>
 	</div>
+		</div>
 </div>
 </template>
 
@@ -49,7 +51,7 @@ export default {
 	width: 300px;
 	display: flex;
 	align-items: center;
-	background: linear-gradient(to bottom, red, navy);
+	background: ;
 	border-radius: 0 100% 0 0;
 	z-index: 5;
     border-radius: 30px
@@ -65,7 +67,7 @@ export default {
 {
 	height: 400px;
 	width: 700px;
-	background: white;
+	background: navy;
     border-radius: 30px
 }
 
@@ -79,7 +81,7 @@ export default {
 
 .info-top h2
 {
-	color: navy;
+	color: white;
 	letter-spacing: 2px;
 	font-weight: 100;
 	margin-bottom: 20px;
@@ -89,7 +91,7 @@ export default {
 {
 	margin-top: 25px;
 	display: inline-block;
-	background: -webkit-linear-gradient(#fe051b, #e30057);
+	background: white;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	font-family: 'Roboto Condensed', sans-serif;;
@@ -109,8 +111,8 @@ export default {
 .btn-area a
 {
 	text-decoration: none;
-	background: #ff042d;
-	color: #fff;
+	background: red;
+	color: white;
 	display: inline-block;
 	margin-top: 35px;
 	padding: 15px 30px;

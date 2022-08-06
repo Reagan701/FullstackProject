@@ -4,7 +4,7 @@
       <div class="row justify-content-center">
         <div id="loginzone" class="col-lg-4 col-md-6 col-sm-6">
           <h2 class="">Sign-in To Your Account</h2>
-          <div id="cardzone" class="card shadow  text-dark">
+          <div id="cardzone" class="card shadow  text-white">
             <div class="card-title text-center border-bottom">
             <h2>Login</h2>
             </div>
@@ -19,7 +19,7 @@
                 <input type="password" class="form-control" id="password" />
               </div>
               <div class="d-grid">
-                <button type="submit" class="btn bg-primary text-dark">Login</button>
+                <button type="submit" class="btn bg-danger text-white">Login</button>
               </div>
             </form>
             </div>
@@ -44,6 +44,8 @@ export default {
 #cardzone{
   padding: 40px 40px 40px 40px;
   border-radius: 20px;
+  color: white;
+  background: navy
 }
 
 .card, .btn, input{

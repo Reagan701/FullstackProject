@@ -1,10 +1,10 @@
 <template>
   <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/products">Products</router-link> |
-    <router-link to="/product">Product</router-link> |
-    <router-link to="/login">Login</router-link> |
-    <router-link to="/register">Register</router-link>
+    <router-link to="/">HOME</router-link> |
+    <router-link to="/products">PRODUCTS</router-link> |
+    <router-link to="/product">PRODUCT</router-link> |
+    <router-link to="/login">LOGIN</router-link> |
+    <router-link to="/register">REGISTER</router-link>
   </nav>
   <router-view/>
 </template>
@@ -17,11 +17,11 @@ export default {
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: New Century Schoolbook, TeX Gyre Schola, serif;
+  font-size: 21px;
   text-align: center;
-  color: #2c3e50;
+  color: red;
+  background: navy;
 }
 
 nav {
@@ -30,7 +30,8 @@ nav {
 
 nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: white;
+  text-decoration: none
 }
 
 #main {
@@ -43,6 +44,6 @@ nav a {
 }
 
 nav a.router-link-exact-active {
-  color: #42b983;
+  color: red;
 }
 </style>

@@ -4,7 +4,7 @@
       <div class="row justify-content-center">
         <div id="registerzone" class="col-lg-4 col-md-6 col-sm-6">
           <h2 class="">Register Your Account</h2>
-          <div id="cardzone" class="card shadow  text-dark">
+          <div id="cardzone" class="card shadow  text-white">
             <div class="card-title text-center border-bottom">
             <h2>Register</h2>
             </div>
@@ -35,7 +35,7 @@
                 <input type="password" class="form-control" id="password" />
               </div>
               <div class="d-grid">
-                <button type="submit" class="btn bg-primary text-dark">Register</button>
+                <button type="submit" class="btn bg-danger text-white">Register</button>
               </div>
             </form>
             </div>
@@ -55,7 +55,7 @@ export default {
 <style>
 
 #registerzone{
-  padding: 50px 0 0 0;
+  padding: 50px 0 50px 0;
 }
 
 #cardzone{
