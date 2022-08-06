@@ -36,7 +36,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 #loginzone{
   padding: 150px 0 250px 0;
 }

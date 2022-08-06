@@ -1,40 +1,44 @@
 <template>
 <div id="main">
 		<div class="container">
-			    <div class="wrapper">
-		<div class="img-area bg-danger">
-			<img id="display-box" src="" height="280" width="380">
-		</div>
-		<div class="text-area">
-			<div class="information-area">
-				<div class="info-top">
-					<h1>Name <span>Price</span></h1>
-					<h2>Description</h2>
-					<p>
+			<div class="row">
+				<div class="col-md-4 col-lg-3 col-xm-12 col-sm-6">
+									<div class="wrapper">
+							<div class="img-area bg-danger">
+								<img id="display-box" src="" height="280" width="380">
+							</div>
+						<div class="text-area">
+							<div class="information-area">
+								<div class="info-top">
+									<h1>Name <span>Price</span></h1>
+									<h2>Description</h2>
+									<p>
 
-					</p>
-				</div>
+									</p>
+								</div>
 
-				<div class="btn-area">
-					<a class="bg-danger" href="#">Add to cart</a>
+								<div class="btn-area">
+									<a class="bg-danger" href="#">Add to cart</a>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
-		</div>
-	</div>
 		</div>
 </div>
 </template>
 
 <script>
-import Cards from "../components/Cards.vue";
 export default {
-  components: {
-    Cards,
-  },
+
 };
 </script>
 
-<style>
+<style scoped>
+*{
+overflow-x: hidden;
+}
 
 .wrapper{
 	display: flex;
@@ -51,7 +55,6 @@ export default {
 	width: 300px;
 	display: flex;
 	align-items: center;
-	background: ;
 	border-radius: 0 100% 0 0;
 	z-index: 5;
     border-radius: 30px
@@ -92,7 +95,6 @@ export default {
 	margin-top: 25px;
 	display: inline-block;
 	background: white;
-	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	font-family: 'Roboto Condensed', sans-serif;;
 }

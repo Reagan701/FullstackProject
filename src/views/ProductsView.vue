@@ -13,7 +13,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 
 #registerzone{
   padding: 50px 0 0 0;
@@ -21,10 +21,12 @@ export default {
 
 #cardzone{
   padding: 40px 50px 40px 50px;
-  border-radius: 20px;
 }
 
 .card, .btn, input{
   border-radius:0 ;
+}
+#main {
+  height: 210vh;
 }
 </style>
