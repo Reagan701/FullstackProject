@@ -3,129 +3,76 @@ import { createStore } from 'vuex'
 export default createStore({
     state: {
         products: null,
-        product: null,
-        users: null,
-        asc: true,
+        singleProduct: null,
+        user:null,
     },
-    getters: {},
+    getters: {
+        
+    },
     mutations: {
-        setUsers: (state, users) => {
-            state.users = users;
-        },
-        setProducts: (state, products) => {
+        setProducts (state, products){
             state.products = products;
         },
-        setProduct: (state, product) => {
-            state.product = product;
+        setSingleProduct (state, singleProduct){
+            state.singleProduct = singleProduct;
         },
-        sortProductsbyPrice: (state) => {
-            state.products.sort((a, b) => {
-                return a.price - b.price;
-            });
-            if (!state.asc) {
-                state.products.reverse();
-            }
-            state.asc = !state.asc;
+        setUser (state, user){
+            state.user = user;
+        },
+        clearSingleProduct(state){
+            state.singleProduct = null
         }
     },
     actions: {
-        getProducts: async(context) => {
-            fetch(`http://localhost:3000/products`)
-                .then((res) => res.json())
-                .then((products) => context.commit("setProducts", products))
+        async getProducts(context){
+            fetch('http://localhost:3000/products')
+            .then((res)=> res.json())
+            .then((data)=> context.commit('setProducts',data.results))
         },
-        getProduct: async(context, id) => {
-            fetch(`http://localhost:3000/products/${id}`)
-                .then((res) => res.json())
-                .then((product) => context.commit("setProduct", product))
+        async getSingleProduct(context,payload){
+            fetch('http://localhost:3000/products/' + payload)
+            .then((res)=> res.json())
+            .then((data)=> context.commit('setSingleProduct',data.results[0]))
         },
-        getUser: async(context, id) => {
-            fetch(`http://localhost:3000/users/${id}`)
-                .then((res) => res.json())
-                .then((users) => context.commit("setUsers", users))
+        async registerUser(context,payload){
+            fetch('http://localhost:3000/users', {
+                method: 'POST',
+                body: JSON.stringify(payload),
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                }
+            })
+            .then((res) => res.json())
+            .then((data) => console.log(data.results))
         },
-
-        login: async(context, payload) => {
-            const { email, password } = payload;
-
-            const response = await fetch(
-                `http://localhost:3000/users?email=${email}&password=${password}`
-            );
-            const userData = await response.json();
-            context.commit("setUsers", userData[0]);
+        async loginUser(context,payload){
+            fetch('http://localhost:3000/users', {
+                method:'PATCH',
+                body: JSON.stringify(payload),
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8'
+                }
+            })
+            .then((res) => res.json())
+            .then((data) => context.commit('setUser',data.token));
         },
-        register: async(context, payload) => {
-            const { firstname, lastname, email, password } = payload;
-            fetch("http://localhost:3000/users", {
-                    method: "POST",
-                    body: JSON.stringify({
-                        firstname: firstname,
-                        lastname: lastname,
-                        email: email,
-                        password: password
-                    }),
-                    headers: {
-                        "Content-type": "application/json; charset=UTF-8",
-                    },
-                })
-                .then((response) => response.json())
-                .then((json) => context.commit("setUsers", json))
-                .then(console.log("user created"))
+        async getUserInfo(context){
+            fetch('http://localhost:3000/verify', {
+                method: 'GET',
+                headers:{
+                    'Content-type': 'application/json; charset=UTF-8',
+                    'x-auth-token': context.state.user
+                }
+            })
+            .then((res)=> res.json())
+            .then((data)=> console.log(data.token.user))
         },
-        createProduct: async(context, payload) => {
-            console.log(payload);
-            fetch(`http://localhost:3000/products/`, {
-                    method: "POST",
-                    body: JSON.stringify({
-                        title: payload.title,
-                        img: payload.img,
-                        desc: payload.desc,
-                        category: payload.category,
-                        price: payload.price,
-                        power: payload.power,
-                        used_by: payload.used_by,
-                    }),
-                    headers: {
-                        "Content-type": "application/json; charset=UTF-8",
-                    },
-                })
-                .then((res) => res.json())
-                .then((product) => {
-                    console.log(product);
-                    context.dispatch("getProducts", product);
-                });
-        },
-        deleteProduct: async(context, id) => {
-            fetch(`http://localhost:3000/products/${id}`, {
-                    method: "DELETE",
-                })
-                .then((res) => res.json())
-                .then((json) => context.dispatch("getProducts", json));
-        },
-        editProduct: async(context, payload, id) => {
-            console.log(payload);
-            fetch(`http://localhost:3000/products/` + id, {
-                    method: "PUT",
-                    body: JSON.stringify({
-                        title: payload.title,
-                        img: payload.img,
-                        desc: payload.desc,
-                        category: payload.category,
-                        price: payload.price,
-                        power: payload.power,
-                        used_by: payload.used_by,
-                    }),
-                    headers: {
-                        "Content-type": "application/json; charset=UTF-8",
-                    },
-                })
-                .then((res) => res.json())
-                .then((product) => {
-                    console.log(product);
-                    context.dispatch("setProducts", product);
-                });
-        },
+        clearSingleProduct(context){
+            context.commit('clearSingleProduct')
+        }
     },
 
-    modules: {}
+    modules: {
+
+    }
 })

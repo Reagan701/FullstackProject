@@ -1,131 +1,29 @@
 <template>
-  <article>
-    <div class="container">
-      <div class="row">
-        <div
-          class="col-md-4 col-lg-3 col-xm-12 col-sm-6"
-          v-for="item in FoodArray"
-          :key="item.id"
-        >
-          <section class="card-content">
-            <div class="card-content">
-              <div class="card">
-                <div class="layer"></div>
-                <div class="content">
-                    <img :src="item.icon" alt="avatar" id="food-img" class="img-fluid image"/>
-                  <br />
-                  <div class="details">
-                    <span>{{ item.title }}</span>
-                    <br />
-                  </div>
-                </div>
-              </div>
+  <div class="col-md-4 col-lg-3 col-xm-12 col-sm-6">
+    <section class="card-content">
+      <div class="card-content">
+        <div class="card">
+          <div class="layer"></div>
+          <div class="content">
+            <img :src="product.prodUrl" alt="productImage" id="food-img" class="img-fluid image"/>
+            <br />
+            <div class="details">
+              <span>{{ product.prodName }}</span>
+              <br />
+              <router-link :to="{name:'singleProduct', params:{id:product.id}}">
+                <button class="btn btn-success">View</button>
+              </router-link>
             </div>
-          </section>
+          </div>
         </div>
       </div>
-    </div>
-  </article>
+    </section>
+  </div>
 </template>
 
 <script scoped>
 export default {
-  data() {
-    return {
-      FoodArray: [
-        {
-          id: 1,
-          icon: "https://i.postimg.cc/6psMFsWw/chelseakit.webp",
-          title: "Chelsea FC",
-          link1: "#",
-        },
-        {
-          id: 2,
-          icon: "https://i.postimg.cc/Y2GVPz66/arsenalkit.webp",
-          title: "Arsenal",
-          link1: "#",
-        },
-        {
-          id: 3,
-          icon: "https://i.postimg.cc/7hJkSDCC/Mancitykit.webp",
-          title: "Manchester City",
-          link1: "#",
-        },
-        {
-          id: 4,
-          icon: "https://i.postimg.cc/NfL0SVNN/unitedkit.webp",
-          title: "Manchester United",
-          link1: "#",
-        },
-        {
-          id: 5,
-          icon: "https://i.postimg.cc/LsmFKg9H/spurskit.webp",
-          title: "Tottenham Hotspur",
-          link1: "#",
-        },
-        {
-          id: 6,
-          icon: "https://i.postimg.cc/9MGxWJJK/liverpoolkit.webp",
-          title: "Liverpool",
-          link1: "#",
-        },
-        {
-          id: 7,
-          icon: "https://i.postimg.cc/RFRcs8PS/realmadridkit.webp",
-          title: "Real Madrid",
-          link1: "#",
-        },
-        {
-          id: 8,
-          icon: "https://i.postimg.cc/qBFtJ4Cf/Barcakit.png",
-          title: "Barcelona",
-          link1: "#",
-        },
-        {
-          id: 9,
-          icon: "https://i.postimg.cc/vTyGB2MV/Juvkit.webp",
-          title: "Juventus",
-          link1: "#",
-        },
-        {
-          id: 10,
-          icon: "https://i.postimg.cc/9XsnGwqL/interkit.webp",
-          title: "Inter Milan",
-          link1: "#",
-        },
-        {
-          id: 11,
-          icon: "https://i.postimg.cc/hG7JQwFy/ACMilankit.webp",
-          title: "AC Milan",
-          link1: "#",
-        },
-        {
-          id: 12,
-          icon: "https://i.postimg.cc/L5hFhcwh/Bayernkit.webp",
-          title: "Bayern Munich",
-          link1: "#",
-        },
-        {
-          id: 13,
-          icon: "https://i.postimg.cc/7hSdCqXH/dortmundkit.webp",
-          title: "Borussia Dortmund",
-          link1: "#",
-        },
-        {
-          id: 14,
-          icon: "https://i.postimg.cc/pTrPn5n2/PSGkit.webp",
-          title: "Paris Saint-Germain",
-          link1: "#",
-        },
-        {
-          id: 15,
-          icon: "https://i.postimg.cc/R0QTnNxb/athleticokit.webp",
-          title: "Atlético Madrid",
-          link1: "#",
-        },
-      ],
-    };
-  },
+  props:["product"]
 };
 </script>
 

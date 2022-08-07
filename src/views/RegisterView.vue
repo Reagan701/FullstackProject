@@ -9,30 +9,39 @@
             <h2>Register</h2>
             </div>
             <div class="card-body  text-dark">
-            <form>
+            <form method="POST" @submit="registerUser">
               <div class="mb-4">
-                <label for="firstname" class="form-label">First Name</label>
-                <input type="text" class="form-control" id="firstname" />
+                <label for="firstName" class="form-label">First Name</label>
+                <input v-model="firstName" type="text" class="form-control" name="firstName" />
               </div>
               <div class="mb-4">
-                <label for="lastname" class="form-label">Last Name</label>
-                <input type="text" class="form-control" id="lastname" />
+                <label for="lastName" class="form-label">Last Name</label>
+                <input type="text" v-model="lastName" class="form-control" name="lastName" />
               </div>
               <div class="mb-4">
-                <label for="gender" class="form-label">Gender</label>
-                <input type="text" class="form-control" id="gender" />
+                <label for="gender" class="form-label">Gender</label><br>
+                <label for="gender" class="form-label">Male</label>
+                <input v-model="gender" type="radio" name="gender" class="form-check-input" value="Male" /><br>
+                <label for="gender" class="form-label">Female</label>
+                <input v-model="gender" type="radio" name="gender" class="form-check-input" value="Female" /><br>
+                <label for="gender" class="form-label">Other</label>
+                <input v-model="gender" type="radio" name="gender" class="form-check-input" value="Other" />
               </div>
               <div class="mb-4">
                 <label for="address" class="form-label">Address</label>
-                <input type="text" class="form-control" id="address" />
+                <input v-model="address" type="text" class="form-control" name="address" />
               </div>
               <div class="mb-4">
-                <label for="username" class="form-label">Email</label>
-                <input type="text" class="form-control" id="username" />
+                <label for="phoneNumber" class="form-label">Address</label>
+                <input v-model="phoneNumber" type="number" class="form-control" name="phoneNumber" />
+              </div>
+              <div class="mb-4">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" v-model="email" class="form-control" name="email" />
               </div>
               <div class="mb-4">
                 <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" />
+                <input v-model="userPassword" type="password" class="form-control" name="password" />
               </div>
               <div class="d-grid">
                 <button type="submit" class="btn bg-danger text-white">Register</button>
@@ -48,13 +57,39 @@
 
 <script>
 export default {
-
+  data(){
+    return{
+      firstName:null,
+      lastName:null,
+      gender:null,
+      address:null,
+      cart:null,
+      phoneNumber:null,
+      email:null,
+      userPassword:null
+    }
+  },
+  methods:{
+    registerUser(event){
+      event.preventDefault();
+      const user = {
+        firstName: this.firstName,
+        lastName: this.lastName,
+        gender: this.gender,
+        address: this.address,
+        cart: this.cart,
+        phoneNumber: this.phoneNumber,
+        email:this.email,
+        userPassword:this.userPassword
+      }
+      this.$store.dispatch('registerUser',user);
+    }
+  }
 }
 </script>
 
 <style scoped>
 #main {
-  background-image: url(https://lh3.googleusercontent.com/Ir5UWTuFEL-VkIwohYr4wWL9-Wlck-8Wb2GgiXS8KYbSjPuwt-ExC8AH664s70xyD5ySznfnpVgmiBvx4QSsl9JnaIcnaZBTeAdDQqX_c0v9XwGnDiKpsIfjus7CLwkreVw8XeUv1pQoP0Gv_xdbpVIWS7skbxHUu-HGM9B-PCYwE16_niLDG9B2phke3mnYFMMgITlOaCISUNFgAeU0Qu4Nu3_0-mgdIHgZr6xj2Tzt6R_cKFq1RkWbWpnuy5rfc4K3idSSfLQ6M623EYS0-BqFQ7F9OQfHbKh6NbpPbpOW_M4qZWw-IHkby_x-PVKWzJGyo-AuCGAPtaGkQPTO--d0w0C85XxVrQJSfFrIHrthYrkLNDc4qESNw8NZh04M8lE56nnsnH5x8NoQM6kmQG8Sc6Prvgr9KKHT0RUhyrrv_iXOwthj-wQKoFtLGq54md8-xFVZRMj0NJ3BKaWRcQrLQyMtAIosSEQoxKZIjBy01u79PqEfYQ8XtMn_19Ok2XDjYUA-z6kknmX1vvp0CwIbGTK09avBiMCS5_FwJtqnH75ttwJ7PSMSOLPjEdxhnX7CRdnJi3a3NpRlWS6QWe3agV8zzl4JlvfYiARFb8KURQLf-jJY3XTHQzZKYXaGuAiGEoRk_gmEv_tj6juW3YltYCig_6XOplVS8Bm4187_tM7fe7AamXBVWnjS9KtMXv2YkChjlA14f2xGrjuliXEPbxui2XLDwXX9W-k4jeZbwAavtiJIjQ=w1429-h893-no?authuser=0);
   background-size: cover;
   background-position:center;
   background-repeat: no-repeat;

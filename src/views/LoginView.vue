@@ -9,14 +9,14 @@
             <h2>Login</h2>
             </div>
             <div class="card-body">
-            <form>
+            <form method="PATCH" @submit="loginUser">
               <div class="mb-4">
-                <label for="username" class="form-label">Email</label>
-                <input type="text" class="form-control" id="username" />
+                <label for="email" class="form-label">Email</label>
+                <input type="text" required v-model="email" class="form-control" name="email" />
               </div>
               <div class="mb-4">
                 <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" />
+                <input type="password" required v-model="userPassword" class="form-control" name="password" />
               </div>
               <div class="d-grid">
                 <button type="submit" class="btn bg-danger text-white">Login</button>
@@ -32,7 +32,22 @@
 
 <script>
 export default {
-
+  data(){
+    return{
+      email:null,
+      userPassword:null
+    }
+  },
+  methods:{
+    loginUser(e){
+      e.preventDefault();
+      const user = {
+        email: this.email,
+        userPassword: this.userPassword 
+      }
+      this.$store.dispatch('loginUser', user);
+    }
+  }
 }
 </script>
 

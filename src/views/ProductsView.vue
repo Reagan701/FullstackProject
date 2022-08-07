@@ -1,6 +1,8 @@
 <template>
-  <div id="main">
-    <Cards />
+  <div id="main" class="container">
+    <div class="row">
+      <Cards v-for="product in products" :key="product.id" :product="product" />
+    </div>
   </div>
 </template>
 
@@ -10,6 +12,15 @@ export default {
   components: {
     Cards,
   },
+  mounted(){
+    this.$store.dispatch('getProducts');
+    this.$store.dispatch('clearSingleProduct');
+  },
+  computed:{
+    products(){
+      return this.$store.state.products;
+    }
+  }
 };
 </script>
 
@@ -25,8 +36,5 @@ export default {
 
 .card, .btn, input{
   border-radius:0 ;
-}
-#main {
-  height: 210vh;
 }
 </style>
