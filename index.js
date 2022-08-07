@@ -121,6 +121,7 @@ router.patch('/users', bodyParser.json(), (req,res) =>{
                             lastName: results[0].lastName,
                             gender: results[0].gender,
                             address: results[0].address,
+                            cart: results[0].cart,
                             phoneNumber: results[0].phoneNumber,
                             email: results[0].email,
                             userPassword: results[0].userPassword
@@ -147,6 +148,23 @@ router.patch('/users', bodyParser.json(), (req,res) =>{
             })
         }
     })
+})
+
+// Verification Route
+
+router.get('/verify', (req,res)=>{
+    const token = req.header('x-auth-token');
+    if(!token){
+        res.json({
+            status:400,
+            result: "There is no user logged in"
+        })
+    }else{
+        jwt.verify(token,process.env.secretKey, (err,decodedToken) =>{
+            if(err) throw err;
+            res.send(decodedToken);
+        })
+    }
 })
 
 // DELETE user with specific id
@@ -208,7 +226,13 @@ router.post('/users/:id/cart',bodyParser.json(), (req,res)=>{
             }else{
                 newCart = JSON.parse(results[0].cart);
             }
-            newCart.push(req.body.product);
+            let product = {
+                "id" : newCart.length+1,
+                "prodName" : req.body.product.prodName,
+                "prodUrl" : req.body.product.prodUrl,
+                "price" : req.body.product.price
+            }
+            newCart.push(product);
             const query = `UPDATE users SET cart = ? WHERE id=?`;
             db.query(query,[JSON.stringify(newCart),req.params.id], (err,results)=>{
                 if(err)throw err;
@@ -251,6 +275,73 @@ router.delete('/users/:id/cart', (req,res)=>{
     })
 })
 
+// GET specific item from user cart
+
+router.get('/users/:id/cart/:cartId', (req,res)=>{
+    const check = `SELECT id,cart FROM users WHERE id = ?`;
+    db.query(check, req.params.id, (err,results)=>{
+        if(err) throw err;
+        if(results.length > 0){
+            if(results[0].cart != null){
+                const result = JSON.parse(results[0].cart).filter((x)=>{
+                    return x.id == req.params.cartId;
+                })
+                res.json({
+                    status:200,
+                    result: result[0]
+                })
+            }else{
+                res.json({
+                    status:400,
+                    result: "This user has an empty cart"
+                })
+            }
+        }else{
+            res.json({
+                status:400,
+                result: "There is no user with that id"
+            });
+        }
+    })
+})
+
+// DELETE specific item from user cart
+
+router.delete('/users/:id/cart/:cartId', (req,res)=>{
+    const check = `SELECT id,cart FROM users WHERE id = ?`;
+    db.query(check, req.params.id, (err,results)=>{
+        if(err) throw err;
+        if(results.length > 0){
+            if(results[0].cart != null){
+                const result = JSON.parse(results[0].cart).filter((x)=>{
+                    return x.id != req.params.cartId;
+                })
+                result.forEach((e,i) => {
+                    e.id = i+1
+                });
+                const query = `UPDATE users SET cart = ? WHERE id = ?`;
+                db.query(query, [JSON.stringify(result),req.params.id], (err,results)=>{
+                    if(err) throw err;
+                    res.json({
+                        status:200,
+                        result: "Successfully deleted item from cart"
+                    });
+                })
+            }else{
+                res.json({
+                    status:400,
+                    result: "This user has an empty cart"
+                })
+            }
+        }else{
+            res.json({
+                status:400,
+                result: "There is no user with that id"
+            });
+        }
+    })
+})
+
 // --------------- PRODUCT ROUTES ---------------- //
 
 // GET all products
@@ -260,10 +351,17 @@ router.get('/products', (req,res) => {
 
     db.query(query, (err,results) =>{
         if(err) throw err;
-        res.json({
-            status:200,
-            results: results
-        });
+        if(results.length >0){
+            res.json({
+                status:200,
+                results: results
+            });
+        }else{
+            res.json({
+                status:400,
+                result: `There are no products in the database`
+            })
+        }
     })
 })
 
@@ -273,25 +371,43 @@ router.get('/products/:id', (req,res)=>{
     const query = `SELECT * FROM products WHERE id=?`;
     db.query(query, req.params.id, (err,results) =>{
         if(err) throw err;
-        res.json({
-            status:200,
-            results: results
-        });
+        if(results.length >0){
+            res.json({
+                status:200,
+                results: results
+            });
+        }else{
+            res.json({
+                status:400,
+                result: `There is no product with that id`
+            })
+        }
     })
 })
 
 // DELETE product with specific id
 
 router.delete('/products/:id', (req,res)=>{
-    const query = `DELETE FROM products WHERE id=?;
-    ALTER TABLE products AUTO_INCREMENT=1`;
+    const check = `SELECT * FROM products WHERE id=?`;
+    db.query(check,req.params.id, (err,results)=>{
+        if(err)throw err;
+        if(results.length>0){
+            const query = `DELETE FROM products WHERE id=?;
+            ALTER TABLE products AUTO_INCREMENT=1`;
 
-    db.query(query, req.params.id, (err,results)=>{
-        if(err) throw err;
-        res.json({
-            status:200,
-            results: `Successfully deleted the product`
-        })
+            db.query(query, req.params.id, (err,results)=>{
+                if(err) throw err;
+                res.json({
+                    status:200,
+                    results: `Successfully deleted the product`
+                })
+            })
+        }else{
+            res.json({
+                status:400,
+                results: "There is no product with that id"
+            });
+        }
     })
 })
 
