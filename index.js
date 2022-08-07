@@ -14,6 +14,8 @@ const port = process.env.PORT || 3000;
 
 app.use((req,res,next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Headers', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'PATCH');
     next();
 })
 
@@ -162,7 +164,10 @@ router.get('/verify', (req,res)=>{
     }else{
         jwt.verify(token,process.env.secretKey, (err,decodedToken) =>{
             if(err) throw err;
-            res.send(decodedToken);
+            res.json({
+                status:200,
+                token: decodedToken
+            });
         })
     }
 })
@@ -414,8 +419,8 @@ router.delete('/products/:id', (req,res)=>{
 // POST a new product to the database
 
 router.post('/products', bodyParser.json(), (req,res) =>{
-    const query = `INSERT INTO products(prodName,prodUrl,quantity,price) VALUES(?,?,?,?)`;
-    db.query(query,[req.body.prodName, req.body.prodUrl, req.body.quantity, req.body.price], (err,results) =>{
+    const query = `INSERT INTO products(prodName,prodUrl,description,quantity,price) VALUES(?,?,?,?,?)`;
+    db.query(query,[req.body.prodName, req.body.prodUrl,req.body.description, req.body.quantity, req.body.price], (err,results) =>{
         if(err) throw err;
         res.json({
             status:200,
