@@ -5,6 +5,9 @@ import ProductView from '../views/ProductView.vue';
 import LoginView from '../views/LoginView.vue';
 import RegisterView from '../views/RegisterView.vue';
 import AccountView from '../views/AccountView.vue';
+import AdminView from '../views/AdminView.vue';
+import UserAdminView from '../views/UsersAdminView.vue';
+import ProductsAdminView from '../views/ProductsAdminView.vue';
 
 const routes = [
   {
@@ -37,6 +40,21 @@ const routes = [
     name: 'account',
     component: AccountView
   },
+  {
+    path: '/admin',
+    name: 'admin',
+    component: AdminView
+  },
+  {
+    path: '/admin/users',
+    name: 'users',
+    component: UserAdminView
+  },
+  {
+    path: '/admin/products',
+    name: 'adminProducts',
+    component: ProductsAdminView
+  }
 ]
 
 const router = createRouter({

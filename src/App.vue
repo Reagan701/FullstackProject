@@ -1,12 +1,12 @@
 <template>
   <nav>
     <router-link to="/">HOME</router-link> |
-    <div style="display:inline-block" v-if="user">
+    <div id="inline" v-if="user">
       <router-link to="/products">PRODUCTS</router-link> |
     </div>
     <router-link to="/login">LOGIN</router-link> |
     <router-link to="/register">REGISTER</router-link> |
-    <div style="display:inline-block" v-if="user">
+    <div id="inline" v-if="user">
       <router-link to="/account">ACCOUNT</router-link> |
     </div>
   </nav>
@@ -27,6 +27,11 @@ export default {
 .card {
   border:none;
 }
+
+#inline{
+  display: inline-block;
+}
+
 #app {
   font-family: New Century Schoolbook, TeX Gyre Schola, serif;
   font-size: 21px;
