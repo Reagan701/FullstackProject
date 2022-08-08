@@ -15,7 +15,7 @@ const port = process.env.PORT || 3000;
 app.use((req,res,next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Headers', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'PATCH');
+    res.setHeader('Access-Control-Allow-Methods', 'PATCH,PUT,DELETE');
     next();
 })
 
@@ -432,9 +432,9 @@ router.post('/products', bodyParser.json(), (req,res) =>{
 // PUT and edit product info in the database
 
 router.put('/products/:id', bodyParser.json(), (req,res)=>{
-    const query = `UPDATE products SET prodName = ?, prodUrl = ?, quantity = ?, price = ? WHERE id = ?`;
+    const query = `UPDATE products SET prodName = ?, prodUrl = ?, description=?, quantity = ?, price = ? WHERE id = ?`;
 
-    db.query(query, [req.body.prodName, req.body.prodUrl, req.body.quantity, req.body.price, req.params.id], (err,results) =>{
+    db.query(query, [req.body.prodName, req.body.prodUrl,req.body.description, req.body.quantity, req.body.price, req.params.id], (err,results) =>{
         if(err) throw err;
         res.json({
             status:200,
