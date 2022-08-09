@@ -23,7 +23,9 @@ app.use(router, cors(), express.json(), express.urlencoded({
     extended:true
 }))
 
-app.listen(port);
+app.listen(port,()=>{
+    console.log(`Server is Running at Port:${port}`)
+});
 
 // API End point Home Page
 
@@ -199,18 +201,18 @@ router.get('/users/:id/cart', (req,res) => {
             if(results[0].cart == null){
                 res.json({
                     status:200,
-                    result: `This user's cart is empty`
+                    results: `This user's cart is empty`
                 });
             }else{
                 res.json({
                     status:200,
-                    result: JSON.parse(results[0].cart)
+                    results: JSON.parse(results[0].cart)
                 })
             }
         }else{
             res.json({
                 status:400,
-                result: `There is no user with that ID`
+                results: `There is no user with that ID`
             });
         }
     })
@@ -233,9 +235,10 @@ router.post('/users/:id/cart',bodyParser.json(), (req,res)=>{
             }
             let product = {
                 "id" : newCart.length+1,
-                "prodName" : req.body.product.prodName,
-                "prodUrl" : req.body.product.prodUrl,
-                "price" : req.body.product.price
+                "prodName" : req.body.prodName,
+                "prodUrl" : req.body.prodUrl,
+                "description": req.body.description,
+                "price" : req.body.price
             }
             newCart.push(product);
             const query = `UPDATE users SET cart = ? WHERE id=?`;
@@ -243,7 +246,7 @@ router.post('/users/:id/cart',bodyParser.json(), (req,res)=>{
                 if(err)throw err;
                 res.json({
                     status:200,
-                    result: "Successfully added item to cart"
+                    results: "Successfully added item to cart"
                 })
             })
         }else{
