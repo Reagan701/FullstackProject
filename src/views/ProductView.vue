@@ -16,7 +16,7 @@
                   <p>{{product.description}}</p>
                 </div>
                 <div class="btn-area">
-                  <a class="bg-danger" href="#">Add to cart</a>
+                  <a class="bg-danger" @click="addProductToCart">Add to cart</a>
                 </div>
               </div>
             </div>
@@ -39,7 +39,18 @@ export default {
 	},
 	mounted(){
 		this.$store.dispatch('getSingleProduct', this.$route.params.id)
-	}
+	},
+  methods:{
+    addProductToCart(){
+      let newProduct = {
+        prodName: this.product.prodName,
+        prodUrl: this.product.prodUrl,
+        description: this.product.description,
+        price: this.product.price
+      }
+      this.$store.dispatch('AddProductToCart',newProduct);
+    }
+  }
 };
 </script>
 

@@ -6,6 +6,7 @@ export default createStore({
         singleProduct: null,
         allUsers: null,
         user:null,
+        cart: null
     },
     getters: {
         
@@ -25,6 +26,9 @@ export default createStore({
         },
         clearSingleProduct(state){
             state.singleProduct = null
+        },
+        setCart(state,cart){
+            state.cart= cart;
         }
     },
     actions: {
@@ -58,7 +62,7 @@ export default createStore({
                 }
             })
             .then((res) => res.json())
-            .then((data) => context.commit('setUser',data.token));
+            .then((data) => {context.commit('setUser',data.token); context.dispatch('getCart')});
         },
         async getUserInfo(context){
             fetch('http://localhost:3000/verify', {
@@ -85,14 +89,61 @@ export default createStore({
                 }
             })
             .then((res)=> res.json())
-            .then((data)=> console.log(data.message));
+            .then((data)=> context.dispatch('getProducts'));
         },
         async deleteProduct(context,payload){
             fetch('http://localhost:3000/products/'+payload, {
                 method:'DELETE'
             })
             .then((res)=> res.json())
-            .then((data)=> console.log(data.results))
+            .then((data)=> context.dispatch('getProducts'))
+        },
+        async addProduct(context,payload){
+            fetch('http://localhost:3000/products',{
+                method:'POST',
+                body: JSON.stringify(payload),
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8'
+                }
+            })
+            .then((res)=> res.json())
+            .then((data)=> context.dispatch('getProducts'))
+        },
+        AddProductToCart(context,payload){
+            fetch('http://localhost:3000/verify', {
+                method: 'GET',
+                headers:{
+                    'Content-type': 'application/json; charset=UTF-8',
+                    'x-auth-token': context.state.user
+                }
+            })
+            .then((res)=> res.json())
+            .then((data)=>
+                fetch('http://localhost:3000/users/'+data.token.user.id+'/cart', {
+                    method: 'POST',
+                    body: JSON.stringify(payload),
+                    headers: {
+                        'Content-type': 'application/json; charset=UTF-8'
+                    }
+                })
+                .then((res)=> res.json())
+                .then((data) => context.dispatch('getCart'))
+            )
+        },
+        getCart(context){
+            fetch('http://localhost:3000/verify', {
+                method: 'GET',
+                headers:{
+                    'Content-type': 'application/json; charset=UTF-8',
+                    'x-auth-token': context.state.user
+                }
+            })
+            .then((res)=> res.json())
+            .then((data)=>
+            fetch('http://localhost:3000/users/'+data.token.user.id+'/cart')
+            .then((res)=>res.json())
+            .then((data)=> context.commit('setCart',data.results))
+            )
         },
         clearSingleProduct(context){
             context.commit('clearSingleProduct')

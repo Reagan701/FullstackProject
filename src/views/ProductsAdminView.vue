@@ -10,7 +10,7 @@
                     <th scope="col">Description</th>
                     <th scope="col">Quantity</th>
                     <th scope="col">Price</th>
-                    <th scope="col">CRUD</th>
+                    <th scope="col">ADD <button data-bs-target="#AddProductModal" data-bs-toggle="modal" class="btn btn-success">ADD</button></th>
                 </tr>
             </thead>
             <tbody>
@@ -30,15 +30,17 @@
                 </tr>
             </tbody>
         </table>
+        <AddProductModal />
     </div>
 </template>
 
 <script>
 import EditProductModal from '../components/EditProductModal';
 import DeleteProductModal from '../components/DeleteProductModal.vue';
+import AddProductModal from '../components/AddProductModal.vue';
 
 export default {
-    components: {EditProductModal, DeleteProductModal},
+    components: {EditProductModal, DeleteProductModal, AddProductModal},
     mounted(){
         this.$store.dispatch('getProducts');
     },
