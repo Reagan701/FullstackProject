@@ -52,6 +52,15 @@ export default {
 </script>
 
 <style scoped>
+#main {
+  background-image: url(https://i.postimg.cc/Hj1L1Wvb/wp9306523-football-pc-4k-wallpapers.jpg);
+  background-size: cover;
+  background-position:center;
+  background-repeat: no-repeat;
+  height:100%;
+  color: white;
+}
+
 #loginzone{
   padding: 150px 0 250px 0;
 }
@@ -60,7 +69,7 @@ export default {
   padding: 40px 40px 40px 40px;
   border-radius: 20px;
   color: white;
-  background: navy
+  background: transparent
 }
 
 .card, .btn, input{

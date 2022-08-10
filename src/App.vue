@@ -9,8 +9,8 @@
     <div id="inline" v-if="user">
       <router-link to="/account">ACCOUNT</router-link> |
     </div>
-    <div id="inline" v-if="user">
-      <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartCanvas" aria-controls="cartCanvas">Cart</button>
+    <div class="bi bi-bag" id="inline" v-if="user">
+      <button class="btn btn-danger" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartCanvas" aria-controls="cartCanvas">Cart</button>
     </div>
     <div class="offcanvas offcanvas-end" tabindex="-1" id="cartCanvas" aria-labelledby="cartCanvasLabel">
       <div class="offcanvas-header">
@@ -43,6 +43,10 @@ export default {
 <style>
 .card {
   border:none;
+}
+
+#basket{
+  text-decoration: none;
 }
 
 #inline{

@@ -4,11 +4,11 @@
       <div class="row justify-content-center">
         <div id="registerzone" class="col-lg-4 col-md-6 col-sm-6">
           <h2 class="">Register Your Account</h2>
-          <div id="cardzone" class="card shadow  text-dark">
-            <div class="card-title text-center text-dark border-bottom">
+          <div id="cardzone" class="card shadow  text-white">
+            <div class="card-title text-center text-white border-bottom">
             <h2>Register</h2>
             </div>
-            <div class="card-body  text-dark">
+            <div class="card-body text-white">
             <form method="POST" @submit="registerUser">
               <div class="mb-4">
                 <label for="firstName" class="form-label">First Name</label>
@@ -21,9 +21,9 @@
               <div class="mb-4">
                 <label for="gender" class="form-label">Gender</label><br>
                 <label for="gender" class="form-label">Male</label>
-                <input v-model="gender" type="radio" name="gender" class="form-check-input" value="Male" /><br>
+                <input v-model="gender" type="radio" name="gender" class="form-check-input" value="Male" />
                 <label for="gender" class="form-label">Female</label>
-                <input v-model="gender" type="radio" name="gender" class="form-check-input" value="Female" /><br>
+                <input v-model="gender" type="radio" name="gender" class="form-check-input" value="Female" />
                 <label for="gender" class="form-label">Other</label>
                 <input v-model="gender" type="radio" name="gender" class="form-check-input" value="Other" />
               </div>
@@ -32,7 +32,7 @@
                 <input v-model="address" type="text" class="form-control" name="address" />
               </div>
               <div class="mb-4">
-                <label for="phoneNumber" class="form-label">Address</label>
+                <label for="phoneNumber" class="form-label">Phone</label>
                 <input v-model="phoneNumber" type="number" class="form-control" name="phoneNumber" />
               </div>
               <div class="mb-4">
@@ -90,10 +90,11 @@ export default {
 
 <style scoped>
 #main {
+  background-image: url(https://i.postimg.cc/Hj1L1Wvb/wp9306523-football-pc-4k-wallpapers.jpg);
   background-size: cover;
   background-position:center;
   background-repeat: no-repeat;
-  height:125vh;
+  height:100%;
   color: white;
 }
 
@@ -104,6 +105,7 @@ export default {
 #cardzone{
   padding: 40px 50px 40px 50px;
   border-radius: 20px;
+  background-color: transparent;
 }
 
 .card, .btn, input{

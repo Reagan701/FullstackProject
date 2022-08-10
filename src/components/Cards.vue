@@ -11,7 +11,7 @@
               <span>{{ product.prodName }}</span>
               <br />
               <router-link :to="{name:'singleProduct', params:{id:product.id}}">
-                <button class="btn btn-success">View</button>
+                <button class="btn btn-danger">View</button>
               </router-link>
             </div>
           </div>

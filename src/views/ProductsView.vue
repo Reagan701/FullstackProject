@@ -1,8 +1,10 @@
 <template>
-  <div id="main" class="container">
+  <div id="main">
+      <div class="container">
     <div class="row">
       <Cards v-for="product in products" :key="product.id" :product="product" />
     </div>
+  </div>
   </div>
 </template>
 
@@ -25,6 +27,14 @@ export default {
 </script>
 
 <style scoped>
+#main {
+  background-image: url(https://i.postimg.cc/Hj1L1Wvb/wp9306523-football-pc-4k-wallpapers.jpg);
+  background-size: cover;
+  background-position:center;
+  background-repeat: no-repeat;
+  height:100%;
+  color: white;
+}
 
 #registerzone{
   padding: 50px 0 0 0;

@@ -1,6 +1,5 @@
 <template>
   <div id="main">
-    <img id="logo" src="https://i.postimg.cc/ZYWz6yVQ/football-removebg-preview.png" alt="">
   </div>
 </template>
 

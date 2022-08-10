@@ -1,23 +1,19 @@
 <template>
   <div v-if="product" id="main">
+      <router-link to="/products"><button class="btn btn-danger">Go Back</button></router-link>
     <div class="container">
       <div class="row">
-		<router-link to="/products"><button class="btn btn-primary">Go Back</button></router-link>
-        <div class="col-md-4 col-lg-3 col-xm-12 col-sm-6">
-          <div class="wrapper">
-            <div class="img-area bg-danger">
-              <img id="display-box" src="" height="280" width="380" />
-            </div>
-            <div class="text-area">
-              <div class="information-area">
-                <div class="info-top">
-                  <h1>{{product.prodName}} <span>Price</span></h1>
-                  <h2>Description</h2>
-                  <p>{{product.description}}</p>
-                </div>
-                <div class="btn-area">
-                  <a class="bg-danger" @click="addProductToCart">Add to cart</a>
-                </div>
+        <div id="item">
+          <div class="card">
+            <img :src="product.prodUrl" alt="" style="width:100%">
+            <div class="information-area">
+              <div class="info-top">
+                <h1>{{product.prodName}}</h1>
+                <p>{{product.description}}</p>
+                <p>{{product.price}}</p>
+              </div>
+              <div class="btn-area btn-danger">
+                <a class="text-white" @click="addProductToCart">Add To Cart</a>
               </div>
             </div>
           </div>
@@ -55,91 +51,37 @@ export default {
 </script>
 
 <style scoped>
-* {
-  overflow-x: hidden;
+#main {
+background-image: url(https://i.postimg.cc/Hj1L1Wvb/wp9306523-football-pc-4k-wallpapers.jpg);
+background-size: cover;
+background-position:center;
+background-repeat: no-repeat;
+height:100%;
+color: white;
+}
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 320px;
+  margin: auto;
+  text-align: center;
+  background-color: transparent;
+  font-family: New Century Schoolbook, TeX Gyre Schola, serif;
+  font-size: 21px;
+  padding: 0 0 0 0;
 }
 
-.wrapper {
-  display: flex;
-  align-items: center;
-  height: 700px;
-  width: 700px;
-  margin: 0 auto;
+#item{
+  padding: 25px
 }
-
-.img-area {
-  position: absolute;
-  content: "";
-  height: 400px;
-  width: 300px;
-  display: flex;
-  align-items: center;
-  border-radius: 0 100% 0 0;
-  z-index: 5;
-  border-radius: 30px;
+  
+.price {
+  color: black;
+  font-size: 22px;
 }
-
-.img-area img {
-  margin-left: -170px;
-  margin-top: 60px;
-}
-
-.text-area {
-  height: 400px;
-  width: 700px;
-  background: navy;
-  border-radius: 30px;
-}
-
-.information-area {
-  position: absolute;
-  margin-left: 350px;
-  height: 400px;
-  width: 305px;
-}
-
-/* .info-top h2 {
-  color: white;
-  letter-spacing: 2px;
-  font-weight: 100;
-  margin-bottom: 20px;
-} */
-
-/* .info-top h1 {
-  margin-top: 25px;
-  display: inline-block;
-  background: white;
-  -webkit-text-fill-color: transparent;
-  font-family: "Roboto Condensed", sans-serif;
-} */
-
-.info-top h1 span {
-  margin-left: 90px;
-}
-
-.info-top p {
-  font-family: "Roboto Condensed", sans-serif;
-  font-size: 15px;
-}
-
-.btn-area a {
+  
+.btn-area {
   text-decoration: none;
-  background: red;
+  font-size: 30px;
   color: white;
-  display: inline-block;
-  margin-top: 35px;
-  padding: 15px 30px;
-  border-radius: 50px;
-  font-family: "Roboto Condensed", sans-serif;
-}
-
-.btn-area a:before {
-  content: "+";
-  padding-right: 10px;
-  font-weight: bold;
-}
-
-#display-box {
-  border-radius: 20px;
 }
 </style>

@@ -33,17 +33,17 @@ export default createStore({
     },
     actions: {
         async getProducts(context){
-            fetch('http://localhost:3000/products')
+            fetch('https://fullstackapi-2.herokuapp.com/products')
             .then((res)=> res.json())
             .then((data)=> context.commit('setProducts',data.results))
         },
         async getSingleProduct(context,payload){
-            fetch('http://localhost:3000/products/' + payload)
+            fetch('https://fullstackapi-2.herokuapp.com/products/' + payload)
             .then((res)=> res.json())
             .then((data)=> context.commit('setSingleProduct',data.results[0]))
         },
         async registerUser(context,payload){
-            fetch('http://localhost:3000/users', {
+            fetch('https://fullstackapi-2.herokuapp.com/users', {
                 method: 'POST',
                 body: JSON.stringify(payload),
                 headers: {
@@ -54,7 +54,7 @@ export default createStore({
             .then((data) => console.log(data.results))
         },
         async loginUser(context,payload){
-            fetch('http://localhost:3000/users', {
+            fetch('https://fullstackapi-2.herokuapp.com/users', {
                 method:'PATCH',
                 body: JSON.stringify(payload),
                 headers: {
@@ -65,7 +65,7 @@ export default createStore({
             .then((data) => {context.commit('setUser',data.token); context.dispatch('getCart')});
         },
         async getUserInfo(context){
-            fetch('http://localhost:3000/verify', {
+            fetch('https://fullstackapi-2.herokuapp.com/verify', {
                 method: 'GET',
                 headers:{
                     'Content-type': 'application/json; charset=UTF-8',
@@ -76,12 +76,12 @@ export default createStore({
             .then((data)=> console.log(data.token.user))
         },
         async getAllUsers(context){
-            fetch('http://localhost:3000/users')
+            fetch('https://fullstackapi-2.herokuapp.com/users')
             .then((res)=> res.json())
             .then((data)=> context.commit('setAllUsers',data.results));
         },
         async editProduct(context,payload){
-            fetch('http://localhost:3000/products/'+payload.id, {
+            fetch('https://fullstackapi-2.herokuapp.com/products/'+payload.id, {
                 method:'PUT',
                 body: JSON.stringify(payload),
                 headers:{
@@ -92,14 +92,14 @@ export default createStore({
             .then((data)=> context.dispatch('getProducts'));
         },
         async deleteProduct(context,payload){
-            fetch('http://localhost:3000/products/'+payload, {
+            fetch('https://fullstackapi-2.herokuapp.com/products/'+payload, {
                 method:'DELETE'
             })
             .then((res)=> res.json())
             .then((data)=> context.dispatch('getProducts'))
         },
         async addProduct(context,payload){
-            fetch('http://localhost:3000/products',{
+            fetch('https://fullstackapi-2.herokuapp.com/products',{
                 method:'POST',
                 body: JSON.stringify(payload),
                 headers: {
@@ -110,7 +110,7 @@ export default createStore({
             .then((data)=> context.dispatch('getProducts'))
         },
         AddProductToCart(context,payload){
-            fetch('http://localhost:3000/verify', {
+            fetch('https://fullstackapi-2.herokuapp.com/verify', {
                 method: 'GET',
                 headers:{
                     'Content-type': 'application/json; charset=UTF-8',
@@ -119,7 +119,7 @@ export default createStore({
             })
             .then((res)=> res.json())
             .then((data)=>
-                fetch('http://localhost:3000/users/'+data.token.user.id+'/cart', {
+                fetch('https://fullstackapi-2.herokuapp.com/users/'+data.token.user.id+'/cart', {
                     method: 'POST',
                     body: JSON.stringify(payload),
                     headers: {
@@ -131,7 +131,7 @@ export default createStore({
             )
         },
         getCart(context){
-            fetch('http://localhost:3000/verify', {
+            fetch('https://fullstackapi-2.herokuapp.com/verify', {
                 method: 'GET',
                 headers:{
                     'Content-type': 'application/json; charset=UTF-8',
@@ -140,7 +140,7 @@ export default createStore({
             })
             .then((res)=> res.json())
             .then((data)=>
-            fetch('http://localhost:3000/users/'+data.token.user.id+'/cart')
+            fetch('https://fullstackapi-2.herokuapp.com/users/'+data.token.user.id+'/cart')
             .then((res)=>res.json())
             .then((data)=> context.commit('setCart',data.results))
             )
