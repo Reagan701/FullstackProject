@@ -38,119 +38,135 @@ router.get('/', (req,res) =>{
 // GET all users
 
 router.get('/users', (req,res)=>{
-    const query = `SELECT * FROM users`;
-    db.query(query, (err,results) =>{
-        if(err) throw err;
-        if(results.length <1){
-            res.json({
-                status: 204,
-                results: "There are no users"
-            })
-        }else{
-            res.json({
-                status: 200,
-                results: results
-            })
-        }
+    db.getConnection((err,connected)=>{
+        if(err)throw err;
+        const query = `SELECT * FROM users`;
+        connected.query(query, (err,results) =>{
+            if(err) throw err;
+            if(results.length <1){
+                res.json({
+                    status: 204,
+                    results: "There are no users"
+                })
+            }else{
+                res.json({
+                    status: 200,
+                    results: results
+                })
+            }
+        })
+        connected.release();
     })
 })
 
 // GET user with id
 
 router.get('/users/:id', (req,res)=>{
-    const query = `SELECT * FROM users WHERE id=?`;
-    db.query(query, req.params.id, (err,results) =>{
-        if(err) throw err;
-        if(results.length <1){
-            res.json({
-                status: 204,
-                results: "There are no users with that id"
-            })
-        }else{
-            res.json({
-                status: 200,
-                results: results
-            })
-        }
+    db.getConnection((err,connected)=>{
+        if(err)throw err;
+        const query = `SELECT * FROM users WHERE id=?`;
+        connected.query(query, req.params.id, (err,results) =>{
+            if(err) throw err;
+            if(results.length <1){
+                res.json({
+                    status: 204,
+                    results: "There are no users with that id"
+                })
+            }else{
+                res.json({
+                    status: 200,
+                    results: results
+                })
+            }
+        })
+        connected.release();
     })
 })
 
 //POST and register user
 
 router.post('/users', bodyParser.json(), async (req,res) =>{
-    const check = `SELECT email FROM users WHERE ?`;
-
-    let email = {
-        email: req.body.emal
-    }
-
-    db.query(check, email, async(err,results)=>{
-        if(err) throw err;
-        if(results.length >0){
-            res.json({
-                status: 400,
-                result: "There is already a user with that email"
-            })
-        }else{
-            salt = await bcrypt.genSalt();
-            req.body.userPassword = await bcrypt.hash(req.body.userPassword,salt);
-            const query = `INSERT INTO users(firstName,lastName,gender,address,phoneNumber,email,userPassword) VALUES(?,?,?,?,?,?,?);`
-            db.query(query, [req.body.firstName,req.body.lastName,req.body.gender,req.body.address,req.body.phoneNumber,req.body.email,req.body.userPassword], (err,results) =>{
-                if(err)throw err;
-                res.json({
-                    status:200,
-                    results: `Successfully registered ${results.affectedRows} user(s)`
-                })
-            })
+    
+    db.getConnection((err,connected)=>{
+        if(err) throw err
+        const check = `SELECT email FROM users WHERE ?`;
+        let email = {
+            email: req.body.email
         }
+        connected.query(check, email, async(err,results)=>{
+            if(err) throw err;
+            if(results.length >0){
+                res.json({
+                    status: 400,
+                    result: "There is already a user with that email"
+                })
+            }else{
+                salt = await bcrypt.genSalt();
+                req.body.userPassword = await bcrypt.hash(req.body.userPassword,salt);
+                const query = `INSERT INTO users(firstName,lastName,gender,address,phoneNumber,email,userPassword) VALUES(?,?,?,?,?,?,?);`
+                connected.query(query, [req.body.firstName,req.body.lastName,req.body.gender,req.body.address,req.body.phoneNumber,req.body.email,req.body.userPassword], (err,results) =>{
+                    if(err)throw err;
+                    res.json({
+                        status:200,
+                        results: `Successfully registered ${results.affectedRows} user(s)`
+                    })
+                })
+            }
+        })
+        connected.release();
     })
+
 })
 
 //PATCH and login user
 
 router.patch('/users', bodyParser.json(), (req,res) =>{
-    const check = `SELECT * FROM users WHERE ?`;
-    let email = {
-        email:req.body.email
-    };
-    db.query(check, email, (err,results)=>{
+    db.getConnection((err,connected)=>{
         if(err) throw err;
-        if(results.length >0){
-            bcrypt.compare(req.body.userPassword, results[0].userPassword, (err,info) =>{
-                if(info){
-                    const payload = {
-                        user:{
-                            id: results[0].id,
-                            firstName: results[0].firstName,
-                            lastName: results[0].lastName,
-                            gender: results[0].gender,
-                            address: results[0].address,
-                            cart: results[0].cart,
-                            phoneNumber: results[0].phoneNumber,
-                            email: results[0].email,
-                            userPassword: results[0].userPassword
+        const check = `SELECT * FROM users WHERE ?`;
+        let email = {
+            email:req.body.email
+        };
+        connected.query(check, email, (err,results)=>{
+            if(err) throw err;
+            if(results.length >0){
+                bcrypt.compare(req.body.userPassword, results[0].userPassword, (err,info) =>{
+                    if(info){
+                        const payload = {
+                            user:{
+                                id: results[0].id,
+                                firstName: results[0].firstName,
+                                lastName: results[0].lastName,
+                                gender: results[0].gender,
+                                address: results[0].address,
+                                cart: results[0].cart,
+                                phoneNumber: results[0].phoneNumber,
+                                email: results[0].email,
+                                userPassword: results[0].userPassword
+                            }
                         }
-                    }
-                    jwt.sign(payload,process.env.secretKey, (err,token)=>{
-                        if(err) throw err;
-                        res.json({
-                            status:202,
-                            token: token
+                        jwt.sign(payload,process.env.secretKey, (err,token)=>{
+                            if(err) throw err;
+                            res.json({
+                                status:202,
+                                token: token
+                            })
                         })
-                    })
-                }else{
-                    res.json({
-                        status: 401,
-                        results: "Password is Incorrect"
-                    })
-                }
-            })
-        }else{
-            res.json({
-                status: 400,
-                results: "There is no user with that email"
-            })
-        }
+                    }else{
+                        res.json({
+                            status: 401,
+                            results: "Password is Incorrect"
+                        })
+                    }
+                })
+            }else{
+                res.json({
+                    status: 400,
+                    results: "There is no user with that email"
+                })
+            }
+        })
+        connected.release();
     })
 })
 
@@ -177,16 +193,21 @@ router.get('/verify', (req,res)=>{
 // DELETE user with specific id
 
 router.delete('/users/:id', (req,res) =>{
-    const query = `DELETE FROM users WHERE id=?;
-    ALTER TABLE users AUTO_INCREMENT = 1;`
-
-    db.query(query, req.params.id, (err,results)=>{
+    
+    db.getConnection((err,connected)=>{
         if(err) throw err;
-        res.json({
-            status:200,
-            results: `Sucessfully deleted the user`
+        const query = `DELETE FROM users WHERE id=?;
+        ALTER TABLE users AUTO_INCREMENT = 1;`
+        connected.query(query, req.params.id, (err,results)=>{
+            if(err) throw err;
+            res.json({
+                status:200,
+                results: `Sucessfully deleted the user`
+            })
         })
+        connected.release();
     })
+
 })
 
 // --------------- CART ROUTES ------------------- //
@@ -194,27 +215,31 @@ router.delete('/users/:id', (req,res) =>{
 // GET cart from user with specific id
 
 router.get('/users/:id/cart', (req,res) => {
-    const query = `SELECT id,cart FROM users WHERE id = ?`;
-    db.query(query, req.params.id, (err,results)=>{
-        if(err) throw err;
-        if(results.length >0){
-            if(results[0].cart == null){
-                res.json({
-                    status:200,
-                    results: `This user's cart is empty`
-                });
+    db.getConnection((err,connected)=>{
+        if(err)throw err;
+        const query = `SELECT id,cart FROM users WHERE id = ?`;
+        connected.query(query, req.params.id, (err,results)=>{
+            if(err) throw err;
+            if(results.length >0){
+                if(results[0].cart == null){
+                    res.json({
+                        status:200,
+                        results: `This user's cart is empty`
+                    });
+                }else{
+                    res.json({
+                        status:200,
+                        results: JSON.parse(results[0].cart)
+                    })
+                }
             }else{
                 res.json({
-                    status:200,
-                    results: JSON.parse(results[0].cart)
-                })
+                    status:400,
+                    results: `There is no user with that ID`
+                });
             }
-        }else{
-            res.json({
-                status:400,
-                results: `There is no user with that ID`
-            });
-        }
+        })
+        connected.release();
     })
 })
 
@@ -222,132 +247,154 @@ router.get('/users/:id/cart', (req,res) => {
 
 router.post('/users/:id/cart',bodyParser.json(), (req,res)=>{
 
-    const check = `SELECT cart FROM users WHERE id = ?`;
-
-    db.query(check,req.params.id,(err,results)=>{
-        if(err) throw err;
-        if(results.length> 0){
-            let newCart;
-            if(results[0].cart == null){
-                newCart = []
-            }else{
-                newCart = JSON.parse(results[0].cart);
-            }
-            let product = {
-                "id" : newCart.length+1,
-                "prodName" : req.body.prodName,
-                "prodUrl" : req.body.prodUrl,
-                "description": req.body.description,
-                "price" : req.body.price
-            }
-            newCart.push(product);
-            const query = `UPDATE users SET cart = ? WHERE id=?`;
-            db.query(query,[JSON.stringify(newCart),req.params.id], (err,results)=>{
-                if(err)throw err;
-                res.json({
-                    status:200,
-                    results: "Successfully added item to cart"
+    
+    db.getConnection((err,connected)=>{
+        if(err)throw err;
+        const check = `SELECT cart FROM users WHERE id = ?`;
+        connected.query(check,req.params.id,(err,results)=>{
+            if(err) throw err;
+            if(results.length> 0){
+                let newCart;
+                if(results[0].cart == null){
+                    newCart = []
+                }else{
+                    newCart = JSON.parse(results[0].cart);
+                }
+                let product = {
+                    "id" : newCart.length+1,
+                    "prodName" : req.body.prodName,
+                    "prodUrl" : req.body.prodUrl,
+                    "description": req.body.description,
+                    "price" : req.body.price
+                }
+                newCart.push(product);
+                const query = `UPDATE users SET cart = ? WHERE id=?`;
+                connected.query(query,[JSON.stringify(newCart),req.params.id], (err,results)=>{
+                    if(err)throw err;
+                    res.json({
+                        status:200,
+                        results: "Successfully added item to cart"
+                    })
                 })
-            })
-        }else{
-            res.json({
-                status:400,
-                result: `There is no user with that id`
-            })
-        }
+            }else{
+                res.json({
+                    status:400,
+                    result: `There is no user with that id`
+                })
+            }
+        })
+
+        connected.release();
     })
+
 })
 
 // DELETE user cart
 
 router.delete('/users/:id/cart', (req,res)=>{
 
-    const check = `SELECT id,cart FROM users WHERE id = ?`;
-    db.query(check, req.params.id, (err,results)=>{
-        if(err) throw err;
-        if(results.length >0){
-            const query = `UPDATE users SET cart = null WHERE id = ?`;
-            db.query(query, req.params.id,(err,results)=>{
-                if(err) throw err
+    db.getConnection((err,connected)=>{
+        if(err)throw err;
+        const check = `SELECT id,cart FROM users WHERE id = ?`;
+        connected.query(check, req.params.id, (err,results)=>{
+            if(err) throw err;
+            if(results.length >0){
+                const query = `UPDATE users SET cart = null WHERE id = ?`;
+                connected.query(query, req.params.id,(err,results)=>{
+                    if(err) throw err
+                    res.json({
+                        status:200,
+                        results: `Successfully cleared the user's cart`
+                    })
+                });
+            }else{
                 res.json({
-                    status:200,
-                    results: `Successfully cleared the user's cart`
-                })
-            });
-        }else{
-            res.json({
-                status:400,
-                result: `There is no user with that ID`
-            });
-        }
+                    status:400,
+                    result: `There is no user with that ID`
+                });
+            }
+        })
+        connected.release();
     })
 })
 
 // GET specific item from user cart
 
 router.get('/users/:id/cart/:cartId', (req,res)=>{
-    const check = `SELECT id,cart FROM users WHERE id = ?`;
-    db.query(check, req.params.id, (err,results)=>{
-        if(err) throw err;
-        if(results.length > 0){
-            if(results[0].cart != null){
-                const result = JSON.parse(results[0].cart).filter((x)=>{
-                    return x.id == req.params.cartId;
-                })
-                res.json({
-                    status:200,
-                    result: result[0]
-                })
+
+    db.getConnection((err,connected)=>{
+        if(err)throw err;
+        const check = `SELECT id,cart FROM users WHERE id = ?`;
+        connected.query(check, req.params.id, (err,results)=>{
+            if(err) throw err;
+            if(results.length > 0){
+                if(results[0].cart != null){
+                    const result = JSON.parse(results[0].cart).filter((x)=>{
+                        return x.id == req.params.cartId;
+                    })
+                    res.json({
+                        status:200,
+                        result: result[0]
+                    })
+                }else{
+                    res.json({
+                        status:400,
+                        result: "This user has an empty cart"
+                    })
+                }
             }else{
                 res.json({
                     status:400,
-                    result: "This user has an empty cart"
-                })
+                    result: "There is no user with that id"
+                });
             }
-        }else{
-            res.json({
-                status:400,
-                result: "There is no user with that id"
-            });
-        }
+        })
+        connected.release();
     })
+
 })
 
 // DELETE specific item from user cart
 
 router.delete('/users/:id/cart/:cartId', (req,res)=>{
-    const check = `SELECT id,cart FROM users WHERE id = ?`;
-    db.query(check, req.params.id, (err,results)=>{
-        if(err) throw err;
-        if(results.length > 0){
-            if(results[0].cart != null){
-                const result = JSON.parse(results[0].cart).filter((x)=>{
-                    return x.id != req.params.cartId;
-                })
-                result.forEach((e,i) => {
-                    e.id = i+1
-                });
-                const query = `UPDATE users SET cart = ? WHERE id = ?`;
-                db.query(query, [JSON.stringify(result),req.params.id], (err,results)=>{
-                    if(err) throw err;
-                    res.json({
-                        status:200,
-                        result: "Successfully deleted item from cart"
+
+    db.getConnection((err,connected)=>{
+        if(err)throw err;
+        const check = `SELECT id,cart FROM users WHERE id = ?`;
+        connected.query(check, req.params.id, (err,results)=>{
+            if(err) throw err;
+            if(results.length > 0){
+                if(results[0].cart != null){
+                    const result = JSON.parse(results[0].cart).filter((x)=>{
+                        return x.id != req.params.cartId;
+                    })
+                    result.forEach((e,i) => {
+                        e.id = i+1
                     });
-                })
+                    const query = `UPDATE users SET cart = ? WHERE id = ?`;
+                    connected.query(query, [JSON.stringify(result),req.params.id], (err,results)=>{
+                        if(err) throw err;
+                        res.json({
+                            status:200,
+                            result: "Successfully deleted item from cart"
+                        });
+                    })
+                }else{
+                    res.json({
+                        status:400,
+                        result: "This user has an empty cart"
+                    })
+                }
             }else{
                 res.json({
                     status:400,
-                    result: "This user has an empty cart"
-                })
+                    result: "There is no user with that id"
+                });
             }
-        }else{
-            res.json({
-                status:400,
-                result: "There is no user with that id"
-            });
-        }
+        })
+        connected.release();
     })
+
 })
 
 // --------------- PRODUCT ROUTES ---------------- //
@@ -355,93 +402,120 @@ router.delete('/users/:id/cart/:cartId', (req,res)=>{
 // GET all products
 
 router.get('/products', (req,res) => {
-    const query = `SELECT * FROM products`;
 
-    db.query(query, (err,results) =>{
+    db.getConnection((err,connected)=>{
         if(err) throw err;
-        if(results.length >0){
-            res.json({
-                status:200,
-                results: results
-            });
-        }else{
-            res.json({
-                status:400,
-                result: `There are no products in the database`
-            })
-        }
+        const query = `SELECT * FROM products`;
+    
+        db.query(query, (err,results) =>{
+            if(err) throw err;
+            if(results.length >0){
+                res.json({
+                    status:200,
+                    results: results
+                });
+            }else{
+                res.json({
+                    status:400,
+                    result: `There are no products in the database`
+                })
+            }
+        })
+        connected.release();
     })
 })
 
 // GET product with a specific id
 
 router.get('/products/:id', (req,res)=>{
-    const query = `SELECT * FROM products WHERE id=?`;
-    db.query(query, req.params.id, (err,results) =>{
-        if(err) throw err;
-        if(results.length >0){
-            res.json({
-                status:200,
-                results: results
-            });
-        }else{
-            res.json({
-                status:400,
-                result: `There is no product with that id`
-            })
-        }
+
+    db.getConnection((err,connected)=>{
+        if(err)throw err;
+        const query = `SELECT * FROM products WHERE id=?`;
+        db.query(query, req.params.id, (err,results) =>{
+            if(err) throw err;
+            if(results.length >0){
+                res.json({
+                    status:200,
+                    results: results
+                });
+            }else{
+                res.json({
+                    status:400,
+                    result: `There is no product with that id`
+                })
+            }
+        })
+        connected.release();
     })
 })
 
 // DELETE product with specific id
 
 router.delete('/products/:id', (req,res)=>{
-    const check = `SELECT * FROM products WHERE id=?`;
-    db.query(check,req.params.id, (err,results)=>{
-        if(err)throw err;
-        if(results.length>0){
-            const query = `DELETE FROM products WHERE id=?;
-            ALTER TABLE products AUTO_INCREMENT=1`;
 
-            db.query(query, req.params.id, (err,results)=>{
-                if(err) throw err;
-                res.json({
-                    status:200,
-                    results: `Successfully deleted the product`
+    db.getConnection((err,connected)=>{
+        if(err)throw err;
+        const check = `SELECT * FROM products WHERE id=?`;
+        db.query(check,req.params.id, (err,results)=>{
+            if(err)throw err;
+            if(results.length>0){
+                const query = `DELETE FROM products WHERE id=?;
+                ALTER TABLE products AUTO_INCREMENT=1`;
+    
+                db.query(query, req.params.id, (err,results)=>{
+                    if(err) throw err;
+                    res.json({
+                        status:200,
+                        results: `Successfully deleted the product`
+                    })
                 })
-            })
-        }else{
-            res.json({
-                status:400,
-                results: "There is no product with that id"
-            });
-        }
+            }else{
+                res.json({
+                    status:400,
+                    results: "There is no product with that id"
+                });
+            }
+        })
+        connected.release();
     })
+
 })
 
 // POST a new product to the database
 
 router.post('/products', bodyParser.json(), (req,res) =>{
-    const query = `INSERT INTO products(prodName,prodUrl,description,quantity,price) VALUES(?,?,?,?,?)`;
-    db.query(query,[req.body.prodName, req.body.prodUrl,req.body.description, req.body.quantity, req.body.price], (err,results) =>{
-        if(err) throw err;
-        res.json({
-            status:200,
-            results: `Successfully added ${results.affectedRows} new product`
-        });
+
+    db.getConnection((err,connected)=>{
+        if(err)throw err;
+        const query = `INSERT INTO products(prodName,prodUrl,description,quantity,price) VALUES(?,?,?,?,?)`;
+        db.query(query,[req.body.prodName, req.body.prodUrl,req.body.description, req.body.quantity, req.body.price], (err,results) =>{
+            if(err) throw err;
+            res.json({
+                status:200,
+                results: `Successfully added ${results.affectedRows} new product`
+            });
+        })
+        connected.release();
     })
+
 })
 
 // PUT and edit product info in the database
 
 router.put('/products/:id', bodyParser.json(), (req,res)=>{
-    const query = `UPDATE products SET prodName = ?, prodUrl = ?, description=?, quantity = ?, price = ? WHERE id = ?`;
 
-    db.query(query, [req.body.prodName, req.body.prodUrl,req.body.description, req.body.quantity, req.body.price, req.params.id], (err,results) =>{
-        if(err) throw err;
-        res.json({
-            status:200,
-            message: `Successfully edited item`
+    db.getConnection((err,connected)=>{
+        if(err)throw err;
+        const query = `UPDATE products SET prodName = ?, prodUrl = ?, description=?, quantity = ?, price = ? WHERE id = ?`;
+    
+        db.query(query, [req.body.prodName, req.body.prodUrl,req.body.description, req.body.quantity, req.body.price, req.params.id], (err,results) =>{
+            if(err) throw err;
+            res.json({
+                status:200,
+                message: `Successfully edited item`
+            })
         })
+        connected.release();
     })
 })
