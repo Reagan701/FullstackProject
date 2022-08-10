@@ -19,11 +19,11 @@
               <div class="card-body">
                 <div class="clearfix mb-3"></div>
 
-                <div class="my-2 text-dark text-center">
+                <div class="my-2 text-white text-center">
                   <h1>REAGAN CAROLUSSEN</h1>
                 </div>
                 <div class="mb-3">
-                  <h2 class="text-uppercase text-center role">BackEnd Developer</h2>
+                  <h2 class="text-uppercase text-white text-center role">BackEnd Developer</h2>
                 </div>
                 <div class="box">
                   <div>
@@ -61,11 +61,11 @@
               <div class="card-body">
                 <div class="clearfix mb-3"></div>
 
-                <div class="my-2 text-dark text-center">
+                <div class="my-2 text-white text-center">
                   <h1>MARSHALINO JANKOWSKI</h1>
                 </div>
                 <div class="mb-3">
-                  <h2 class="text-uppercase text-center role">
+                  <h2 class="text-uppercase text-white text-center role">
                     Frontend developer
                   </h2>
                 </div>
@@ -129,7 +129,7 @@ h1 {
   max-width: 1400px;
 }
 .card {
-  background: #fff;
+  background: transparent;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08), 0 0 6px rgba(0, 0, 0, 0.05);
   border: 1;
   border-radius: 1rem;
