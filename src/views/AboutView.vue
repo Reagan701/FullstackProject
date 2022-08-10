@@ -3,10 +3,6 @@
   <div class="margi py-5">
     <div class="container-fluid marge">
       <div class="container-fluid">
-        <div class="site-heading text-center">
-          <h2 class="text-dark">Meet the <span>team</span></h2>
-          <h4></h4>
-        </div>
         <div class="row row-cols-2 row-cols-xs-2 row-cols-sm-2 row-cols-lg-2">
           <div class="col">
             <div class="card h-100 shadow-sm">
