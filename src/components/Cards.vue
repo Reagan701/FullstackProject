@@ -9,6 +9,7 @@
             <br />
             <div class="details">
               <span>{{ product.prodName }}</span>
+              <span>R{{ product.price }}</span>
               <br />
               <router-link :to="{name:'singleProduct', params:{id:product.id}}">
                 <button class="btn btn-danger">View Product</button>
@@ -39,6 +40,7 @@ export default {
 }
 .details{
   text-decoration: underline;
+  
   border:none;
 }
 .card-content .card {

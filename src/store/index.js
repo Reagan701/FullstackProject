@@ -145,6 +145,24 @@ export default createStore({
             .then((data)=> context.commit('setCart',data.results))
             )
         },
+        removeFromCart(context,payload){
+            fetch('https://fullstackapi-2.herokuapp.com/verify', {
+                method: 'GET',
+                headers:{
+                    'Content-type': 'application/jspn; charset=UTF-8',
+                    'x-auth-token': context.state.user
+                }
+            })
+            .then((res)=> res.json())
+            .then((data)=> fetch('https://fullstackapi-2.herokuapp.com/users/'+data.token.user.id+'/cart/'+payload, {
+                method: 'DELETE',
+                headers:{
+                    'Content-type': 'application/json; charset=UTF-8'
+                }
+            }))
+            .then((res)=>res.json())
+            .then(()=> context.dispatch('getCart'))
+        },
         clearSingleProduct(context){
             context.commit('clearSingleProduct')
         }

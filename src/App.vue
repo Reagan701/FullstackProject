@@ -18,7 +18,9 @@
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
-        <Cards v-for="product in cart" :key="product.id" :product="product"/>
+        <div class="row">
+          <CartCard v-for="product in cart" :key="product.id" :product="product"/>
+        </div>
       </div>
     </div>
   </nav>
@@ -26,9 +28,9 @@
 </template>
 
 <script>
-import Cards from './components/Cards.vue'
+import CartCard from './components/CartCard.vue'
 export default {
-  components: {Cards},
+  components: {CartCard},
   computed:{
     user(){
       return this.$store.state.user;
@@ -54,11 +56,15 @@ export default {
 }
 
 #app {
-  font-family: New Century Schoolbook, TeX Gyre Schola, serif;
+  /* font-family: New Century Schoolbook, TeX Gyre Schola, serif; */
   font-size: 21px;
   text-align: center;
   color: red;
   background: navy;
+}
+
+.offcanvas{
+  width: 600px !important;
 }
 
 nav {
