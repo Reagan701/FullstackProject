@@ -10,6 +10,7 @@
     </div>
     <router-link to="/login">LOGIN</router-link> |
     <router-link to="/register">REGISTER</router-link> |
+    <router-link to="/contact">CONTACT</router-link> |
     <div id="inline" v-if="user">
       <router-link to="/account">ACCOUNT</router-link> |
     </div>

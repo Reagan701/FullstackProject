@@ -9,6 +9,7 @@ import AccountView from '../views/AccountView.vue';
 import AdminView from '../views/AdminView.vue';
 import UserAdminView from '../views/UsersAdminView.vue';
 import ProductsAdminView from '../views/ProductsAdminView.vue';
+import ContactView from '../views/ContactView.vue';
 
 const routes = [
   {
@@ -25,6 +26,11 @@ const routes = [
     path: '/products',
     name: 'products',
     component: ProductsView
+  },
+  {
+    path: '/contact',
+    name: 'contact',
+    component: ContactView
   },
   {
     path: '/products/:id',
