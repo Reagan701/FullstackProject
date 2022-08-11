@@ -2,36 +2,39 @@
   <div id="main">
     <div class="container">
       <div class="contact-form-wrapper d-flex justify-content-center">
-        <form action="https://formspree.io/f/mvoleqaw" class="contact-form">
+        <form action="https://formspree.io/f/mvoleqaw" class="contact-form card shadow">
           <h5 class="title">Contact us</h5>
           <p class="description">
             Feel free to contact us if you need any assistance, any help or
             another question.
           </p>
           <div>
+            <label for="Name">Name</label>
             <input
               type="text"
               class="form-control rounded border-white mb-3 form-input"
               id="name"
-              placeholder="Name"
+              placeholder=""
               required
             />
           </div>
           <div>
+            <label for="email">Email</label>
             <input
               type="email"
               class="form-control rounded border-white mb-3 form-input"
-              placeholder="Email"
+              placeholder=""
               required
             />
           </div>
           <div>
+            <label for="Message">Leave Us A Message</label>
             <textarea
               id="message"
               class="form-control rounded border-white mb-3 form-text-area"
               rows="5"
               cols="30"
-              placeholder="Message"
+              placeholder=""
               required
             ></textarea>
           </div>
@@ -68,9 +71,9 @@ export default {};
 
 .contact-form {
   padding: 30px 40px;
-  background-color: transparent;
   border-radius: 12px;
   max-width: 400px;
+  background-color: transparent;
 }
 
 .contact-form textarea {

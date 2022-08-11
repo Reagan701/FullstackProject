@@ -32,7 +32,7 @@
                 <input v-model="address" type="text" class="form-control" name="address" />
               </div>
               <div class="mb-4">
-                <label for="phoneNumber" class="form-label">Phone</label>
+                <label for="phoneNumber" class="form-label">Phone Number</label>
                 <input v-model="phoneNumber" type="number" class="form-control" name="phoneNumber" />
               </div>
               <div class="mb-4">

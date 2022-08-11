@@ -1,90 +1,102 @@
 <template>
-<div id="main" class="overlay ">
-  <div class="margi py-5">
-    <div class="container-fluid marge">
-      <div class="container-fluid">
-        <div class="row row-cols-2 row-cols-xs-2 row-cols-sm-2 row-cols-lg-2">
-          <div class="col">
-            <div class="card h-100 shadow-sm">
-              <div class="text-center">
-                <div class="img-hover-zoom img-hover-zoom--colorize">
-                  <img
-                    class="shadow"
-                    src="https://i.postimg.cc/rwZkrc6x/Reagon-1.jpg"
-                    alt="Another Image zoom-on-hover effect"
-                  />
+  <div id="main" class="overlay">
+    <div class="margi py-5">
+      <div class="container-fluid marge">
+        <div class="container-fluid">
+          <div class="row">
+            <div>
+              <img
+                id="logo"
+                src="https://i.postimg.cc/XqG2mcZ2/Logo2-removebg-preview.png"
+                alt=""
+              />
+            </div>
+          </div>
+          <div class="row row-cols-2 row-cols-xs-2 row-cols-sm-2 row-cols-lg-2">
+            <div class="col">
+              <div class="card h-100 card shadow">
+                <div class="text-center">
+                  <div class="img-hover-zoom img-hover-zoom--colorize">
+                    <img
+                      class="shadow"
+                      src="https://i.postimg.cc/rwZkrc6x/Reagon-1.jpg"
+                      alt="Another Image zoom-on-hover effect"
+                    />
+                  </div>
                 </div>
-              </div>
 
-              <div class="card-body">
-                <div class="clearfix mb-3"></div>
+                <div class="card-body">
+                  <div class="clearfix mb-3"></div>
 
-                <div class="my-2 text-white text-center">
-                  <h1>REAGAN CAROLUSSEN</h1>
-                </div>
-                <div class="mb-3">
-                  <h2 class="text-uppercase text-white text-center role">BackEnd Developer</h2>
-                </div>
-                <div class="box">
-                  <div>
-                    <ul class="list-inline">
-                      <li class="list-inline-item">
-                        <i class="fab fa-github"></i>
-                      </li>
-                      <li class="list-inline-item">
-                        <i class="fab fa-linkedin-in text-primary"></i>
-                      </li>
-                      <li class="list-inline-item">
-                        <i class="fab fa-instagram text-danger"></i>
-                      </li>
-                      <li class="list-inline-item">
-                        <i class="fab fa-twitter text-primary"></i>
-                      </li>
-                    </ul>
+                  <div class="my-2 text-white text-center">
+                    <h1>REAGAN CAROLUSSEN</h1>
+                  </div>
+                  <div class="mb-3">
+                    <h2 class="text-uppercase text-white text-center role">
+                      BackEnd Developer
+                    </h2>
+                  </div>
+                  <div class="box">
+                    <div>
+                      <ul class="list-inline">
+                        <li class="list-inline-item">
+                          <i class="fab fa-github"></i>
+                        </li>
+                        <li class="list-inline-item">
+                          <i class="fab fa-linkedin-in text-primary"></i>
+                        </li>
+                        <li class="list-inline-item">
+                          <i class="fab fa-instagram text-danger"></i>
+                        </li>
+                        <li class="list-inline-item">
+                          <i class="fab fa-twitter text-primary"></i>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="col">
-            <div class="card h-100 shadow-sm">
-              <div class="text-center">
-                <div class="img-hover-zoom img-hover-zoom--colorize">
-                  <img
-                    class="shadow"
-                    src="https://i.postimg.cc/y6GZB9md/LS2.jpg"
-                    alt="Another Image zoom-on-hover effect"
-                  />
+            <div class="col">
+              <div class="card h-100 card shadow">
+                <div class="text-center">
+                  <div class="img-hover-zoom img-hover-zoom--colorize">
+                    <img
+                      class="shadow"
+                      src="https://i.postimg.cc/y6GZB9md/LS2.jpg"
+                      alt="Another Image zoom-on-hover effect"
+                    />
+                  </div>
                 </div>
-              </div>
 
-              <div class="card-body">
-                <div class="clearfix mb-3"></div>
+                <div class="card-body">
+                  <div class="clearfix mb-3"></div>
 
-                <div class="my-2 text-white text-center">
-                  <h1>MARSHALINO JANKOWSKI</h1>
-                </div>
-                <div class="mb-3">
-                  <h2 class="text-uppercase text-white text-center role">
-                    Frontend developer
-                  </h2>
-                </div>
-                <div class="box">
-                  <div>
-                    <ul class="list-inline">
-                      <li class="list-inline-item">
-                        <i class="fab fa-github"></i>
-                      </li>
-                      <li class="list-inline-item">
-                        <i class="fab fa-linkedin-in text-primary"></i>
-                      </li>
-                      <li class="list-inline-item">
-                        <i class="fab fa-instagram text-danger"></i>
-                      </li>
-                      <li class="list-inline-item">
-                        <i class="fab fa-twitter text-primary"></i>
-                      </li>
-                    </ul>
+                  <div class="my-2 text-white text-center">
+                    <h1>MARSHALINO JANKOWSKI</h1>
+                  </div>
+                  <div class="mb-3">
+                    <h2 class="text-uppercase text-white text-center role">
+                      Frontend developer
+                    </h2>
+                  </div>
+                  <div class="box">
+                    <div>
+                      <ul class="list-inline">
+                        <li class="list-inline-item">
+                          <i class="fab fa-github"></i>
+                        </li>
+                        <li class="list-inline-item">
+                          <i class="fab fa-linkedin-in text-primary"></i>
+                        </li>
+                        <li class="list-inline-item">
+                          <i class="fab fa-instagram text-danger"></i>
+                        </li>
+                        <li class="list-inline-item">
+                          <i class="fab fa-twitter text-primary"></i>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -94,7 +106,6 @@
       </div>
     </div>
   </div>
-  </div>
 </template>
 
 <script>
@@ -102,12 +113,16 @@ export default {};
 </script>
 
 <style scoped>
+#logo {
+  width: 200px;
+}
+
 #main {
   background-image: url(https://i.postimg.cc/Hj1L1Wvb/wp9306523-football-pc-4k-wallpapers.jpg);
   background-size: cover;
-  background-position:center;
+  background-position: center;
   background-repeat: no-repeat;
-  height:100%;
+  height: 100%;
   color: white;
 }
 
