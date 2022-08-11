@@ -10,6 +10,9 @@
                 src="https://i.postimg.cc/XqG2mcZ2/Logo2-removebg-preview.png"
                 alt=""
               />
+              <p>
+                Kit Army stocks the widest range of sporting clothing in South Africa, sourced from major international and local brands. We have a huge selection of sports and outdoor gear at competitive prices. Browse our online store and if you can't find what you are looking for please don't hesitate to give us a call or visit one of our 69 stores countrywide.
+              </p>
             </div>
           </div>
           <div class="row row-cols-2 row-cols-xs-2 row-cols-sm-2 row-cols-lg-2">
@@ -18,7 +21,7 @@
                 <div class="text-center">
                   <div class="img-hover-zoom img-hover-zoom--colorize">
                     <img
-                      class="shadow"
+                      class="shadow img-fluid"
                       src="https://i.postimg.cc/rwZkrc6x/Reagon-1.jpg"
                       alt="Another Image zoom-on-hover effect"
                     />
@@ -62,7 +65,7 @@
                 <div class="text-center">
                   <div class="img-hover-zoom img-hover-zoom--colorize">
                     <img
-                      class="shadow"
+                      class="shadow img-fluid"
                       src="https://i.postimg.cc/y6GZB9md/LS2.jpg"
                       alt="Another Image zoom-on-hover effect"
                     />
@@ -129,6 +132,7 @@ export default {};
   background-repeat: no-repeat;
   height: 100%;
   color: white;
+  overflow-x: hidden;
 }
 
 .marg {
