@@ -15,7 +15,7 @@
       <router-link to="/account">ACCOUNT</router-link> |
     </div>
     <div class="bi bi-bag" id="inline" v-if="user">
-      <button class="btn btn-danger fa-solid fa-basket-shopping" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartCanvas" aria-controls="cartCanvas"></button>
+      <button class="btn btn-danger fa-solid fa-cart-shopping" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartCanvas" aria-controls="cartCanvas"></button>
     </div>
     <div class="offcanvas offcanvas-end" tabindex="-1" id="cartCanvas" aria-labelledby="cartCanvasLabel">
       <div class="offcanvas-header">
@@ -47,7 +47,7 @@ export default {
 
 <style>
 #main {
-  background-image: url(https://i.postimg.cc/Hj1L1Wvb/wp9306523-football-pc-4k-wallpapers.jpg);
+  /* background-image: url(https://i.postimg.cc/Hj1L1Wvb/wp9306523-football-pc-4k-wallpapers.jpg); */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -72,7 +72,7 @@ export default {
   font-size: 21px;
   text-align: center;
   color: red;
-  background: navy;
+  background-image: linear-gradient(to right, #000046 0%, #1CB5E0  51%, #000046  100%);
 }
 
 nav {
@@ -97,6 +97,4 @@ nav a.router-link-exact-active {
   color: red;
 }
 
-.navbar-brand{
-}
 </style>

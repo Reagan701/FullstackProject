@@ -90,7 +90,7 @@ export default {
 
 <style scoped>
 #main {
-  background-image: url(https://i.postimg.cc/Hj1L1Wvb/wp9306523-football-pc-4k-wallpapers.jpg);
+  background-image: linear-gradient(to right, #000046 0%, #1CB5E0  51%, #000046  100%);
   background-size: cover;
   background-position:center;
   background-repeat: no-repeat;
