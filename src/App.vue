@@ -1,5 +1,5 @@
 <template>
-  <nav>
+  <nav class="">
     <a class="navbar-brand" href="/about">
       <img src="https://i.postimg.cc/XqG2mcZ2/Logo2-removebg-preview.png" alt="" width="50" height="50">
     </a>
