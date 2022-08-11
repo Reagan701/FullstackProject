@@ -28,12 +28,14 @@
     </div>
   </nav>
   <router-view/>
+  <footer-all/>
 </template>
 
 <script>
+import FooterAll from '@/components/FooterAll.vue';
 import Cards from './components/Cards.vue'
 export default {
-  components: {Cards},
+  components: {Cards, FooterAll},
   computed:{
     user(){
       return this.$store.state.user;
@@ -47,7 +49,6 @@ export default {
 
 <style>
 #main {
-  /* background-image: url(https://i.postimg.cc/Hj1L1Wvb/wp9306523-football-pc-4k-wallpapers.jpg); */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

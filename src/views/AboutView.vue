@@ -40,16 +40,16 @@
                     <div>
                       <ul class="list-inline">
                         <li class="list-inline-item">
-                          <i class="fab fa-github"></i>
+                          <i class="fab fa-github text-white"></i>
                         </li>
                         <li class="list-inline-item">
-                          <i class="fab fa-linkedin-in text-primary"></i>
+                          <i class="fab fa-linkedin-in text-white"></i>
                         </li>
                         <li class="list-inline-item">
-                          <i class="fab fa-instagram text-danger"></i>
+                          <i class="fab fa-instagram text-white"></i>
                         </li>
                         <li class="list-inline-item">
-                          <i class="fab fa-twitter text-primary"></i>
+                          <i class="fab fa-twitter text-white"></i>
                         </li>
                       </ul>
                     </div>
@@ -84,16 +84,16 @@
                     <div>
                       <ul class="list-inline">
                         <li class="list-inline-item">
-                          <i class="fab fa-github"></i>
+                          <i class="fab fa-github text-white"></i>
                         </li>
                         <li class="list-inline-item">
-                          <i class="fab fa-linkedin-in text-primary"></i>
+                          <i class="fab fa-linkedin-in text-white"></i>
                         </li>
                         <li class="list-inline-item">
-                          <i class="fab fa-instagram text-danger"></i>
+                          <i class="fab fa-instagram text-white"></i>
                         </li>
                         <li class="list-inline-item">
-                          <i class="fab fa-twitter text-primary"></i>
+                          <i class="fab fa-twitter text-white"></i>
                         </li>
                       </ul>
                     </div>

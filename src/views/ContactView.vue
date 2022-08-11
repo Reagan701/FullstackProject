@@ -53,7 +53,7 @@ export default {};
 
 <style scoped>
 * {
-  font-family: New Century Schoolbook, TeX Gyre Schola, serif;
+  font-family: League Gothic, sans-serif;
   font-size: 21px;
 }
 #main {
