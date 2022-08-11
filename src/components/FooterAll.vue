@@ -8,7 +8,7 @@
               <i class="fas fa-map-marker-alt"></i>
               <div class="cta-text">
                 <h4>Find us</h4>
-                <span>1010 Avenue, sw 54321, chandigarh</span>
+                <span>1007 Mountain Drive, Gotham City</span>
               </div>
             </div>
           </div>
@@ -17,7 +17,7 @@
               <i class="fas fa-phone"></i>
               <div class="cta-text">
                 <h4>Call us</h4>
-                <span>9876543210 0</span>
+                <span>888-766-8686</span>
               </div>
             </div>
           </div>
@@ -26,7 +26,7 @@
               <i class="far fa-envelope-open"></i>
               <div class="cta-text">
                 <h4>Mail us</h4>
-                <span>mail@info.com</span>
+                <span>BruceWayne@WayneEnterprises.com</span>
               </div>
             </div>
           </div>
@@ -43,16 +43,6 @@
                     class="img-fluid"
                     alt="logo"
                 /></a>
-              </div>
-              <div class="footer-text">
-                <p>
-                  Kit Army stocks the widest range of sporting clothing in South
-                  Africa, sourced from major international and local brands. We
-                  have a huge selection of sports and outdoor gear at
-                  competitive prices. Browse our online store and if you can't
-                  find what you are looking for please don't hesitate to give us
-                  a call or visit one of our 69 stores countrywide.
-                </p>
               </div>
             </div>
           </div>
@@ -79,6 +69,16 @@
                 <a href="#"><i class="fab fa-google-plus-g google-bg"></i></a>
               </div>
             <div class="footer-widget">
+                              <div class="footer-text">
+                <p>
+                  Kit Army stocks the widest range of sporting clothing in South
+                  Africa, sourced from major international and local brands. We
+                  have a huge selection of sports and outdoor gear at
+                  competitive prices. Browse our online store and if you can't
+                  find what you are looking for please don't hesitate to give us
+                  a call or visit one of our 69 stores countrywide.
+                </p>
+              </div>
             <div class="copyright-text">
               <p>
                 Copyright &copy; 2022, All Right Reserved
