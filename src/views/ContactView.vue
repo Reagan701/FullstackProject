@@ -9,29 +9,32 @@
             another question.
           </p>
           <div>
+            <label for="Name">Name</label>
             <input
               type="text"
               class="form-control rounded border-white mb-3 form-input"
               id="name"
-              placeholder="Name"
+              placeholder=""
               required
             />
           </div>
           <div>
+            <label for="email">Email</label>
             <input
               type="email"
               class="form-control rounded border-white mb-3 form-input"
-              placeholder="Email"
+              placeholder=""
               required
             />
           </div>
           <div>
+            <label for="Message">Leave Us A Message</label>
             <textarea
               id="message"
               class="form-control rounded border-white mb-3 form-text-area"
               rows="5"
               cols="30"
-              placeholder="Message"
+              placeholder=""
               required
             ></textarea>
           </div>

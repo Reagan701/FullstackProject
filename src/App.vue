@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="/about">
       <img src="https://i.postimg.cc/XqG2mcZ2/Logo2-removebg-preview.png" alt="" width="50" height="50">
     </a>
     <router-link to="/">HOME</router-link> |
@@ -8,14 +8,14 @@
     <div id="inline" v-if="user">
       <router-link to="/products">PRODUCTS</router-link> |
     </div>
-    <router-link to="/login">LOGIN</router-link> |
+    <router-link to="/login"> LOGIN</router-link> |
     <router-link to="/register">REGISTER</router-link> |
     <router-link to="/contact">CONTACT</router-link> |
     <div id="inline" v-if="user">
       <router-link to="/account">ACCOUNT</router-link> |
     </div>
     <div class="bi bi-bag" id="inline" v-if="user">
-      <button class="btn btn-danger" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartCanvas" aria-controls="cartCanvas">Cart</button>
+      <button class="btn btn-danger fa-solid fa-basket-shopping" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartCanvas" aria-controls="cartCanvas"></button>
     </div>
     <div class="offcanvas offcanvas-end" tabindex="-1" id="cartCanvas" aria-labelledby="cartCanvasLabel">
       <div class="offcanvas-header">
@@ -46,6 +46,15 @@ export default {
 </script>
 
 <style>
+#main {
+  background-image: url(https://i.postimg.cc/Hj1L1Wvb/wp9306523-football-pc-4k-wallpapers.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100%;
+  color: white;
+}
+
 .card {
   border:none;
 }
@@ -86,5 +95,8 @@ nav a {
 
 nav a.router-link-exact-active {
   color: red;
+}
+
+.navbar-brand{
 }
 </style>

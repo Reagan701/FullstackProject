@@ -14,7 +14,7 @@
           </div>
           <div class="row row-cols-2 row-cols-xs-2 row-cols-sm-2 row-cols-lg-2">
             <div class="col">
-              <div class="card h-100 shadow-sm">
+              <div class="card h-100 card shadow">
                 <div class="text-center">
                   <div class="img-hover-zoom img-hover-zoom--colorize">
                     <img
@@ -58,7 +58,7 @@
               </div>
             </div>
             <div class="col">
-              <div class="card h-100 shadow-sm">
+              <div class="card h-100 card shadow">
                 <div class="text-center">
                   <div class="img-hover-zoom img-hover-zoom--colorize">
                     <img
