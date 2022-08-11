@@ -1,11 +1,16 @@
 <template>
   <nav>
+    <a class="navbar-brand" href="#">
+      <img src="https://i.postimg.cc/XqG2mcZ2/Logo2-removebg-preview.png" alt="" width="50" height="50">
+    </a>
     <router-link to="/">HOME</router-link> |
+    <router-link to="/about">ABOUT</router-link> |
     <div id="inline" v-if="user">
       <router-link to="/products">PRODUCTS</router-link> |
     </div>
     <router-link to="/login">LOGIN</router-link> |
     <router-link to="/register">REGISTER</router-link> |
+    <router-link to="/contact">CONTACT</router-link> |
     <div id="inline" v-if="user">
       <router-link to="/account">ACCOUNT</router-link> |
     </div>
