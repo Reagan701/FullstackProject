@@ -54,12 +54,6 @@
                   a call or visit one of our 69 stores countrywide.
                 </p>
               </div>
-              <div class="footer-social-icon">
-                <span>Follow us</span>
-                <a href="#"><i class="fab fa-facebook-f facebook-bg"></i></a>
-                <a href="#"><i class="fab fa-twitter twitter-bg"></i></a>
-                <a href="#"><i class="fab fa-google-plus-g google-bg"></i></a>
-              </div>
             </div>
           </div>
           <div class="col-xl-4 col-lg-4 col-md-6 mb-30">
@@ -68,61 +62,29 @@
                 <h3>Useful Links</h3>
               </div>
               <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Products</a></li>
-                <li><a href="#">Our Services</a></li>
-                <li><a href="#">Meet our Team</a></li>
-                <li><a href="#">Contact us</a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/products">Products</a></li>
+                <li><a href="/about">Our Services</a></li>
+                <li><a href="/about">Meet the Team</a></li>
+                <li><a href="/contact">Contact us</a></li>
               </ul>
             </div>
           </div>
           <div class="col-xl-4 col-lg-4 col-md-6 mb-50">
+                          <div class="footer-social-icon">
+                <span>Follow us</span>
+                <a href="#"><i class="fab fa-facebook-f facebook-bg"></i></a>
+                <a href="#"><i class="fab fa-twitter twitter-bg"></i></a>
+                <a href="#"><i class="fab fa-google-plus-g google-bg"></i></a>
+              </div>
             <div class="footer-widget">
-              <div class="footer-widget-heading">
-                <h3>Subscribe</h3>
-              </div>
-              <div class="footer-text mb-25">
-                <p>
-                  Missing out, subscribe to our new feeds, kindly fill the form
-                  below
-                </p>
-              </div>
-              <div class="subscribe-form">
-                <form action="#">
-                  <input type="text" placeholder="Email Address" />
-                  <button><i class="fab fa-telegram-plane"></i></button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="copyright-area">
-      <div class="container">
-        <div class="row">
-          <div class="col-xl-6 col-lg-6 text-center text-lg-left">
             <div class="copyright-text">
               <p>
                 Copyright &copy; 2022, All Right Reserved
                 <a href="#">KIT ARMY</a>
               </p>
             </div>
-          </div>
-          <div class="col-xl-6 col-lg-6 d-none d-lg-block text-right">
-            <div class="footer-menu">
-              <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">Products</a></li>
-                <li><a href="#">Register</a></li>
-              </ul>
             </div>
           </div>
         </div>
