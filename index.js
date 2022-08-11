@@ -55,7 +55,7 @@ router.get('/users', (req,res)=>{
                 })
             }
         })
-        connected.release();
+        // connected.release();
     })
 })
 
@@ -246,8 +246,6 @@ router.get('/users/:id/cart', (req,res) => {
 // POST a new product to the cart of the user with a specific id
 
 router.post('/users/:id/cart',bodyParser.json(), (req,res)=>{
-
-    
     db.getConnection((err,connected)=>{
         if(err)throw err;
         const check = `SELECT cart FROM users WHERE id = ?`;
@@ -488,13 +486,19 @@ router.post('/products', bodyParser.json(), (req,res) =>{
 
     db.getConnection((err,connected)=>{
         if(err)throw err;
-        const query = `INSERT INTO products(prodName,prodUrl,description,quantity,price) VALUES(?,?,?,?,?)`;
-        db.query(query,[req.body.prodName, req.body.prodUrl,req.body.description, req.body.quantity, req.body.price], (err,results) =>{
-            if(err) throw err;
-            res.json({
-                status:200,
-                results: `Successfully added ${results.affectedRows} new product`
-            });
+        const token = req.header('x-auth-token');
+
+        jwt.verify(token,process.env.secretKey, (err,decodedToken)=>{
+            if(err)throw err;
+            const query = `INSERT INTO products(prodName,prodUrl,description,quantity,price,createdBy) VALUES(?,?,?,?,?,?)`;
+            db.query(query,[req.body.prodName, req.body.prodUrl,req.body.description, req.body.quantity, req.body.price,decodedToken.user.id], (err,results) =>{
+                if(err) throw err;
+                res.json({
+                    status:200,
+                    results: `Successfully added ${results.affectedRows} new product`
+                });
+            })
+
         })
         connected.release();
     })
