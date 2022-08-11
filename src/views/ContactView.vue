@@ -2,7 +2,7 @@
   <div id="main">
     <div class="container">
       <div class="contact-form-wrapper d-flex justify-content-center">
-        <form action="https://formspree.io/f/mvoleqaw" class="contact-form">
+        <form action="https://formspree.io/f/mvoleqaw" class="contact-form card shadow">
           <h5 class="title">Contact us</h5>
           <p class="description">
             Feel free to contact us if you need any assistance, any help or
@@ -68,9 +68,9 @@ export default {};
 
 .contact-form {
   padding: 30px 40px;
-  background-color: transparent;
   border-radius: 12px;
   max-width: 400px;
+  background-color: transparent;
 }
 
 .contact-form textarea {
