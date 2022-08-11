@@ -10,6 +10,19 @@
                 src="https://i.postimg.cc/XqG2mcZ2/Logo2-removebg-preview.png"
                 alt=""
               />
+              <p>
+South Africa's leading teamwear sports store where we have complete focus on sports clothing and accessories.
+
+At KitArmy we are passionate about our industry and establishing close relationships with our client base. Direct and clear communication is critical and there is never a situation where you will speak to ten different people.
+
+We sell only the highest quality custom kits and soccer merchandise . Kit Army is a vibrant and energetic company with like minded ideals and goals with a passion for all sports.
+
+We do not sell rejects or seconds. In short, we have the finest quality soccer merchandise to order. 
+
+We ship anywhere in the country within a reasonable timeframe usually 24-48 hours depending on the location and delivery option selected by you. We understand and value the need for products in the shortest period of time and therefore we will undertake to ensure your order is dealt with promptly and urgently.
+
+Sport is so much more than the time spent on the pitch, what touches the lives of sports men, women and children of our communities is the many hours preparing and discussing the sport which we all know by playing sport. In you supporting Kit Army we in turn support our communities by donating soccer balls and accessories that bring smiles to those that need hope.
+              </p>
             </div>
           </div>
           <div class="row row-cols-2 row-cols-xs-2 row-cols-sm-2 row-cols-lg-2">
@@ -18,7 +31,7 @@
                 <div class="text-center">
                   <div class="img-hover-zoom img-hover-zoom--colorize">
                     <img
-                      class="shadow"
+                      class="shadow img-fluid"
                       src="https://i.postimg.cc/rwZkrc6x/Reagon-1.jpg"
                       alt="Another Image zoom-on-hover effect"
                     />
@@ -40,16 +53,16 @@
                     <div>
                       <ul class="list-inline">
                         <li class="list-inline-item">
-                          <i class="fab fa-github"></i>
+                          <i class="fab fa-github text-white"></i>
                         </li>
                         <li class="list-inline-item">
-                          <i class="fab fa-linkedin-in text-primary"></i>
+                          <i class="fab fa-linkedin-in text-white"></i>
                         </li>
                         <li class="list-inline-item">
-                          <i class="fab fa-instagram text-danger"></i>
+                          <i class="fab fa-instagram text-white"></i>
                         </li>
                         <li class="list-inline-item">
-                          <i class="fab fa-twitter text-primary"></i>
+                          <i class="fab fa-twitter text-white"></i>
                         </li>
                       </ul>
                     </div>
@@ -62,7 +75,7 @@
                 <div class="text-center">
                   <div class="img-hover-zoom img-hover-zoom--colorize">
                     <img
-                      class="shadow"
+                      class="shadow img-fluid"
                       src="https://i.postimg.cc/y6GZB9md/LS2.jpg"
                       alt="Another Image zoom-on-hover effect"
                     />
@@ -84,16 +97,16 @@
                     <div>
                       <ul class="list-inline">
                         <li class="list-inline-item">
-                          <i class="fab fa-github"></i>
+                          <i class="fab fa-github text-white"></i>
                         </li>
                         <li class="list-inline-item">
-                          <i class="fab fa-linkedin-in text-primary"></i>
+                          <i class="fab fa-linkedin-in text-white"></i>
                         </li>
                         <li class="list-inline-item">
-                          <i class="fab fa-instagram text-danger"></i>
+                          <i class="fab fa-instagram text-white"></i>
                         </li>
                         <li class="list-inline-item">
-                          <i class="fab fa-twitter text-primary"></i>
+                          <i class="fab fa-twitter text-white"></i>
                         </li>
                       </ul>
                     </div>
@@ -118,12 +131,18 @@ export default {};
 }
 
 #main {
-  background-image: url(https://i.postimg.cc/Hj1L1Wvb/wp9306523-football-pc-4k-wallpapers.jpg);
+  background-image: linear-gradient(
+    to right,
+    #000046 0%,
+    #1cb5e0 51%,
+    #000046 100%
+  );
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   height: 100%;
   color: white;
+  overflow-x: hidden;
 }
 
 .marg {

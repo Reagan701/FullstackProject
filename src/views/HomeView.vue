@@ -1,35 +1,44 @@
 <template>
   <div id="main">
-    <div class="container">
-      <img id="logo" src="https://i.postimg.cc/XqG2mcZ2/Logo2-removebg-preview.png" alt="">
+    <div class="container-fluid">
+      <img class="img-fluid"
+        id="logo"
+        src="https://i.postimg.cc/XqG2mcZ2/Logo2-removebg-preview.png"
+        alt=""
+      />
     </div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import HelloWorld from "@/components/HelloWorld.vue";
 
 export default {
-  name: 'HomeView',
+  name: "HomeView",
   components: {
-    HelloWorld
-  }
-}
+    HelloWorld,
+  },
+};
 </script>
 
 <style scoped>
 #main {
-  /* background-image: url(https://i.postimg.cc/Hj1L1Wvb/wp9306523-football-pc-4k-wallpapers.jpg); */
+  background-image: linear-gradient(
+    to right,
+    #000046 0%,
+    #1cb5e0 51%,
+    #000046 100%
+  );
   background-size: cover;
-  background-position:center;
+  background-position: center;
   background-repeat: no-repeat;
-  height:100vh;
+  height: 100vh;
   color: white;
 }
 
-#logo{
-  padding:75px 0;
-  width:500px;
+#logo {
+  padding: 75px 0;
+  width: 500px;
 }
 </style>

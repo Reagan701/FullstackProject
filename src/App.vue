@@ -1,6 +1,6 @@
 <template>
-  <nav>
-    <a class="navbar-brand" href="#">
+  <nav class="">
+    <a class="navbar-brand" href="/about">
       <img src="https://i.postimg.cc/XqG2mcZ2/Logo2-removebg-preview.png" alt="" width="50" height="50">
     </a>
     <router-link to="/">HOME</router-link> |
@@ -17,10 +17,20 @@
     <div class="bi bi-bag" id="inline" v-if="user">
       <button class="btn btn-danger fa-solid fa-basket-shopping" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartCanvas" aria-controls="cartCanvas"></button>
     </div>
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="cartCanvas" aria-labelledby="cartCanvasLabel">
+    <div
+      class="offcanvas offcanvas-end"
+      tabindex="-1"
+      id="cartCanvas"
+      aria-labelledby="cartCanvasLabel"
+    >
       <div class="offcanvas-header">
         <h5 id="cartCanvasLabel">Cart</h5>
-        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        <button
+          type="button"
+          class="btn-close text-reset"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
       </div>
       <div class="offcanvas-body">
         <div class="row">
@@ -29,35 +39,45 @@
       </div>
     </div>
   </nav>
-  <router-view/>
+  <router-view />
+  <FooterAll />
 </template>
 
 <script>
-import CartCard from './components/CartCard.vue'
+import FooterAll from "./components/FooterAll.vue";
+import Cards from "./components/Cards.vue";
 export default {
-  components: {CartCard},
-  computed:{
-    user(){
+  components: { Cards, FooterAll },
+  computed: {
+    user() {
       return this.$store.state.user;
     },
-    cart(){
+    cart() {
       return this.$store.state.cart;
-    }
+    },
   },
 };
 </script>
 
 <style>
-
-.card {
-  border:none;
+#main {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100%;
+  color: white;
+  overflow-x: hidden;
 }
 
-#basket{
+.card {
+  border: none;
+}
+
+#basket {
   text-decoration: none;
 }
 
-#inline{
+#inline {
   display: inline-block;
 }
 
@@ -66,7 +86,12 @@ export default {
   font-size: 21px;
   text-align: center;
   color: red;
-  background: navy;
+  background-image: linear-gradient(
+    to right,
+    #000046 0%,
+    #1cb5e0 51%,
+    #000046 100%
+  );
 }
 
 .offcanvas{
@@ -80,14 +105,14 @@ nav {
 nav a {
   font-weight: bold;
   color: white;
-  text-decoration: none
+  text-decoration: none;
 }
 
 #main {
   background-size: cover;
-  background-position:center;
+  background-position: center;
   background-repeat: no-repeat;
-  min-height:100vh;
+  min-height: 100vh;
   color: white;
 }
 
