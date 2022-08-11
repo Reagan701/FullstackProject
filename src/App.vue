@@ -1,6 +1,6 @@
 <template>
-  <nav class="">
-    <a class="navbar-brand" href="/about">
+  <nav>
+    <a class="navbar-brand" href="#">
       <img src="https://i.postimg.cc/XqG2mcZ2/Logo2-removebg-preview.png" alt="" width="50" height="50">
     </a>
     <router-link to="/">HOME</router-link> |
@@ -48,14 +48,6 @@ export default {
 </script>
 
 <style>
-#main {
-  background-image: url(https://i.postimg.cc/Hj1L1Wvb/wp9306523-football-pc-4k-wallpapers.jpg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 100%;
-  color: white;
-}
 
 .card {
   border:none;
@@ -101,8 +93,5 @@ nav a {
 
 nav a.router-link-exact-active {
   color: red;
-}
-
-.navbar-brand{
 }
 </style>
