@@ -4,24 +4,38 @@
       <div class="row justify-content-center">
         <div id="loginzone" class="col-lg-4 col-md-6 col-sm-6">
           <h2 class="">Sign-in To Your Account</h2>
-          <div id="cardzone" class="card shadow  text-white">
+          <div id="cardzone" class="card shadow text-white">
             <div class="card-title text-center border-bottom">
-            <h2>Login</h2>
+              <h2>Login</h2>
             </div>
             <div class="card-body">
-            <form method="PATCH" @submit="loginUser">
-              <div class="mb-4">
-                <label for="email" class="form-label">Email</label>
-                <input type="text" required v-model="email" class="form-control" name="email" />
-              </div>
-              <div class="mb-4">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" required v-model="userPassword" class="form-control" name="password" />
-              </div>
-              <div class="d-grid">
-                <button type="submit" class="btn bg-danger text-white">Login</button>
-              </div>
-            </form>
+              <form method="PATCH" @submit="loginUser">
+                <div class="mb-4">
+                  <label for="email" class="form-label">Email</label>
+                  <input
+                    type="text"
+                    required
+                    v-model="email"
+                    class="form-control"
+                    name="email"
+                  />
+                </div>
+                <div class="mb-4">
+                  <label for="password" class="form-label">Password</label>
+                  <input
+                    type="password"
+                    required
+                    v-model="userPassword"
+                    class="form-control"
+                    name="password"
+                  />
+                </div>
+                <div class="d-grid">
+                  <button type="submit" class="btn bg-danger text-white">
+                    Login
+                  </button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
@@ -32,47 +46,54 @@
 
 <script>
 export default {
-  data(){
-    return{
-      email:null,
-      userPassword:null
-    }
+  data() {
+    return {
+      email: null,
+      userPassword: null,
+    };
   },
-  methods:{
-    loginUser(e){
+  methods: {
+    loginUser(e) {
       e.preventDefault();
       const user = {
         email: this.email,
-        userPassword: this.userPassword 
-      }
-      this.$store.dispatch('loginUser', user);
-    }
-  }
-}
+        userPassword: this.userPassword,
+      };
+      this.$store.dispatch("loginUser", user);
+    },
+  },
+};
 </script>
 
 <style scoped>
 #main {
-  background-image: linear-gradient(to right, #000046 0%, #1CB5E0  51%, #000046  100%);
+  background-image: linear-gradient(
+    to right,
+    #000046 0%,
+    #1cb5e0 51%,
+    #000046 100%
+  );
   background-size: cover;
-  background-position:center;
+  background-position: center;
   background-repeat: no-repeat;
-  height:100%;
+  height: 100%;
   color: white;
 }
 
-#loginzone{
+#loginzone {
   padding: 150px 0 250px 0;
 }
 
-#cardzone{
+#cardzone {
   padding: 40px 40px 40px 40px;
   border-radius: 20px;
   color: white;
-  background: transparent
+  background: transparent;
 }
 
-.card, .btn, input{
-  border-radius:0 ;
+.card,
+.btn,
+input {
+  border-radius: 0;
 }
 </style>

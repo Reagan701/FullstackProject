@@ -1,4 +1,4 @@
-<template lang="">
+<template>
   <footer class="footer-section">
     <div class="container">
       <div class="footer-cta pt-5 pb-5">
@@ -62,14 +62,14 @@
             </div>
           </div>
           <div class="col-xl-4 col-lg-4 col-md-6 mb-50">
-                          <div class="footer-social-icon">
-                <span>Follow us</span>
-                <a href="#"><i class="fab fa-facebook-f facebook-bg"></i></a>
-                <a href="#"><i class="fab fa-twitter twitter-bg"></i></a>
-                <a href="#"><i class="fab fa-google-plus-g google-bg"></i></a>
-              </div>
+            <div class="footer-social-icon">
+              <span>Follow us</span>
+              <a href="#"><i class="fab fa-facebook-f facebook-bg"></i></a>
+              <a href="#"><i class="fab fa-twitter twitter-bg"></i></a>
+              <a href="#"><i class="fab fa-google-plus-g google-bg"></i></a>
+            </div>
             <div class="footer-widget">
-                              <div class="footer-text">
+              <div class="footer-text">
                 <p>
                   Kit Army stocks the widest range of sporting clothing in South
                   Africa, sourced from major international and local brands. We
@@ -79,12 +79,12 @@
                   a call or visit one of our 69 stores countrywide.
                 </p>
               </div>
-            <div class="copyright-text">
-              <p>
-                Copyright &copy; 2022, All Right Reserved
-                <a href="#">KIT ARMY</a>
-              </p>
-            </div>
+              <div class="copyright-text">
+                <p>
+                  Copyright &copy; 2022, All Right Reserved
+                  <a href="#">KIT ARMY</a>
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -172,15 +172,15 @@ ul {
 }
 .facebook-bg {
   background: white;
-  color: red
+  color: red;
 }
 .twitter-bg {
   background: white;
-  color: red
+  color: red;
 }
 .google-bg {
   background: white;
-  color: red
+  color: red;
 }
 .footer-widget-heading h3 {
   color: white;

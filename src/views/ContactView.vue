@@ -2,7 +2,10 @@
   <div id="main">
     <div class="container">
       <div class="contact-form-wrapper d-flex justify-content-center">
-        <form action="https://formspree.io/f/mvoleqaw" class="contact-form card shadow">
+        <form
+          action="https://formspree.io/f/mvoleqaw"
+          class="contact-form card shadow"
+        >
           <h5 class="title">Contact us</h5>
           <p class="description">
             Feel free to contact us if you need any assistance, any help or
@@ -57,7 +60,12 @@ export default {};
   font-size: 21px;
 }
 #main {
-  background-image: linear-gradient(to right, #000046 0%, #1CB5E0  51%, #000046  100%);
+  background-image: linear-gradient(
+    to right,
+    #000046 0%,
+    #1cb5e0 51%,
+    #000046 100%
+  );
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

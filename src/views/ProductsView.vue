@@ -1,10 +1,14 @@
 <template>
   <div id="main">
-      <div class="container">
-    <div class="row">
-      <Cards v-for="product in products" :key="product.id" :product="product" />
+    <div class="container">
+      <div class="row">
+        <Cards
+          v-for="product in products"
+          :key="product.id"
+          :product="product"
+        />
+      </div>
     </div>
-  </div>
   </div>
 </template>
 
@@ -14,37 +18,44 @@ export default {
   components: {
     Cards,
   },
-  mounted(){
-    this.$store.dispatch('getProducts');
-    this.$store.dispatch('clearSingleProduct');
+  mounted() {
+    this.$store.dispatch("getProducts");
+    this.$store.dispatch("clearSingleProduct");
   },
-  computed:{
-    products(){
+  computed: {
+    products() {
       return this.$store.state.products;
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style scoped>
 #main {
-  background-image: linear-gradient(to right, #000046 0%, #1CB5E0  51%, #000046  100%);
+  background-image: linear-gradient(
+    to right,
+    #000046 0%,
+    #1cb5e0 51%,
+    #000046 100%
+  );
   background-size: cover;
-  background-position:center;
+  background-position: center;
   background-repeat: no-repeat;
-  height:100%;
+  height: 100%;
   color: white;
 }
 
-#registerzone{
+#registerzone {
   padding: 50px 0 0 0;
 }
 
-#cardzone{
+#cardzone {
   padding: 40px 50px 40px 50px;
 }
 
-.card, .btn, input{
-  border-radius:0 ;
+.card,
+.btn,
+input {
+  border-radius: 0;
 }
 </style>

@@ -118,7 +118,12 @@ export default {};
 }
 
 #main {
-  background-image: linear-gradient(to right, #000046 0%, #1CB5E0  51%, #000046  100%);
+  background-image: linear-gradient(
+    to right,
+    #000046 0%,
+    #1cb5e0 51%,
+    #000046 100%
+  );
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
