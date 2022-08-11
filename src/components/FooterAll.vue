@@ -37,7 +37,7 @@
           <div class="col-xl-4 col-lg-4 mb-50">
             <div class="footer-widget">
               <div class="footer-logo">
-                <a href="index.html"
+                <a href="/"
                   ><img
                     src="https://i.postimg.cc/XqG2mcZ2/Logo2-removebg-preview.png"
                     class="img-fluid"

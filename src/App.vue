@@ -75,6 +75,7 @@ export default {
   background-repeat: no-repeat;
   height: 100%;
   color: white;
+  overflow-x: hidden;
 }
 
 .card {

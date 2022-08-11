@@ -1,7 +1,7 @@
 <template>
   <div id="main">
-    <div class="container">
-      <img
+    <div class="container-fluid">
+      <img class="img-fluid"
         id="logo"
         src="https://i.postimg.cc/XqG2mcZ2/Logo2-removebg-preview.png"
         alt=""
