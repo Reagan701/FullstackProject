@@ -5,7 +5,7 @@
         <div class="container-fluid">
           <div class="row">
             <div>
-              <img
+              <img class="img-fluid"
                 id="logo"
                 src="https://i.postimg.cc/XqG2mcZ2/Logo2-removebg-preview.png"
                 alt=""
@@ -26,7 +26,8 @@ Sport is so much more than the time spent on the pitch, what touches the lives o
             </div>
           </div>
           <div class="row row-cols-2 row-cols-xs-2 row-cols-sm-2 row-cols-lg-2">
-            <div class="col">
+
+            <div class="col-12 col-md-6 col-lg-6 col-xm-12 col-sm-6">
               <div class="card h-100 card shadow">
                 <div class="text-center">
                   <div class="img-hover-zoom img-hover-zoom--colorize">
@@ -70,7 +71,8 @@ Sport is so much more than the time spent on the pitch, what touches the lives o
                 </div>
               </div>
             </div>
-            <div class="col">
+
+            <div class="col-12 col-md-6 col-lg-6 col-xm-12 col-sm-6">
               <div class="card h-100 card shadow">
                 <div class="text-center">
                   <div class="img-hover-zoom img-hover-zoom--colorize">
@@ -114,6 +116,7 @@ Sport is so much more than the time spent on the pitch, what touches the lives o
                 </div>
               </div>
             </div>
+            
           </div>
         </div>
       </div>
