@@ -9,12 +9,12 @@
           <div class="card">
             <img id="product-img" :src="product.prodUrl" alt="" style="width: 100%" />
             <div class="information-area">
-              <div class="info-top">
+              <div id="details" class="info-top">
                 <h1>{{ product.prodName }}</h1>
                 <p>{{ product.description }}</p>
-                <p>{{ product.price }}</p>
+                <p>R{{ product.price }}</p>
               </div>
-              <div id="addbutt" class="btn-area btn-danger">
+              <div class="btn-area btn-danger">
                 <a class="text-white" @click="addProductToCart">Add To Cart</a>
               </div>
             </div>
@@ -52,6 +52,7 @@ export default {
 
 <style scoped>
 a{text-decoration: none;}
+
 #main {
   background-image: linear-gradient(
     to right,
