@@ -24,16 +24,17 @@ export default {
 
 <style scoped>
 #main {
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
     to right,
     #000046 0%,
     #1cb5e0 51%,
     #000046 100%
-  );
+  ); */
+  background-image: url(../assets/landing.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 100vh;
+  height: 90vh;
   color: white;
 }
 

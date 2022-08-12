@@ -2,7 +2,7 @@
   <div id="main">
     <div class="container">
       <div class="row justify-content-center">
-        <div id="registerzone" class="col-lg-4 col-md-6 col-sm-6">
+        <div id="registerzone" class="col-lg-6 col-md-6 col-sm-6">
           <h2 class="">Register Your Account</h2>
           <div id="cardzone" class="card shadow text-white">
             <div class="card-title text-center text-white border-bottom">
@@ -10,7 +10,7 @@
             </div>
             <div class="card-body text-white">
               <form method="POST" @submit="registerUser">
-                <div class="mb-4">
+                <div class="mb-3">
                   <label for="firstName" class="form-label">First Name</label>
                   <input
                     v-model="firstName"
@@ -19,7 +19,7 @@
                     name="firstName"
                   />
                 </div>
-                <div class="mb-4">
+                <div class="mb-3">
                   <label for="lastName" class="form-label">Last Name</label>
                   <input
                     type="text"
@@ -28,7 +28,7 @@
                     name="lastName"
                   />
                 </div>
-                <div class="mb-4">
+                <div class="mb-1">
                   <label for="gender" class="form-label">Gender</label><br />
                   <label for="gender" class="form-label">Male</label>
                   <input
@@ -55,7 +55,7 @@
                     value="Other"
                   />
                 </div>
-                <div class="mb-4">
+                <div class="mb-3">
                   <label for="address" class="form-label">Address</label>
                   <input
                     v-model="address"
@@ -64,7 +64,7 @@
                     name="address"
                   />
                 </div>
-                <div class="mb-4">
+                <div class="mb-3">
                   <label for="phoneNumber" class="form-label"
                     >Phone Number</label
                   >
@@ -75,7 +75,7 @@
                     name="phoneNumber"
                   />
                 </div>
-                <div class="mb-4">
+                <div class="mb-3">
                   <label for="email" class="form-label">Email</label>
                   <input
                     type="email"
@@ -84,7 +84,7 @@
                     name="email"
                   />
                 </div>
-                <div class="mb-4">
+                <div class="mb-3">
                   <label for="password" class="form-label">Password</label>
                   <input
                     v-model="userPassword"
@@ -156,7 +156,7 @@ export default {
 }
 
 #registerzone {
-  padding: 50px 0 50px 0;
+  padding: 20px 0;
 }
 
 #cardzone {

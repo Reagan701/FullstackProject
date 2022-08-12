@@ -1,6 +1,6 @@
 <template>
   <div id="main" class="overlay">
-    <div class="margi py-5">
+    <div class="margi">
       <div class="container-fluid marge">
         <div class="container-fluid">
           <div class="row">
@@ -116,7 +116,6 @@ Sport is so much more than the time spent on the pitch, what touches the lives o
                 </div>
               </div>
             </div>
-            
           </div>
         </div>
       </div>

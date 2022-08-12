@@ -81,11 +81,11 @@ export default {
 }
 
 #loginzone {
-  padding: 150px 0 250px 0;
+  padding: 20px 0;
 }
 
 #cardzone {
-  padding: 40px 40px 40px 40px;
+  padding: 50px 50px;
   border-radius: 20px;
   color: white;
   background: transparent;

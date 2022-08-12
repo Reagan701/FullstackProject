@@ -73,4 +73,7 @@ export default {
 #live{
   text-decoration: none;
 }
+.details{
+  text-decoration:none;
+}
 </style>

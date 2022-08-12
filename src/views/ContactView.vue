@@ -74,7 +74,7 @@ export default {};
 }
 
 .contact-form-wrapper {
-  padding: 100px 0;
+  padding: 20px 0;
 }
 
 .contact-form {
