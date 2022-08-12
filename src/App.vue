@@ -44,7 +44,9 @@
         ></button>
       </div>
       <div class="offcanvas-body">
-        <Cards v-for="product in cart" :key="product.id" :product="product" />
+        <div class="row">
+          <CartCard v-for="product in cart" :key="product.id" :product="product" />
+        </div>
       </div>
     </div>
   </nav>
@@ -54,9 +56,9 @@
 
 <script>
 import FooterAll from "@/components/FooterAll.vue";
-import Cards from "./components/Cards.vue";
+import CartCard from "./components/CartCard.vue";
 export default {
-  components: { Cards, FooterAll },
+  components: { FooterAll, CartCard },
   computed: {
     user() {
       return this.$store.state.user;
@@ -76,6 +78,10 @@ export default {
   height: 100%;
   color: white;
   overflow-x: hidden;
+}
+
+.offcanvas{
+  width:600px !important;
 }
 
 .card {
