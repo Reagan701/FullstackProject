@@ -7,7 +7,7 @@
       <div class="row">
         <div id="item">
           <div class="card">
-            <img :src="product.prodUrl" alt="" style="width: 100%" />
+            <img id="product-img" :src="product.prodUrl" alt="" style="width: 100%" />
             <div class="information-area">
               <div class="info-top">
                 <h1>{{ product.prodName }}</h1>
@@ -72,7 +72,7 @@ export default {
   background-color: transparent;
   font-family: New Century Schoolbook, TeX Gyre Schola, serif;
   font-size: 21px;
-  padding: 0 0 0 0;
+  padding: 20px 20px 20px 20px;
 }
 
 #item {
