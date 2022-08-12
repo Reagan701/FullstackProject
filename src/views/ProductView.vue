@@ -14,7 +14,7 @@
                 <p>{{ product.description }}</p>
                 <p>{{ product.price }}</p>
               </div>
-              <div class="btn-area btn-danger">
+              <div id="addbutt" class="btn-area btn-danger">
                 <a class="text-white" @click="addProductToCart">Add To Cart</a>
               </div>
             </div>
@@ -51,6 +51,7 @@ export default {
 </script>
 
 <style scoped>
+a{text-decoration: none;}
 #main {
   background-image: linear-gradient(
     to right,
