@@ -21,7 +21,7 @@
     </div>
     <div class="bi bi-bag" id="inline" v-if="user">
       <button
-        class="btn btn-danger fa-solid fa-cart-shopping"
+        class="btn btn-grad btn-danger fa-solid fa-cart-shopping"
         type="button"
         data-bs-toggle="offcanvas"
         data-bs-target="#cartCanvas"
@@ -71,6 +71,31 @@ export default {
 </script>
 
 <style>
+.btn-grad {
+  background-image: linear-gradient(
+    to right,
+    #e52d27 0%,
+    #b31217 51%,
+    #e52d27 100%
+  );
+  margin: 10px;
+  padding: 10px 15px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  font-size: 12px;
+}
+
+.btn-grad:hover {
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+}
+
 #main {
   background-size: cover;
   background-position: center;

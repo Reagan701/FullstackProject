@@ -5,13 +5,20 @@
         <div class="card">
           <div class="layer"></div>
           <div class="content">
-            <img :src="product.prodUrl" alt="productImage" id="food-img" class="img-fluid image"/>
+            <img
+              :src="product.prodUrl"
+              alt="productImage"
+              id="food-img"
+              class="img-fluid image"
+            />
             <br />
             <div class="details">
               <span>{{ product.prodName }}</span>
               <br />
-              <router-link :to="{name:'singleProduct', params:{id:product.id}}">
-                <button class="btn btn-danger">View Product</button>
+              <router-link
+                :to="{ name: 'singleProduct', params: { id: product.id } }"
+              >
+                <button class="btn-grad">View Product</button>
               </router-link>
             </div>
           </div>
@@ -23,11 +30,40 @@
 
 <script scoped>
 export default {
-  props:["product"]
+  props: ["product"],
 };
 </script>
 
 <style scoped>
+a{
+  text-decoration: none
+}
+
+.btn-grad {
+  background-image: linear-gradient(
+    to right,
+    #e52d27 0%,
+    #b31217 51%,
+    #e52d27 100%
+  );
+  margin: 10px;
+  padding: 10px 15px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  font-size: 12px;
+}
+
+.btn-grad:hover {
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+}
+
 #food-img {
   object-fit: cover;
 }
@@ -37,9 +73,9 @@ export default {
   display: grid;
   grid-gap: 20px;
 }
-.details{
+.details {
   text-decoration: underline;
-  border:none;
+  border: none;
 }
 .card-content .card {
   position: relative;
@@ -70,10 +106,10 @@ export default {
   overflow: hidden;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
-#live{
+#live {
   text-decoration: none;
 }
-.details{
-  text-decoration:none;
+.details {
+  text-decoration: none;
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div v-if="product" id="main">
     <router-link to="/products"
-      ><button class="btn btn-danger">Go Back</button></router-link
+      ><button class="btn-grad btn">Go Back</button></router-link
     >
     <div class="container">
       <div class="row">
@@ -14,7 +14,7 @@
                 <p>{{ product.description }}</p>
                 <p>R{{ product.price }}</p>
               </div>
-              <div class="btn-area btn-danger">
+              <div class="btn-grad btn">
                 <a class="text-white" @click="addProductToCart">Add To Cart</a>
               </div>
             </div>
@@ -86,9 +86,28 @@ a{text-decoration: none;}
   font-size: 22px;
 }
 
-.btn-area {
-  text-decoration: none;
-  font-size: 30px;
+.btn-grad {
+  background-image: linear-gradient(
+    to right,
+    #e52d27 0%,
+    #b31217 51%,
+    #e52d27 100%
+  );
+  margin: 10px;
+  padding: 10px 15px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
   color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  font-size: 12px;
+}
+
+.btn-grad:hover {
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
 }
 </style>
