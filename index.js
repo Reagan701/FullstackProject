@@ -210,6 +210,25 @@ router.delete('/users/:id', (req,res) =>{
 
 })
 
+// Update User with specific id
+
+router.put('/users/:id', bodyParser.json(), async (req,res)=>{
+    db.getConnection(async (err,connected)=>{
+        if(err) throw err;
+        salt = await bcrypt.genSalt();
+        req.body.userPassword = await bcrypt.hash(req.body.userPassword,salt);
+        const query = `UPDATE users SET firstName = ?, lastName = ?, gender = ?, address = ?, phoneNumber = ?, email = ?, userPassword = ? WHERE id = ?`;
+        connected.query(query, [req.body.firstName, req.body.lastName, req.body.gender, req.body.address, req.body.phoneNumber, req.body.email, req.body.userPassword, req.params.id], (err,result) =>{
+            if(err) throw err;
+            res.json({
+                status: 200,
+                results: result
+            })
+        })
+        connected.release();
+    })
+})
+
 // --------------- CART ROUTES ------------------- //
 
 // GET cart from user with specific id
