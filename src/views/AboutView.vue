@@ -46,7 +46,7 @@ Sport is so much more than the time spent on the pitch, what touches the lives o
                     <h1>REAGAN CAROLUSSEN</h1>
                   </div>
                   <div class="mb-3">
-                    <h2 class="text-uppercase text text-center role">
+                    <h2 class="text-uppercase text-white text-center role">
                       BackEnd Developer
                     </h2>
                   </div>
@@ -91,7 +91,7 @@ Sport is so much more than the time spent on the pitch, what touches the lives o
                     <h1>MARSHALINO JANKOWSKI</h1>
                   </div>
                   <div class="mb-3">
-                    <h2 class="text-uppercase text text-center role">
+                    <h2 class="text-uppercase text-white text-center role">
                       Frontend developer
                     </h2>
                   </div>

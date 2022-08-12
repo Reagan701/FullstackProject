@@ -34,7 +34,7 @@ export default {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 90vh;
+  height: 100%;
   color: white;
 }
 

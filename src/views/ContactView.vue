@@ -42,7 +42,7 @@
             ></textarea>
           </div>
           <div class="submit-button-wrapper">
-            <input class="bg-danger text-white" type="submit" value="Send" />
+            <input class="btn-grad" type="submit" value="Send" />
           </div>
         </form>
       </div>
@@ -55,6 +55,31 @@ export default {};
 </script>
 
 <style scoped>
+.btn-grad {
+  background-image: linear-gradient(
+    to right,
+    #e52d27 0%,
+    #b31217 51%,
+    #e52d27 100%
+  );
+  margin: 10px;
+  padding: 10px 15px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  font-size: 12px;
+}
+
+.btn-grad:hover {
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+}
+
 * {
   font-family: League Gothic, sans-serif;
   font-size: 21px;
