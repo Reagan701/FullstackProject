@@ -1,7 +1,7 @@
 <template>
   <div class="modal fade" style="color:black !important;" :id="`editProduct`+product.id" tabindex="-1" :aria-labelledby="product.id+`EditLabel`" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">
+        <div class="modal-content text-white">
             <div class="modal-header">
                 <h5 class="modal-title" :id="`editProductLabel`+product.id">Modal Title</h5>
                 <button type="button" :id="`editProductClose`+product.id" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -53,6 +53,14 @@ export default {
 </script>
 
 <style scoped>
+.modal-content{
+    background-image: linear-gradient(
+    to right,
+    #000046 0%,
+    #1cb5e0 51%,
+    #000046 100%
+  );
+}
 .btn-grad {
   background-image: linear-gradient(
     to right,
