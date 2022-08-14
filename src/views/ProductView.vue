@@ -67,7 +67,7 @@ a{text-decoration: none;}
   color: white;
 }
 .card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 20px #eee;
   max-width: 320px;
   margin: auto;
   text-align: center;
