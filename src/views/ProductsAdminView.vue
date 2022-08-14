@@ -1,7 +1,8 @@
 <template>
   <div id="main" class="products container-fluid">
     <h1>All Products</h1>
-    <table class="table text-white">
+      <div style="overflow-x:auto">
+            <table class="table text-white">
       <thead>
         <tr>
           <th scope="col">ID</th>
@@ -11,7 +12,6 @@
           <th scope="col">Quantity</th>
           <th scope="col">Price</th>
           <th scope="col">
-            ADD
             <button
               data-bs-target="#AddProductModal"
               data-bs-toggle="modal"
@@ -51,6 +51,7 @@
         </tr>
       </tbody>
     </table>
+      </div>
     <AddProductModal />
   </div>
 </template>
@@ -97,5 +98,16 @@ export default {
   background-position: right center;
   color: #fff;
   text-decoration: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid white;
+}
+
+th, td {
+  text-align: center;
+  padding: 8px;
 }
 </style>
