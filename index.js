@@ -142,7 +142,8 @@ router.patch('/users', bodyParser.json(), (req,res) =>{
                                 cart: results[0].cart,
                                 phoneNumber: results[0].phoneNumber,
                                 email: results[0].email,
-                                userPassword: results[0].userPassword
+                                userPassword: results[0].userPassword,
+                                userRole: results[0].userRole
                             }
                         }
                         jwt.sign(payload,process.env.secretKey, (err,token)=>{
@@ -248,7 +249,7 @@ router.get('/users/:id/cart', (req,res) => {
                 }else{
                     res.json({
                         status:200,
-                        results: JSON.parse(results[0].cart)
+                        cart: JSON.parse(results[0].cart)
                     })
                 }
             }else{
