@@ -1,22 +1,25 @@
 <template>
-  <div id="main">
-    <div class="container">
-      <div class="row">
-        <Cards
-          v-for="product in products"
-          :key="product.id"
-          :product="product"
-        />
-      </div>
+  <div id="main" v-if="products" class="container d-flex justify-content-center align-items-center flex-column">
+    <div class="row">
+      <Cards
+        v-for="product in products"
+        :key="product.id"
+        :product="product"
+      />
     </div>
+  </div>
+  <div v-else id="main" class="d-flex justify-content-center align-items-center flex-column">
+    <Loader />
   </div>
 </template>
 
 <script>
 import Cards from "../components/Cards.vue";
+import Loader from '../components/Loader.vue';
+
 export default {
   components: {
-    Cards,
+    Cards, Loader
   },
   mounted() {
     this.$store.dispatch("getProducts");
@@ -32,17 +35,12 @@ export default {
 
 <style scoped>
 #main {
-  background-image: linear-gradient(
-    to right,
-    #000046 0%,
-    #1cb5e0 51%,
-    #000046 100%
-  );
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   height: 100%;
   color: white;
+  padding-top:100px;
 }
 
 #registerzone {

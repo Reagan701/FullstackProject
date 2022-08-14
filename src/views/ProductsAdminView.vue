@@ -1,5 +1,5 @@
 <template>
-  <div id="main" class="products container-fluid">
+  <div id="main" class="products container">
     <h1>All Products</h1>
     <table class="table table-dark table-hover">
       <thead>
@@ -24,7 +24,7 @@
       </thead>
       <tbody>
         <tr v-for="product in allProducts" :key="product.id">
-          <th scope="row">{{ product.id }}</th>
+          <th scope="row" class="p-2">{{ product.id }}</th>
           <th scope="row">{{ product.prodName }}</th>
           <th scope="row">{{ product.prodUrl }}</th>
           <th scope="row">{{ product.description }}</th>
@@ -73,4 +73,7 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+
+
+</style>

@@ -24,12 +24,16 @@
           <th scope="row">{{ user.lastName }}</th>
           <th scope="row">{{ user.gender }}</th>
           <th scope="row">{{ user.address }}</th>
-          <th scope="row">{{ user.cart }}</th>
+          <th scope="row">
+            <button v-if="user.cart" data-bs-toggle="modal" :data-bs-target="`#userCart`+user.id" class="btn btn-primary">Button</button>
+            <p v-else>Empty</p>
+          </th>
           <th scope="row">{{ user.phoneNumber }}</th>
           <th scope="row">{{ user.dateCreated }}</th>
           <th scope="row">{{ user.email }}</th>
           <th scope="row">{{ user.userPassword }}</th>
           <th scope="row">{{ user.userRole }}</th>
+          <UserCartModal v-if="user.cart" :user="user" :cart="JSON.parse(user.cart)"/>
         </tr>
       </tbody>
     </table>
@@ -37,7 +41,11 @@
 </template>
 
 <script>
+import UserCartModal from '../components/UserCartModal.vue';
 export default {
+  components:{
+    UserCartModal
+  },
   mounted() {
     this.$store.dispatch("getAllUsers");
   },

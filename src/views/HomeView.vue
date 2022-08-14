@@ -1,6 +1,6 @@
 <template>
   <div id="main">
-    <div class="container-fluid">
+    <div style="min-height:100vh" class="container d-flex justify-content-center align-items-center flex-column">
       <img class="img-fluid"
         id="logo"
         src="https://i.postimg.cc/XqG2mcZ2/Logo2-removebg-preview.png"
@@ -24,16 +24,11 @@ export default {
 
 <style scoped>
 #main {
-  background-image: linear-gradient(
-    to right,
-    #000046 0%,
-    #1cb5e0 51%,
-    #000046 100%
-  );
+  background-image: url(../assets/landing.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 100vh;
+  height: 100%;
   color: white;
 }
 

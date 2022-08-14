@@ -1,11 +1,12 @@
 <template>
   <div id="main" class="overlay">
-    <div class="margi py-5">
-      <div class="container-fluid marge">
-        <div class="container-fluid">
+    <div class="margi">
+      <div class="marge">
+        <div class="container">
           <div class="row">
-            <div>
-              <img
+            <div class="col-md-12 shadow shadow-lg p-5">
+              <h2>About Us</h2>
+              <img class="img-fluid"
                 id="logo"
                 src="https://i.postimg.cc/XqG2mcZ2/Logo2-removebg-preview.png"
                 alt=""
@@ -15,20 +16,19 @@ South Africa's leading teamwear sports store where we have complete focus on spo
 
 At KitArmy we are passionate about our industry and establishing close relationships with our client base. Direct and clear communication is critical and there is never a situation where you will speak to ten different people.
 
-We sell only the highest quality custom kits and soccer merchandise . Kit Army is a vibrant and energetic company with like minded ideals and goals with a passion for all sports.
+<!-- We sell only the highest quality custom kits and soccer merchandise . Kit Army is a vibrant and energetic company with like minded ideals and goals with a passion for all sports.
 
 We do not sell rejects or seconds. In short, we have the finest quality soccer merchandise to order. 
 
 We ship anywhere in the country within a reasonable timeframe usually 24-48 hours depending on the location and delivery option selected by you. We understand and value the need for products in the shortest period of time and therefore we will undertake to ensure your order is dealt with promptly and urgently.
 
-Sport is so much more than the time spent on the pitch, what touches the lives of sports men, women and children of our communities is the many hours preparing and discussing the sport which we all know by playing sport. In you supporting Kit Army we in turn support our communities by donating soccer balls and accessories that bring smiles to those that need hope.
+Sport is so much more than the time spent on the pitch, what touches the lives of sports men, women and children of our communities is the many hours preparing and discussing the sport which we all know by playing sport. In you supporting Kit Army we in turn support our communities by donating soccer balls and accessories that bring smiles to those that need hope. -->
               </p>
             </div>
           </div>
-          <div class="row row-cols-2 row-cols-xs-2 row-cols-sm-2 row-cols-lg-2">
-            <div class="col">
-              <div class="card h-100 card shadow">
-                <div class="text-center">
+          <div id="aboutBackground" class="shadow shadow-lg row row-cols-2 row-cols-xs-2 row-cols-sm-2 row-cols-lg-2">
+            <div class="col-12 col-md-6 col-lg-6 col-xm-12 col-sm-6 p-0">
+              <div class="text-center">
                   <div class="img-hover-zoom img-hover-zoom--colorize">
                     <img
                       class="shadow img-fluid"
@@ -45,9 +45,9 @@ Sport is so much more than the time spent on the pitch, what touches the lives o
                     <h1>REAGAN CAROLUSSEN</h1>
                   </div>
                   <div class="mb-3">
-                    <h2 class="text-uppercase text-white text-center role">
+                    <h5 class="text-uppercase text-center role">
                       BackEnd Developer
-                    </h2>
+                    </h5>
                   </div>
                   <div class="box">
                     <div>
@@ -68,10 +68,10 @@ Sport is so much more than the time spent on the pitch, what touches the lives o
                     </div>
                   </div>
                 </div>
-              </div>
             </div>
-            <div class="col">
-              <div class="card h-100 card shadow">
+
+            <div class="col-12 col-md-6 col-lg-6 col-xm-12 col-sm-6">
+              <div class="">
                 <div class="text-center">
                   <div class="img-hover-zoom img-hover-zoom--colorize">
                     <img
@@ -89,9 +89,9 @@ Sport is so much more than the time spent on the pitch, what touches the lives o
                     <h1>MARSHALINO JANKOWSKI</h1>
                   </div>
                   <div class="mb-3">
-                    <h2 class="text-uppercase text-white text-center role">
+                    <h5 class="text-uppercase text-center role">
                       Frontend developer
-                    </h2>
+                    </h5>
                   </div>
                   <div class="box">
                     <div>
@@ -130,19 +130,29 @@ export default {};
   width: 200px;
 }
 
+.list-inline-item:not(:last-child){
+  margin-right:1rem;
+}
+
+#aboutBackground{
+  border: 1px solid red;
+  border-radius: 10px;
+}
+
+.shadow{
+  border:1px solid red;
+  border-radius: 10px;
+  margin-bottom:10px;
+}
+
 #main {
-  background-image: linear-gradient(
-    to right,
-    #000046 0%,
-    #1cb5e0 51%,
-    #000046 100%
-  );
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   height: 100%;
   color: white;
   overflow-x: hidden;
+  padding-top:100px
 }
 
 .marg {
@@ -169,15 +179,15 @@ h1 {
   border-radius: 1rem;
 }
 .img-hover-zoom--colorize img {
-  border-radius: 10%;
+  border-radius: 10px;
   width: 150px;
   height: auto;
   margin-top: 20px;
   padding: 1px;
-  transition: transform 0.5s;
+  transition: all 0.5s;
   filter: grayscale(100%);
 }
-.img-hover-zoom--colorize:hover img {
+.img-hover-zoom--colorize img:hover {
   filter: grayscale(0);
   transform: scale(1.05);
 }
@@ -192,7 +202,7 @@ h1 {
   text-decoration: none;
 }
 .role {
-  color: #7a7a7a;
+  color: red;
 }
 .box {
   display: flex;
@@ -202,11 +212,11 @@ h1 {
 .fab {
   font-size: 1.5rem;
   color: black;
-  transition: transform 0.5s;
+  transition: transform 0.5s linear;
 }
 .fab:hover {
   color: black;
-  transform: scale(1.1);
+  transform: scale(1.3);
 }
 .card h2 {
   font-size: 1rem;

@@ -1,33 +1,38 @@
 <template>
-  <div v-if="product" id="main">
-    <router-link to="/products"
-      ><button class="btn btn-danger">Go Back</button></router-link
+  <div v-if="product" id="main" class="container d-flex justify-content-center align-items-center flex-column" style="min-height:100vh">
+    <router-link class="mb-4" to="/products"
+      ><button class="btn-grad btn">Go Back</button></router-link
     >
-    <div class="container">
       <div class="row">
-        <div id="item">
-          <div class="card">
-            <img :src="product.prodUrl" alt="" style="width: 100%" />
-            <div class="information-area">
-              <div class="info-top">
+        <div class="col-md-6">
+            <img class="w-100 h-100" :src="product.prodUrl" alt="productImg" />
+        </div>
+        <div class="col-md-6">
+          <div class="card h-100">
+            <div class="h-100 d-flex justify-content-evenly gap-5 align-items-start flex-column p-5">
+              <div id="details" class="info-top">
                 <h1>{{ product.prodName }}</h1>
-                <p>{{ product.description }}</p>
-                <p>{{ product.price }}</p>
               </div>
-              <div class="btn-area btn-danger">
-                <a class="text-white" @click="addProductToCart">Add To Cart</a>
+                <p style="text-align:start;">{{ product.description }}</p>
+              <div style="align-self:end">
+                  <p id="priceText">R{{ product.price }}</p>
+                <div class="btn-grad btn">
+                  <a class="text-white" @click="addProductToCart">Add To Cart</a>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
   </div>
-  <div v-else id="main">loading...</div>
+  <div v-else id="main" class="container d-flex justify-content-center align-items-center flex-column"><Loader /></div>
 </template>
 
 <script>
+import Loader from '../components/Loader.vue';
+
 export default {
+  components: {Loader},
   computed: {
     product() {
       return this.$store.state.singleProduct;
@@ -51,32 +56,39 @@ export default {
 </script>
 
 <style scoped>
+a{text-decoration: none;}
+
+#priceText{
+  text-align: end;
+  font-size: 27px !important;
+  font-weight: 500;
+}
+
 #main {
-  background-image: linear-gradient(
-    to right,
-    #000046 0%,
-    #1cb5e0 51%,
-    #000046 100%
-  );
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   height: 100%;
   color: white;
+  /* padding-top:100px; */
 }
 .card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 320px;
+  box-shadow: -20px 0px 20px 0 rgba(0, 0, 0, 0.2);
+  max-width: 100%;
+  height: 100%;
   margin: auto;
-  text-align: center;
   background-color: transparent;
-  font-family: New Century Schoolbook, TeX Gyre Schola, serif;
+  /* font-family: New Century Schoolbook, TeX Gyre Schola, serif; */
   font-size: 21px;
-  padding: 0 0 0 0;
+  padding: 20px 20px 20px 20px;
+  color:white;
+  border:1px solid red;
+  border-radius: 10px;
 }
 
-#item {
-  padding: 25px;
+img{
+  border: 2px solid red;
+  border-radius: 10px;
 }
 
 .price {
@@ -84,9 +96,28 @@ export default {
   font-size: 22px;
 }
 
-.btn-area {
-  text-decoration: none;
-  font-size: 30px;
+.btn-grad {
+  background-image: linear-gradient(
+    to right,
+    #e52d27 0%,
+    #b31217 51%,
+    #e52d27 100%
+  );
+  margin: 0 !important;
+  padding: 10px 15px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
   color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  font-size: 19px;
+}
+
+.btn-grad:hover {
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
 }
 </style>

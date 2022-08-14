@@ -1,12 +1,18 @@
 import { createStore } from 'vuex'
+import { toRaw } from 'vue';
 
 export default createStore({
     state: {
         products: null,
         singleProduct: null,
+        currentUser: null,
         allUsers: null,
-        user:null,
-        cart: null
+        loginError: null,
+        registerComplete:null,
+        registerError: null,
+        user: null,
+        cart: null,
+        cartTotal: null
     },
     getters: {
         
@@ -21,6 +27,18 @@ export default createStore({
         setUser (state, user){
             state.user = user;
         },
+        setCurrentUser (state, info){
+            state.currentUser = info;
+        },
+        setLoginError(state,error){
+            state.loginError = error;
+        },
+        setRegisterError(state,error){
+            state.registerError = error;
+        },
+        setRegisterComplete(state){
+            state.registerComplete = "Successfully Registered";
+        },
         setAllUsers(state,users){
             state.allUsers = users;
         },
@@ -29,6 +47,9 @@ export default createStore({
         },
         setCart(state,cart){
             state.cart= cart;
+        },
+        setCartTotal(state,total){
+            state.cartTotal = total;
         }
     },
     actions: {
@@ -51,9 +72,16 @@ export default createStore({
                 }
             })
             .then((res) => res.json())
-            .then((data) => console.log(data.results))
+            .then((data) => {
+                if(data.results){
+                    context.commit('setRegisterComplete')
+                    context.dispatch('loginUser',payload)
+                }else{
+                    context.commit('setRegisterError',data.result);
+                }
+            })
         },
-        async loginUser(context,payload){
+        loginUser(context,payload){
             fetch('https://fullstackapi-2.herokuapp.com/users', {
                 method:'PATCH',
                 body: JSON.stringify(payload),
@@ -62,9 +90,16 @@ export default createStore({
                 }
             })
             .then((res) => res.json())
-            .then((data) => {context.commit('setUser',data.token); context.dispatch('getCart')});
+            .then((data) => {
+                if(data.token){
+                    context.commit('setUser',data.token);
+                    context.dispatch('getUserInfo');
+                }else{
+                    context.commit('setLoginError', data.results)
+                }
+            });
         },
-        async getUserInfo(context){
+        getUserInfo(context){
             fetch('https://fullstackapi-2.herokuapp.com/verify', {
                 method: 'GET',
                 headers:{
@@ -73,9 +108,23 @@ export default createStore({
                 }
             })
             .then((res)=> res.json())
-            .then((data)=> console.log(data.token.user))
+            .then((data)=> {
+                context.commit('setCurrentUser',data.token.user)
+                context.dispatch('getCart')
+            })
         },
-        async getAllUsers(context){
+        updateUser(context,payload){
+            fetch('https://fullstackapi-2.herokuapp.com/users/'+payload.id, {
+                method: 'PUT',
+                body: JSON.stringify(payload),
+                headers:{
+                    'Content-type' : 'application/json; charset=UTF-8'
+                }
+            })
+            .then((res)=> res.json())
+            .then((data)=> console.log(data));
+        },
+        getAllUsers(context){
             fetch('https://fullstackapi-2.herokuapp.com/users')
             .then((res)=> res.json())
             .then((data)=> context.commit('setAllUsers',data.results));
@@ -131,37 +180,35 @@ export default createStore({
             )
         },
         getCart(context){
-            fetch('https://fullstackapi-2.herokuapp.com/verify', {
-                method: 'GET',
-                headers:{
-                    'Content-type': 'application/json; charset=UTF-8',
-                    'x-auth-token': context.state.user
-                }
-            })
-            .then((res)=> res.json())
-            .then((data)=>
-            fetch('https://fullstackapi-2.herokuapp.com/users/'+data.token.user.id+'/cart')
+            fetch('https://fullstackapi-2.herokuapp.com/users/'+context.state.currentUser.id+'/cart')
             .then((res)=>res.json())
-            .then((data)=> context.commit('setCart',data.results))
-            )
+            .then((data)=> {
+                if(data.cart){
+                    context.commit('setCart',data.cart);
+                }else{
+                    context.commit('setCart',[]);
+                }
+                context.dispatch('getCartTotal');
+            })
         },
         removeFromCart(context,payload){
-            fetch('https://fullstackapi-2.herokuapp.com/verify', {
-                method: 'GET',
-                headers:{
-                    'Content-type': 'application/jspn; charset=UTF-8',
-                    'x-auth-token': context.state.user
-                }
-            })
-            .then((res)=> res.json())
-            .then((data)=> fetch('https://fullstackapi-2.herokuapp.com/users/'+data.token.user.id+'/cart/'+payload, {
+            fetch('https://fullstackapi-2.herokuapp.com/users/'+context.state.currentUser.id+'/cart/'+payload, {
                 method: 'DELETE',
                 headers:{
                     'Content-type': 'application/json; charset=UTF-8'
                 }
-            }))
+            })
             .then((res)=>res.json())
             .then(()=> context.dispatch('getCart'))
+        },
+        getCartTotal(context){
+            let cart = toRaw(context.state.cart);
+            if(typeof(cart) != 'object') return;
+            let total = 0;
+            cart.forEach(e => {
+                total += e.price;
+            });
+            context.commit('setCartTotal',total);
         },
         clearSingleProduct(context){
             context.commit('clearSingleProduct')
