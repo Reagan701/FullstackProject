@@ -1,6 +1,7 @@
 <template>
   <div id="main" class="admin">
     <div class="container justify-content-center">
+    <h2>WELCOME ADMINS</h2>
       <img class="img-fluid"
         id="logo"
         src="https://i.postimg.cc/XqG2mcZ2/Logo2-removebg-preview.png"
