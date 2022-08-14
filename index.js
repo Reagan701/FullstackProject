@@ -55,7 +55,7 @@ router.get('/users', (req,res)=>{
                 })
             }
         })
-        // connected.release();
+        connected.release();
     })
 })
 
