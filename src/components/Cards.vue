@@ -87,7 +87,7 @@ a{
   padding: 20px;
   box-sizing: border-box;
   text-align: center;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 20px #eee;
   overflow: hidden;
 }
 .card-content .card .content {

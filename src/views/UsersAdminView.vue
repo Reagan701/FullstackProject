@@ -1,7 +1,8 @@
 <template>
   <div id="main" class="users container-fluid">
     <h1>All Users</h1>
-    <table class="table table-dark table-hover">
+    <div style="overflow-x:auto">
+      <table class="table text-white">
       <thead>
         <tr>
           <th scope="col">ID</th>
@@ -33,6 +34,7 @@
         </tr>
       </tbody>
     </table>
+    </div>
   </div>
 </template>
 
@@ -49,4 +51,16 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid white;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+</style>
