@@ -53,16 +53,14 @@ Sport is so much more than the time spent on the pitch, what touches the lives o
                     <div>
                       <ul class="list-inline">
                         <li class="list-inline-item">
-                          <i class="fab fa-github text-white"></i>
+                          <a href="https://github.com/Reagan701" target="_blank">
+                            <i class="fab fa-github text-white"></i>
+                          </a>
                         </li>
                         <li class="list-inline-item">
-                          <i class="fab fa-linkedin-in text-white"></i>
-                        </li>
-                        <li class="list-inline-item">
-                          <i class="fab fa-instagram text-white"></i>
-                        </li>
-                        <li class="list-inline-item">
-                          <i class="fab fa-twitter text-white"></i>
+                          <a href="https://www.linkedin.com/in/reagan-carolussen-03054823a/" target="_blank">
+                            <i class="fab fa-linkedin-in text-white"></i>
+                          </a>
                         </li>
                       </ul>
                     </div>
@@ -97,16 +95,24 @@ Sport is so much more than the time spent on the pitch, what touches the lives o
                     <div>
                       <ul class="list-inline">
                         <li class="list-inline-item">
-                          <i class="fab fa-github text-white"></i>
+                          <a href="https://github.com/Tempestfury11" target="_blank">
+                            <i class="fab fa-github text-white"></i>
+                          </a>
                         </li>
                         <li class="list-inline-item">
-                          <i class="fab fa-linkedin-in text-white"></i>
+                          <a href="https://www.linkedin.com/in/marshalino-jankowski-385861247/" target="_blank">
+                            <i class="fab fa-linkedin-in text-white"></i>
+                          </a>
                         </li>
                         <li class="list-inline-item">
-                          <i class="fab fa-instagram text-white"></i>
+                          <a href="https://www.instagram.com/marshalino_jankowski/" target="_blank">
+                            <i class="fab fa-instagram text-white"></i>
+                          </a>
                         </li>
                         <li class="list-inline-item">
-                          <i class="fab fa-twitter text-white"></i>
+                          <a href="https://twitter.com/TempestFury_11" target="_blank">
+                            <i class="fab fa-twitter text-white"></i>
+                          </a>
                         </li>
                       </ul>
                     </div>
@@ -141,6 +147,7 @@ export default {};
 .shadow{
   border-radius: 10px;
   margin-bottom:10px;
+  box-shadow: 0 0 20px white !important;
 }
 
 #main {

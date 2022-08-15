@@ -22,7 +22,13 @@
               <div>
                 <div v-if="clicked && !currentUser">
                   <div v-if="!user && !loginError" class="w-100 d-flex mx-auto justify-content-center align-items-center gap-1">
-                    <p class="m-0" >Checking... </p>
+                    <p class="m-0"> Checking... </p>
+                    <div style="margin-top:1px; padding-left:5px;">
+                      <Loader :small="true" />
+                    </div>
+                  </div>
+                  <div v-else class="w-100 d-flex mx-auto justify-content-center align-items-center gap-1">
+                    <p class="m-0"> Verifying... </p>
                     <div style="margin-top:1px; padding-left:5px;">
                       <Loader :small="true" />
                     </div>
@@ -42,7 +48,7 @@
           </div>
         </div>
       </div>
-      <div v-else>
+      <div v-else class="d-flex justify-content-center align-items-center flex-column gap-3">
         <h1>Welcome Back, {{currentUser.firstName}} {{currentUser.lastName}}</h1>
         <router-link to="/products">
           <button class="btn btn-grad"> View our Products</button>

@@ -18,7 +18,7 @@
                   <label for="email" class="form-label">Email</label>
                   <input class="form-control" name="email"/>
                 </div>
-                <div class="col-lg-12">
+                <div class="col-lg-12 mt-3">
                   <label for="text" class="form-label">Message</label>
                   <input id="leave" type="text" required class="form-control" name="text"/>
                 </div>

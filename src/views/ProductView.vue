@@ -83,7 +83,7 @@ a{text-decoration: none;}
   padding: 20px 20px 20px 20px;
   color:white;
   border-radius: 10px;
-    box-shadow: 0 0 20px white;
+  box-shadow: 0 0 20px white;
 }
 
 img{

@@ -40,7 +40,7 @@
                       v-model="gender"
                       type="radio"
                       name="gender"
-                      class="form-check-input"
+                      class="mx-3 form-check-input"
                       value="Male"
                     />
                     <label for="gender" class="form-label">Female</label>
@@ -48,7 +48,7 @@
                       v-model="gender"
                       type="radio"
                       name="gender"
-                      class="form-check-input"
+                      class="mx-3 form-check-input"
                       value="Female"
                     />
                   </div>

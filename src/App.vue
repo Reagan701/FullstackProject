@@ -60,6 +60,10 @@ export default {
 </script>
 
 <style>
+
+input{
+  padding: 0.375rem 0.75rem;
+}
 .btn-grad {
   background-image: linear-gradient(
     to right,
