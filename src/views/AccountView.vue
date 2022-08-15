@@ -1,8 +1,9 @@
 <template>
   <div id="main" v-if="currentUser" class="account container d-flex justify-content-center align-items-center flex-column">
+  <h2 class="pb-5">MANAGE YOUR ACCOUNT</h2>
     <!-- <div v-if="currentUser" class="h-100 w-100"> -->
       <!-- <div> -->
-        <div class="row w-100">
+        <div id="UserCard" class="row w-100">
           <div class="col-md-6 d-flex justify-content-center align-items-center flex-column">
             <i id="userIcon" class="fa-solid fa-circle-user"></i>
           </div>
@@ -192,5 +193,10 @@ export default {
 <style scoped>
 #userIcon {
   font-size: 12rem;
+}
+
+#UserCard{
+  box-shadow: 0 0 20px #eee;
+  padding: 50px; 
 }
 </style>

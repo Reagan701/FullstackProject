@@ -2,7 +2,7 @@
   <div class="container d-flex flex-column justify-content-center align-items-center" id="main">
     <div class="w-100 row justify-content-center">
       <div id="loginzone" v-if="!currentUser" class="col-lg-6 col-md-12 col-sm-12">
-        <h1 class="pb-5">Sign-in To Your Account</h1>
+        <h1 class="pb-5">SIGN IN TO YOUR ACCOUNT</h1>
         <div id="cardzone" class="card text-white">
           <div class="card-title text-center border-bottom">
             <h2>Login</h2>
