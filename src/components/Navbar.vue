@@ -86,6 +86,14 @@ export default {
 </script>
 
 <style scoped>
+.offcanvas {
+    background-image: linear-gradient(
+    to right,
+    #000040,
+    #00004e
+  );
+  color: white;
+}
 
 #nav{
   transition: all 0.2s linear;

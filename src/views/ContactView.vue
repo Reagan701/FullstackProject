@@ -2,7 +2,7 @@
   <div class="container d-flex flex-column justify-content-center align-items-center" id="main">
     <div class="w-100 row justify-content-center">
       <div id="contactzone" class="col-lg-6 col-md-12 col-sm-12">
-        <h1 class="pb-5">Contact Us</h1>
+        <h1 class="pb-5">CONTACT US</h1>
         <div id="cardzone" class="card text-white">
           <div class="card-title text-center border-bottom">
             <h2>Feel free to contact us if you need any assistance</h2>
@@ -79,7 +79,7 @@
 }
 
 #cardzone {
-  padding: 50px 50px;
+  padding: 50px;
   border-radius: 10px;
   box-shadow: 0 0 20px white;
   color: white;

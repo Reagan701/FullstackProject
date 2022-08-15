@@ -1,6 +1,6 @@
 <template>
   <div id="main" class="products container">
-    <h1>All Products</h1>
+    <h1>ALL PRODUCTS</h1>
       <div style="overflow-x:auto">
               <table class="table text-white">
       <thead>

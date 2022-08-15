@@ -2,7 +2,7 @@
   <div id="main" class="container d-flex justify-content-center align-items-center flex-column">
     <div class="w-100 row justify-content-center">
       <div id="registerzone" v-if="!user" class="col-lg-6 col-md-6 col-sm-6">
-        <h1 class="pb-4">Register Your Account</h1>
+        <h1 class="pb-4">REGISTER YOUR ACCOUNT</h1>
         <div id="cardzone" class="card text-white">
           <div class="card-title text-center text-white">
           </div>

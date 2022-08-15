@@ -32,7 +32,7 @@
           </div>
         </div>
       </div>
-      <div class="footer-content pt-5 pb-5">
+      <div class="footer-content pt-4 pb-5">
         <div class="row">
           <div class="col-xl-4 col-lg-4 mb-50">
             <div class="footer-widget">
@@ -57,14 +57,19 @@
                 <li><a href="/about">Our Services</a></li>
                 <li><a href="/contact">Contact us</a></li>
               </ul>
+                <p>
+                  Copyright &copy; 2022, All Right Reserved
+                  <br>
+                  <a class="text-white">KIT ARMY</a>
+                </p>
             </div>
           </div>
           <div class="col-xl-4 col-lg-4 col-md-6 mb-50">
             <div class="footer-social-icon">
-              <span>Follow us</span>
-              <a href="#"><i class="fab fa-facebook-f facebook-bg"></i></a>
+              <span>KitArmy</span>
+              <!-- <a href="#"><i class="fab fa-facebook-f facebook-bg"></i></a>
               <a href="#"><i class="fab fa-twitter twitter-bg"></i></a>
-              <a href="#"><i class="fab fa-google-plus-g google-bg"></i></a>
+              <a href="#"><i class="fab fa-google-plus-g google-bg"></i></a> -->
             </div>
             <div class="footer-widget">
               <div class="footer-text">
@@ -77,12 +82,12 @@
                   a call or visit one of our 69 stores countrywide.
                 </p>
               </div>
-              <div class="copyright-text">
+              <!-- <div class="copyright-text">
                 <p>
                   Copyright &copy; 2022, All Right Reserved
                   <a href="#">KIT ARMY</a>
                 </p>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
@@ -90,10 +95,15 @@
     </div>
   </footer>
 </template>
+
 <script>
 export default {};
 </script>
+
 <style>
+a{
+  text-decoration: none;
+}
 ul {
   margin: 0px;
   padding: 0px;

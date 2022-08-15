@@ -1,6 +1,6 @@
 <template>
   <div id="main" class="users container">
-    <h1>All Users</h1>
+    <h1>ALL USERS</h1>
     <div style="overflow-x:auto">
           <table class="table text-white">
       <thead>

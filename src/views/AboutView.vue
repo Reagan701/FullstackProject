@@ -5,7 +5,7 @@
         <div class="container">
           <div class="row">
             <div class="col-md-12 shadow shadow-lg p-5">
-              <h2>About Us</h2>
+              <h2>ABOUT US</h2>
               <img class="img-fluid"
                 id="logo"
                 src="https://i.postimg.cc/XqG2mcZ2/Logo2-removebg-preview.png"
