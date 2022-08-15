@@ -20,7 +20,21 @@
                 </div>
               </div>
               <div>
-                <button type="submit" class="w-100 mx-auto btn btn-grad">
+                <div v-if="clicked && !currentUser">
+                  <div v-if="!user && !loginError" class="w-100 d-flex mx-auto justify-content-center align-items-center gap-1">
+                    <p class="m-0" >Checking... </p>
+                    <div style="margin-top:1px; padding-left:5px;">
+                      <Loader :small="true" />
+                    </div>
+                  </div>
+                  <div v-if="loginError">
+                    <p class="p-0 mx-0 mt-1 mb-4">{{loginError}} </p>
+                    <router-link to="/register">
+                      <button class="btn btn-grad">Register a new Account?</button>
+                    </router-link>
+                  </div>
+                </div>
+                <button v-else type="submit" class="w-100 mx-auto btn btn-grad">
                   Login
                 </button>
               </div>
@@ -33,18 +47,6 @@
         <router-link to="/products">
           <button class="btn btn-grad"> View our Products</button>
         </router-link>
-      </div>
-      <div v-if="clicked && !currentUser">
-        <div v-if="!user && !loginError">
-          <p class="p-0 mx-0 mt-1 mb-4">Checking... </p>
-          <Loader :small="true" />
-        </div>
-        <div v-if="loginError">
-          <p class="p-0 mx-0 mt-1 mb-4">{{loginError}} </p>
-          <router-link to="/register">
-            <button class="btn btn-grad">Register a new Account?</button>
-          </router-link>
-        </div>
       </div>
     </div>
   </div>

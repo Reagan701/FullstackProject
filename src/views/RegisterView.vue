@@ -3,7 +3,7 @@
     <div class="w-100 row justify-content-center">
       <div id="registerzone" v-if="!user" class="col-lg-6 col-md-6 col-sm-6">
         <h1 class="pb-4">Register Your Account</h1>
-        <div id="cardzone" class="card shadow text-white">
+        <div id="cardzone" class="card text-white">
           <div class="card-title text-center text-white">
           </div>
           <div class="card-body text-white">
@@ -94,7 +94,20 @@
                 </div>
               </div>
               <div>
-                <button type="submit" class="w-100 mx-auto btn btn-grad">
+                <div v-if="clicked && !user">
+                  <div v-if="registerError">
+                  {{registerError}}
+                </div>
+                <div v-else>
+                  <div v-if="registerComplete">
+                    Signing In...
+                  </div>
+                  <div v-else>
+                    Registering...
+                  </div>
+                  </div>
+                </div>
+                <button v-else type="submit" class="w-100 mx-auto btn btn-grad">
                   Register
                 </button>
               </div>
@@ -107,19 +120,6 @@
         <router-link to="/products">
         <button class="btn btn-grad">View Our Products</button>
         </router-link>
-      </div>
-      <div v-if="clicked && !user">
-        <div v-if="registerError">
-          {{registerError}}
-        </div>
-        <div v-else>
-          <div v-if="registerComplete">
-            Signing In...
-          </div>
-          <div v-else>
-            Registering...
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -225,7 +225,7 @@ export default {
 #cardzone {
   padding: 40px 50px 40px 50px;
   border-radius: 10px;
-  border: 1px solid red;
+  box-shadow: 0 0 20px white;
   background-color: transparent;
 }
 

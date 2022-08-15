@@ -26,12 +26,12 @@ export default {
 }
 
 .smallLoader{
-  border:5px solid white;
-  border-top: 5px solid blue;
-  border-bottom: 5px solid red;
+  border:3px solid white;
+  border-top: 3px solid blue;
+  border-bottom: 3px solid red;
   border-radius: 50%;
-  height: 40px;
-  width: 40px;
+  height: 20px;
+  width: 20px;
   animation: rotate 2s linear infinite;
 
 }
