@@ -1,28 +1,43 @@
 <template>
-  <div id="main" class="admin">
-    <div class="container justify-content-center">
+  <div id="main" v-if="user" class="admin container d-flex align-items-center flex-column gap-5 justify-content-center">
     <h2>WELCOME ADMINS</h2>
-      <img class="img-fluid"
-        id="logo"
-        src="https://i.postimg.cc/XqG2mcZ2/Logo2-removebg-preview.png"
-        alt=""/>
-        <br>
-      <div class="container justify-content-center">
-        <router-link to="/admin/users"><button class="btn btn">View Users</button></router-link>
-        <router-link to="/admin/products"><button class="btn btn">View Products</button></router-link>
-      </div>
+    <img class="img-fluid"
+      id="logo"
+      src="https://i.postimg.cc/XqG2mcZ2/Logo2-removebg-preview.png"
+      alt="logo"/>
+      <br>
+    <div>
+      <router-link to="/admin/users"><button id="adminButton" class="btn btn">View Users</button></router-link>
+      <router-link to="/admin/products"><button id="adminButton" class="btn btn">View Products</button></router-link>
     </div>
+  </div>
+  <div v-else id="main" class="admin container d-flex align-items-center flex-column justify-content-center">
+    <h1>There is No User Logged in</h1>
+    <router-link to="/login">
+    <button class="btn btn-grad">Return to Login Page</button>
+    </router-link>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  computed:{
+    user(){
+      this.$store.state.user;
+    }
+  }
+};
 </script>
 
 <style scoped>
 .container{
   padding: 110px 0;
 }
+
+#adminButton{
+  width: 122.56px;
+}
+
 .btn{
     background-image: linear-gradient(
     to right,

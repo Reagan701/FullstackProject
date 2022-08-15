@@ -1,8 +1,8 @@
 import { createStore } from 'vuex'
 import { toRaw } from 'vue';
 
-export default createStore({
-    state: {
+const def = () =>{
+    return{
         products: null,
         singleProduct: null,
         currentUser: null,
@@ -13,11 +13,18 @@ export default createStore({
         user: null,
         cart: null,
         cartTotal: null
-    },
+    }
+}
+
+export default createStore({
+    state : def(),
     getters: {
         
     },
     mutations: {
+        reset(state){
+            Object.assign(state,def());
+        },
         setProducts (state, products){
             state.products = products;
         },
@@ -212,6 +219,30 @@ export default createStore({
         },
         clearSingleProduct(context){
             context.commit('clearSingleProduct')
+        },
+        deleteAccount(context,payload){
+            fetch('https://fullstackapi-2.herokuapp.com/users/'+payload, {
+                method: 'DELETE',
+                body:JSON.stringify({
+                  id: payload  
+                }),
+                headers:{
+                    'Content-type': 'application/json; charset=UTF-8'
+                }
+            }).then((res)=>res.json())
+            .then((data)=> context.commit('reset'))
+        },
+        deleteAccountWithoutLogout(context,payload){
+            fetch('https://fullstackapi-2.herokuapp.com/users/'+payload, {
+                method: 'DELETE',
+                body:JSON.stringify({
+                  id: payload  
+                }),
+                headers:{
+                    'Content-type': 'application/json; charset=UTF-8'
+                }
+            }).then((res)=>res.json())
+            .then((data)=> context.dispatch('getAllUsers'));
         }
     },
 

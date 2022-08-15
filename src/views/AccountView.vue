@@ -1,105 +1,106 @@
 <template>
   <div id="main" v-if="currentUser" class="account container d-flex justify-content-center align-items-center flex-column">
   <h2 class="pb-5">MANAGE YOUR ACCOUNT</h2>
-    <!-- <div v-if="currentUser" class="h-100 w-100"> -->
-      <!-- <div> -->
-        <div id="UserCard" class="row w-100">
-          <div class="col-md-6 d-flex justify-content-center align-items-center flex-column">
-            <i id="userIcon" class="fa-solid fa-circle-user"></i>
+    <div id="UserCard" class="row w-100">
+      <div class="col-md-6 d-flex justify-content-center align-items-center flex-column">
+        <i id="userIcon" class="fa-solid fa-circle-user"></i>
+
+        <button data-bs-toggle="modal" data-bs-target="#userLogout" class="btn btn-grad">Log Out</button>
+        <DeleteAccountModal/>
+        <LogOutModal/>
+        <button data-bs-toggle="modal" data-bs-target="#userLogout" class="btn btn-grad">Delete Your Account</button>
+      </div>
+      <div class="col-md-6">
+        <form @submit="updateUser">
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <label for="firstName" class="form-label">First Name</label>
+              <input
+                v-model="firstName"
+                type="text"
+                class="form-control"
+                name="firstName"
+                id="firstName"
+                @input="changeFirstNameColor"
+              />
+            </div>
+            <div class="col-md-6">
+              <label for="lastName" class="form-label">Last Name</label>
+              <input
+                type="text"
+                v-model="lastName"
+                class="form-control"
+                name="lastName"
+                id="lastName"
+                @input="changeLastNameColor"
+              />
+            </div>
           </div>
-          <div class="col-md-6">
-            <form @submit="updateUser">
-                  <div class="row mb-3">
-                    <div class="col-md-6">
-                      <label for="firstName" class="form-label">First Name</label>
-                      <input
-                        v-model="firstName"
-                        type="text"
-                        class="form-control"
-                        name="firstName"
-                        id="firstName"
-                        @input="changeFirstNameColor"
-                      />
-                    </div>
-                    <div class="col-md-6">
-                      <label for="lastName" class="form-label">Last Name</label>
-                      <input
-                        type="text"
-                        v-model="lastName"
-                        class="form-control"
-                        name="lastName"
-                        id="lastName"
-                        @input="changeLastNameColor"
-                      />
-                    </div>
-                  </div>
-                  <div class="mb-1">
-                    <label for="gender" class="form-label">Gender</label><br />
-                    <label for="gender" class="form-label">Male</label>
-                    <input
-                      v-model="gender"
-                      type="radio"
-                      name="gender"
-                      class="mx-3 form-check-input"
-                      value="Male"
-                    />
-                    <label for="gender" class="form-label">Female</label>
-                    <input
-                      v-model="gender"
-                      type="radio"
-                      name="gender"
-                      class="mx-3 form-check-input"
-                      value="Female"
-                    />
-                  </div>
-                  <div class="mb-3">
-                    <label for="address" class="form-label">Address</label>
-                    <input
-                      v-model="address"
-                      type="text"
-                      class="form-control"
-                      name="address"
-                      id="address"
-                      @input="changeAddressColor"
-                    />
-                  </div>
-                  <div class="mb-3">
-                    <label for="phoneNumber" class="form-label"
-                      >Phone Number</label
-                    >
-                    <input
-                      v-model="phoneNumber"
-                      type="number"
-                      class="form-control"
-                      name="phoneNumber"
-                      id="phoneNumber"
-                      @input="changePhoneNumberColor"
-                    />
-                  </div>
-                  <div class="mb-3">
-                      <label for="email" class="form-label">Email</label>
-                      <input
-                        type="email"
-                        v-model="email"
-                        class="form-control"
-                        name="email"
-                        id="email"
-                        @input="changeEmailColor"
-                      />
-                  </div>
-                  <div>
-                    <button type="submit" class="w-100 mx-auto btn btn-grad">
-                      Save Changes
-                    </button>
-                  </div>
-                </form>
+          <div class="mb-1">
+            <label for="gender" class="form-label">Gender</label><br />
+            <label for="gender" class="form-label">Male</label>
+            <input
+              v-model="gender"
+              type="radio"
+              name="gender"
+              class="mx-3 form-check-input"
+              value="Male"
+            />
+            <label for="gender" class="form-label">Female</label>
+            <input
+              v-model="gender"
+              type="radio"
+              name="gender"
+              class="mx-3 form-check-input"
+              value="Female"
+            />
           </div>
-        </div>
-      <!-- </div> -->
-    <!-- </div> -->
+          <div class="mb-3">
+            <label for="address" class="form-label">Address</label>
+            <input
+              v-model="address"
+              type="text"
+              class="form-control"
+              name="address"
+              id="address"
+              @input="changeAddressColor"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="phoneNumber" class="form-label"
+              >Phone Number</label
+            >
+            <input
+              v-model="phoneNumber"
+              type="number"
+              class="form-control"
+              name="phoneNumber"
+              id="phoneNumber"
+              @input="changePhoneNumberColor"
+            />
+          </div>
+          <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input
+                type="email"
+                v-model="email"
+                class="form-control"
+                name="email"
+                id="email"
+                @input="changeEmailColor"
+              />
+          </div>
+          <div>
+            <button type="submit" class="w-100 mx-auto btn btn-grad">
+              Save Changes
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
-  <div id="main" v-else class="account container d-flex justify-content-center align-items-center flex-column">
-    <h1>There is no user logged in</h1>
+  <div id="main" v-else class="account container d-flex justify-content-center align-items-center gap-4 flex-column">
+    <h1>There is No User Logged in</h1>
     <router-link to="/login">
     <button class="btn btn-primary">Return to Login Page</button>
     </router-link>
@@ -107,7 +108,12 @@
 </template>
 
 <script>
+import DeleteAccountModal from '../components/DeleteAccountModal.vue';
+import LogOutModal from '../components/LogOutModal.vue';
 export default {
+  components:{
+    DeleteAccountModal, LogOutModal
+  },
   data(){
     return{
       id: null,

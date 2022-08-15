@@ -1,8 +1,8 @@
 <template>
   <div id="main" class="users container">
     <h1>ALL USERS</h1>
-    <div style="overflow-x:auto">
-          <table class="table text-white">
+    <div>
+      <table class="table text-white">
       <thead>
         <tr>
           <th scope="col">ID</th>
@@ -16,6 +16,7 @@
           <th scope="col">Email</th>
           <th scope="col">Password</th>
           <th scope="col">User Role</th>
+          <th scope="col">Delete</th>
         </tr>
       </thead>
       <tbody>
@@ -32,8 +33,27 @@
           <th scope="row">{{ user.phoneNumber }}</th>
           <th scope="row">{{ user.dateCreated }}</th>
           <th scope="row">{{ user.email }}</th>
-          <th scope="row">{{ user.userPassword }}</th>
+          <th id="word" scope="row">{{ user.userPassword}}</th>
           <th scope="row">{{ user.userRole }}</th>
+          <th scope="row">
+            <button data-bs-toggle="modal" :data-bs-target="`#userDelete`+user.id" class="btn btn-grad">Delete</button>
+          </th>
+          <div class="modal fade" style="color:black !important" :id="`userDelete`+user.id" tabindex="-1" :aria-labelledby="`userAdminLabel`+user.id" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" :id="`userAdminLabel`+user.id">Delete The Account</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Are you sure?
+                    </div>
+                    <div class="modal-footer">
+                        <button @click="deleteAccount(user.id)" data-bs-dismiss="modal" class="btn btn-danger">Delete</button>
+                    </div>
+                </div>
+            </div>
+          </div>
           <UserCartModal v-if="user.cart" :user="user" :cart="JSON.parse(user.cart)"/>
         </tr>
       </tbody>
@@ -44,9 +64,10 @@
 
 <script>
 import UserCartModal from '../components/UserCartModal.vue';
+import DeleteAccountModal from '../components/DeleteAccountModal.vue';
 export default {
   components:{
-    UserCartModal
+    UserCartModal,DeleteAccountModal
   },
   mounted() {
     this.$store.dispatch("getAllUsers");
@@ -56,12 +77,21 @@ export default {
       return this.$store.state.allUsers;
     },
   },
+  methods:{
+    deleteAccount(id){
+      this.$store.dispatch('deleteAccountWithoutLogout',id)
+    }
+  }
 };
 </script>
 
 <style scoped>
 #main{
   padding: 110px 0;
+}
+
+#word{
+  word-break: break-all;
 }
 
 table {

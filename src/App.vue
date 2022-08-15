@@ -1,50 +1,4 @@
 <template>
-  <!-- <nav>
-    <a class="navbar-brand" href="/about">
-      <img src="https://i.postimg.cc/XqG2mcZ2/Logo2-removebg-preview.png" alt="" width="50" height="50">
-    </a>
-    <router-link to="/">HOME</router-link> |
-    <router-link to="/about">ABOUT</router-link> |
-    <div id="inline" v-if="user">
-      <router-link to="/products">PRODUCTS</router-link> |
-    </div>
-    <router-link to="/login"> LOGIN</router-link> |
-    <router-link to="/register">REGISTER</router-link> |
-    <router-link to="/contact">CONTACT</router-link> |
-    <div id="inline" v-if="user">
-      <router-link to="/account">ACCOUNT</router-link> |
-    </div>
-    <div class="bi bi-bag" id="inline" v-if="user">
-      <button
-        class="btn btn-grad btn-danger fa-solid fa-cart-shopping"
-        type="button"
-        data-bs-toggle="offcanvas"
-        data-bs-target="#cartCanvas"
-        aria-controls="cartCanvas"
-      ></button>
-    </div>
-    <div
-      class="offcanvas offcanvas-end"
-      tabindex="-1"
-      id="cartCanvas"
-      aria-labelledby="cartCanvasLabel"
-    >
-      <div class="offcanvas-header">
-        <h5 id="cartCanvasLabel">Cart</h5>
-        <button
-          type="button"
-          class="btn-close text-reset"
-          data-bs-dismiss="offcanvas"
-          aria-label="Close"
-        ></button>
-      </div>
-      <div class="offcanvas-body">
-        <div class="row">
-          <CartCard v-for="product in cart" :key="product.id" :product="product" />
-        </div>
-      </div>
-    </div>
-  </nav> -->
   <Navbar />
   <router-view />
   <FooterAll />
@@ -60,10 +14,6 @@ export default {
 </script>
 
 <style>
-
-input{
-  padding: 0.375rem 0.75rem;
-}
 .btn-grad {
   background-image: linear-gradient(
     to right,
@@ -81,6 +31,11 @@ input{
   box-shadow: 0 0 20px #eee;
   border-radius: 10px;
   font-size: 12px;
+}
+
+#loadingText{
+  margin-top:1px;
+  padding-left:5px;
 }
 
 .form-check-input:checked{

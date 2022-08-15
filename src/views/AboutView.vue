@@ -141,6 +141,8 @@ export default {};
 }
 
 #aboutBackground{
+  padding-top:7rem;
+  padding-bottom:4rem;
   border-radius: 10px;
 }
 

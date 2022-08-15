@@ -1,7 +1,7 @@
 <template>
   <div id="main" class="container d-flex justify-content-center align-items-center flex-column">
     <div class="w-100 row justify-content-center">
-      <div id="registerzone" v-if="!user" class="col-lg-6 col-md-6 col-sm-6">
+      <div id="registerzone" v-if="!user" class="col-lg-9 col-md-10 col-sm-12">
         <h1 class="pb-4">REGISTER YOUR ACCOUNT</h1>
         <div id="cardzone" class="card text-white">
           <div class="card-title text-center text-white">
@@ -99,11 +99,17 @@
                   {{registerError}}
                 </div>
                 <div v-else>
-                  <div v-if="registerComplete">
-                    Signing In...
+                  <div v-if="registerComplete" class="w-100 d-flex mx-auto justify-content-center align-items-center gap-1">
+                    <p class="m-0">Signing In...</p>
+                    <div id="loadingText">
+                      <Loader :small="true" />
+                    </div>
                   </div>
-                  <div v-else>
-                    Registering...
+                  <div v-else class="w-100 d-flex mx-auto justify-content-center align-items-center gap-1">
+                    <p class="m-0">Registering...</p>
+                    <div id="loadingText">
+                      <Loader :small="true" />
+                    </div>
                   </div>
                   </div>
                 </div>
@@ -116,7 +122,7 @@
         </div>
       </div>
       <div v-else class="col-lg-6 col-md-6 col-sm-6">
-        <h1>Welcome {{user.firstName}} {{user.lastName}}</h1>
+        <h1>Welcome, {{user.firstName}} {{user.lastName}}</h1>
         <router-link to="/products">
         <button class="btn btn-grad">View Our Products</button>
         </router-link>
@@ -126,7 +132,11 @@
 </template>
 
 <script>
+import Loader from '../components/Loader.vue'; 
 export default {
+  components:{
+    Loader
+  },
   data() {
     return {
       clicked:false,

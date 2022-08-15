@@ -1,5 +1,5 @@
 <template>
-  <div id="main" v-if="products" class="container d-flex justify-content-center align-items-center flex-column">
+  <div id="main" v-if="products && user" class="container d-flex justify-content-center align-items-center flex-column">
     <div class="row">
       <Cards
         v-for="product in products"
@@ -7,6 +7,15 @@
         :product="product"
       />
     </div>
+  </div>
+  <div v-else-if="!user && products" id="main" class="container d-flex align-items-center flex-column justify-content-center gap-5">
+    <h1>There is No User Logged in</h1>
+    <router-link to="/login">
+    <button class="btn btn-danger">Return to Login Page</button>
+    </router-link>
+  </div>
+  <div v-else-if="user && !products" id="main" class="d-flex justify-content-center align-items-center flex-column">
+    <Loader />
   </div>
   <div v-else id="main" class="d-flex justify-content-center align-items-center flex-column">
     <Loader />
@@ -29,6 +38,9 @@ export default {
     products() {
       return this.$store.state.products;
     },
+    user(){
+      return this.$store.state.user;
+    }
   },
 };
 </script>

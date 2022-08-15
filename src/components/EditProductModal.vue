@@ -15,7 +15,7 @@
                     <label class="form-label">Product Image</label>
                     <input type="text" class="form-control" v-model="product.prodUrl">
                     <label class="form-label">Description</label>
-                    <textarea style="resize:none;" class="form-control" cols="30" rows="2" v-model="product.description"></textarea>
+                    <textarea style="resize:none;" class="form-control" cols="30" rows="4" v-model="product.description"></textarea>
                     <label class="form-label">Quantity</label>
                     <input type="number" class="form-control" v-model="product.quantity">
                     <label class="form-label">Price</label>

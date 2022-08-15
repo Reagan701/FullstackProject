@@ -23,13 +23,13 @@
                 <div v-if="clicked && !currentUser">
                   <div v-if="!user && !loginError" class="w-100 d-flex mx-auto justify-content-center align-items-center gap-1">
                     <p class="m-0"> Checking... </p>
-                    <div style="margin-top:1px; padding-left:5px;">
+                    <div id="loadingText">
                       <Loader :small="true" />
                     </div>
                   </div>
-                  <div v-else class="w-100 d-flex mx-auto justify-content-center align-items-center gap-1">
+                  <div v-else-if="!loginError" class="w-100 d-flex mx-auto justify-content-center align-items-center gap-1">
                     <p class="m-0"> Verifying... </p>
-                    <div style="margin-top:1px; padding-left:5px;">
+                    <div id="loadingText">
                       <Loader :small="true" />
                     </div>
                   </div>

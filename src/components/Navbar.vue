@@ -17,7 +17,7 @@
                     <router-link v-if="!user" class="mx-2" to="/register">Register</router-link>
                     <router-link class="mx-2" to="/contact">Contact</router-link>
                     <router-link v-if="user" class="mx-2" to="/account">Account</router-link>
-                    <router-link v-if="currentUser" class="mx-2" to="/admin">Admin</router-link>
+                    <router-link v-if="currentUser == 'admin'" class="mx-2" to="/admin">Admin</router-link>
                     <button v-if="cart" class="position-relative ms-2 btn btn-grad btn-danger fa-solid fa-cart-shopping" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartCanvas" aria-controls="cartCanvas">
                       <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">{{cart.length}}</span>
                     </button>
@@ -29,7 +29,7 @@
       <div class="offcanvas-header">
         <h5 id="cartCanvasLabel">Cart</h5>
         <h5 class="m-0">Total: R{{cartTotal}}</h5>
-        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close">
+        <button type="button" class="text-white btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close">
 
         </button>
       </div>

@@ -17,6 +17,7 @@
               data-bs-target="#AddProductModal"
               data-bs-toggle="modal"
               class="btn-grad"
+              id="prodButton"
             >
               ADD
             </button>
@@ -36,6 +37,7 @@
               data-bs-toggle="modal"
               :data-bs-target="`#editProduct` + product.id"
               class="btn-grad"
+              id="prodButton"
             >
               Edit
             </button>
@@ -43,6 +45,7 @@
               data-bs-toggle="modal"
               :data-bs-target="`#deleteProduct` + product.id"
               class="btn-grad"
+              id="prodButton"
             >
               Delete
             </button>
@@ -79,6 +82,11 @@ export default {
 #main{
   padding: 120px 0;
 }
+
+#prodButton{
+  width:72.56px;
+}
+
 .btn-grad {
   background-image: linear-gradient(
     to right,
