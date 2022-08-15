@@ -135,12 +135,10 @@ export default {};
 }
 
 #aboutBackground{
-  border: 1px solid red;
   border-radius: 10px;
 }
 
 .shadow{
-  border:1px solid red;
   border-radius: 10px;
   margin-bottom:10px;
 }

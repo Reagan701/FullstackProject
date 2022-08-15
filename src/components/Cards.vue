@@ -87,7 +87,7 @@ a{
   padding: 20px;
   box-sizing: border-box;
   text-align: center;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 20px white;
   overflow: hidden;
 }
 .card-content .card .content {
@@ -105,6 +105,7 @@ a{
   overflow: hidden;
   overflow: hidden;
   filter: drop-shadow(0 3px 18px black);
+  border-radius: 5px;
 }
 #live {
   text-decoration: none;

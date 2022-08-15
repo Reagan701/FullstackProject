@@ -141,6 +141,10 @@ export default {
   box-shadow: 1px 6px 10px 1px black !important;
 }
 
+th{
+  font-size: 1rem;
+}
+
 .offcanvas{
   width: 600px !important;
 }

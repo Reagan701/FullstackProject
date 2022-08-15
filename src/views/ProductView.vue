@@ -82,12 +82,12 @@ a{text-decoration: none;}
   font-size: 21px;
   padding: 20px 20px 20px 20px;
   color:white;
-  border:1px solid red;
   border-radius: 10px;
+    box-shadow: 0 0 20px white;
 }
 
 img{
-  border: 2px solid red;
+  box-shadow: 0 0 20px white;
   border-radius: 10px;
 }
 

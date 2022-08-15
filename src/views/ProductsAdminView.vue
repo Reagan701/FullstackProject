@@ -1,7 +1,8 @@
 <template>
   <div id="main" class="products container">
     <h1>All Products</h1>
-    <table class="table table-dark table-hover">
+      <div style="overflow-x:auto">
+              <table class="table text-white">
       <thead>
         <tr>
           <th scope="col">ID</th>
@@ -15,7 +16,7 @@
             <button
               data-bs-target="#AddProductModal"
               data-bs-toggle="modal"
-              class="btn btn-success"
+              class="btn-grad"
             >
               ADD
             </button>
@@ -34,14 +35,14 @@
             <button
               data-bs-toggle="modal"
               :data-bs-target="`#editProduct` + product.id"
-              class="btn btn-primary"
+              class="btn-grad"
             >
               Edit
             </button>
             <button
               data-bs-toggle="modal"
               :data-bs-target="`#deleteProduct` + product.id"
-              class="btn btn-danger"
+              class="btn-grad"
             >
               Delete
             </button>
@@ -51,6 +52,7 @@
         </tr>
       </tbody>
     </table>
+      </div>
     <AddProductModal />
   </div>
 </template>
@@ -74,6 +76,42 @@ export default {
 </script>
 
 <style scoped>
+#main{
+  padding: 120px 0;
+}
+.btn-grad {
+  background-image: linear-gradient(
+    to right,
+    #e52d27 0%,
+    #b31217 51%,
+    #e52d27 100%
+  );
+  margin: 10px;
+  padding: 10px 15px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  font-size: 12px;
+}
 
+.btn-grad:hover {
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid white;
+}
 
+th, td {
+  text-align: center;
+  padding: 8px;
+}
 </style>

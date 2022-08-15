@@ -52,11 +52,9 @@
                 <h3>Useful Links</h3>
               </div>
               <ul>
-                <li><a href="/">Home</a></li>
                 <li><a href="/about">About</a></li>
                 <li><a href="/products">Products</a></li>
                 <li><a href="/about">Our Services</a></li>
-                <li><a href="/about">Meet the Team</a></li>
                 <li><a href="/contact">Contact us</a></li>
               </ul>
             </div>
@@ -95,7 +93,7 @@
 <script>
 export default {};
 </script>
-<style scoped>
+<style>
 ul {
   margin: 0px;
   padding: 0px;
@@ -182,6 +180,18 @@ ul {
   background: white;
   color: red;
 }
+.facebook-bg:hover  {
+  background: red;
+  color: white;
+}
+.twitter-bg:hover  {
+  background: red;
+  color: white;
+}
+.google-bg:hover  {
+  background: red;
+  color: white;
+}
 .footer-widget-heading h3 {
   color: white;
   font-size: 20px;
@@ -208,7 +218,7 @@ ul {
   color: red;
 }
 .footer-widget ul li a {
-  color: red;
+  color: white;
   text-transform: capitalize;
 }
 .subscribe-form {
