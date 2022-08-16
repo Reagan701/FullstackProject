@@ -23,7 +23,7 @@
 export default {
   computed:{
     user(){
-      this.$store.state.user;
+      return this.$store.state.user;
     }
   }
 };

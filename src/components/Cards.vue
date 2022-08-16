@@ -57,6 +57,7 @@ a{
   box-shadow: 0 0 20px #eee;
   border-radius: 10px;
   font-size: 12px;
+  border: none;
 }
 
 .btn-grad:hover {

@@ -70,7 +70,7 @@ a{text-decoration: none;}
   background-repeat: no-repeat;
   height: 100%;
   color: white;
-  /* padding-top:100px; */
+  padding-top:100px;
 }
 .card {
   box-shadow: -20px 0px 20px 0 rgba(0, 0, 0, 0.2);

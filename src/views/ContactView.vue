@@ -60,21 +60,21 @@
   font-size: 12px;
 }
 
-.border-bottom{
-  border-bottom:2px solid red !important;
-}
-
 .btn-grad:hover {
   background-position: right center;
   color: #fff;
   text-decoration: none;
 }
 
+.border-bottom{
+  border-bottom:2px solid red !important;
+}
+
 #main {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 100%;
+  height: 100px;
   color: white;
 }
 

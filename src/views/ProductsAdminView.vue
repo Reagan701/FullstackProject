@@ -10,6 +10,7 @@
           <th scope="col">Product Image</th>
           <th scope="col">Description</th>
           <th scope="col">Quantity</th>
+          <th scope="col">Category</th>
           <th scope="col">Price</th>
           <th scope="col">
             ADD
@@ -31,6 +32,7 @@
           <th scope="row">{{ product.prodUrl }}</th>
           <th scope="row">{{ product.description }}</th>
           <th scope="row">{{ product.quantity }}</th>
+          <th scope="row">{{ product.category }}</th>
           <th scope="row">R{{ product.price }}</th>
           <th scope="row">
             <button

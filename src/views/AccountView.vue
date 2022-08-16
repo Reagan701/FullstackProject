@@ -8,7 +8,7 @@
         <button data-bs-toggle="modal" data-bs-target="#userLogout" class="btn btn-grad">Log Out</button>
         <DeleteAccountModal/>
         <LogOutModal/>
-        <button data-bs-toggle="modal" data-bs-target="#userLogout" class="btn btn-grad">Delete Your Account</button>
+        <button data-bs-toggle="modal" data-bs-target="#userDelete" class="btn btn-grad">Delete Your Account</button>
       </div>
       <div class="col-md-6">
         <form @submit="updateUser">
@@ -102,7 +102,7 @@
   <div id="main" v-else class="account container d-flex justify-content-center align-items-center gap-4 flex-column">
     <h1>There is No User Logged in</h1>
     <router-link to="/login">
-    <button class="btn btn-primary">Return to Login Page</button>
+    <button class="btn btn-grad">Return to Login Page</button>
     </router-link>
   </div>
 </template>
@@ -204,5 +204,30 @@ export default {
 #UserCard{
   box-shadow: 0 0 20px #eee;
   padding: 50px; 
+}
+
+.btn-grad {
+  background-image: linear-gradient(
+    to right,
+    #e52d27 0%,
+    #b31217 51%,
+    #e52d27 100%
+  );
+  margin: 10px;
+  padding: 10px 15px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  font-size: 12px;
+}
+
+.btn-grad:hover {
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
 }
 </style>
