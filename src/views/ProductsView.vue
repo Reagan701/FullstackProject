@@ -11,7 +11,7 @@
   <div v-else-if="!user && products" id="main" class="container d-flex align-items-center flex-column justify-content-center gap-5">
     <h1>There is No User Logged in</h1>
     <router-link to="/login">
-    <button class="btn btn-danger">Return to Login Page</button>
+    <button class="btn btn-grad">Return to Login Page</button>
     </router-link>
   </div>
   <div v-else-if="user && !products" id="main" class="d-flex justify-content-center align-items-center flex-column">
@@ -67,5 +67,27 @@ export default {
 .btn,
 input {
   border-radius: 0;
+}
+.btn-grad {
+  background-image: linear-gradient(
+    to right,
+    #e52d27 0%,
+    #b31217 51%,
+    #e52d27 100%
+  );
+  margin: 10px;
+  padding: 10px 15px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  font-size: 12px;
+}
+
+.border-bottom{
+  border-bottom:2px solid red !important;
 }
 </style>

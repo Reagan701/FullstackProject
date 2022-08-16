@@ -104,16 +104,6 @@ Sport is so much more than the time spent on the pitch, what touches the lives o
                             <i class="fab fa-linkedin-in text-white"></i>
                           </a>
                         </li>
-                        <li class="list-inline-item">
-                          <a href="https://www.instagram.com/marshalino_jankowski/" target="_blank">
-                            <i class="fab fa-instagram text-white"></i>
-                          </a>
-                        </li>
-                        <li class="list-inline-item">
-                          <a href="https://twitter.com/TempestFury_11" target="_blank">
-                            <i class="fab fa-twitter text-white"></i>
-                          </a>
-                        </li>
                       </ul>
                     </div>
                   </div>

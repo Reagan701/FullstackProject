@@ -8,7 +8,7 @@
             <h2>Feel free to contact us if you need any assistance</h2>
           </div>
           <div class="card-body">
-            <form action="https://formspree.io/f/mvoleqaw" method="PATCH">
+            <form action="https://formspree.io/f/mvoleqaw" method="POST">
               <div class="mb-4 row">
                 <div class="col-lg-6">
                   <label for="name" class="form-label">Name</label>

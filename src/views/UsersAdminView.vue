@@ -49,7 +49,7 @@
                         Are you sure?
                     </div>
                     <div class="modal-footer">
-                        <button @click="deleteAccount(user.id)" data-bs-dismiss="modal" class="btn btn-danger">Delete</button>
+                        <button @click="deleteAccount(user.id)" data-bs-dismiss="modal" class="btn btn-grad">Delete</button>
                     </div>
                 </div>
             </div>

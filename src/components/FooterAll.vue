@@ -66,7 +66,7 @@
           </div>
           <div class="col-xl-4 col-lg-4 col-md-6 mb-50">
             <div class="footer-social-icon">
-              <span>KitArmy</span>
+              <p class="text-white text-center">Kit Army</p>
               <!-- <a href="#"><i class="fab fa-facebook-f facebook-bg"></i></a>
               <a href="#"><i class="fab fa-twitter twitter-bg"></i></a>
               <a href="#"><i class="fab fa-google-plus-g google-bg"></i></a> -->
@@ -82,12 +82,6 @@
                   a call or visit one of our 69 stores countrywide.
                 </p>
               </div>
-              <!-- <div class="copyright-text">
-                <p>
-                  Copyright &copy; 2022, All Right Reserved
-                  <a href="#">KIT ARMY</a>
-                </p>
-              </div> -->
             </div>
           </div>
         </div>
