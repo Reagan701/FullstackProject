@@ -16,13 +16,7 @@ South Africa's leading teamwear sports store where we have complete focus on spo
 
 At KitArmy we are passionate about our industry and establishing close relationships with our client base. Direct and clear communication is critical and there is never a situation where you will speak to ten different people.
 
-<!-- We sell only the highest quality custom kits and soccer merchandise . Kit Army is a vibrant and energetic company with like minded ideals and goals with a passion for all sports.
-
-We do not sell rejects or seconds. In short, we have the finest quality soccer merchandise to order. 
-
-We ship anywhere in the country within a reasonable timeframe usually 24-48 hours depending on the location and delivery option selected by you. We understand and value the need for products in the shortest period of time and therefore we will undertake to ensure your order is dealt with promptly and urgently.
-
-Sport is so much more than the time spent on the pitch, what touches the lives of sports men, women and children of our communities is the many hours preparing and discussing the sport which we all know by playing sport. In you supporting Kit Army we in turn support our communities by donating soccer balls and accessories that bring smiles to those that need hope. -->
+We sell only the highest quality custom kits and soccer merchandise . Kit Army is a vibrant and energetic company with like minded ideals and goals with a passion for all sports.
               </p>
             </div>
           </div>

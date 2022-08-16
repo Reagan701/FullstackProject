@@ -4,7 +4,7 @@
         <router-link class="navbar-brand" to="/about">
             <img src="https://i.postimg.cc/XqG2mcZ2/Logo2-removebg-preview.png" width="50" height="50">
         </router-link>
-        <button class="mx-auto navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCol" aria-controls="navbarCol" aria-expanded="false" aria-label="Toggle Navigation">
+        <button id="navToggle" class="mx-auto navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCol" aria-controls="navbarCol" aria-expanded="false" aria-label="Toggle Navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCol">
@@ -97,5 +97,17 @@ export default {
 
 #nav{
   transition: all 0.2s linear;
+}
+
+#navToggle{
+  color: rgb(255 255 255);
+  border-color: rgb(255 255 255);
+  background: white;
+}
+
+@media screen and (max-width:991px) {
+  #nav{
+    background:#00004e !important;
+  }
 }
 </style>

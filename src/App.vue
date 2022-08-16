@@ -124,6 +124,7 @@ nav a {
   background-repeat: no-repeat;
   min-height: 100vh;
   color: white;
+  padding-top:92px !important;
 }
 
 nav a.router-link-exact-active {

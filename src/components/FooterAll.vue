@@ -52,10 +52,10 @@
                 <h3>Useful Links</h3>
               </div>
               <ul>
-                <li><a href="/about">About</a></li>
-                <li><a href="/products">Products</a></li>
-                <li><a href="/about">Our Services</a></li>
-                <li><a href="/contact">Contact us</a></li>
+                <li><router-link to="/about">About</router-link></li>
+                <li><router-link v-if="user" to="/products">Products</router-link></li>
+                <li><router-link to="/about">Our Services</router-link></li>
+                <li><router-link to="/contact">Contact us</router-link></li>
               </ul>
                 <p>
                   Copyright &copy; 2022, All Right Reserved
@@ -67,9 +67,6 @@
           <div class="col-xl-4 col-lg-4 col-md-6 mb-50">
             <div class="footer-social-icon">
               <p class="text-white text-center">Kit Army</p>
-              <!-- <a href="#"><i class="fab fa-facebook-f facebook-bg"></i></a>
-              <a href="#"><i class="fab fa-twitter twitter-bg"></i></a>
-              <a href="#"><i class="fab fa-google-plus-g google-bg"></i></a> -->
             </div>
             <div class="footer-widget">
               <div class="footer-text">
@@ -91,7 +88,13 @@
 </template>
 
 <script>
-export default {};
+export default {
+  computed:{
+    user(){
+      return this.$store.state.currentUser;
+    }
+  }
+};
 </script>
 
 <style>
