@@ -19,11 +19,11 @@
 
 <script>
 export default {
-    methods:{
-        logOut(){
-            this.$store.commit('reset');
-        }
+  methods:{
+    logOut(){
+      this.$store.commit('reset');
     }
+  }
 }
 </script>
 

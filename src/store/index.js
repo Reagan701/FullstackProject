@@ -129,7 +129,13 @@ export default createStore({
                 }
             })
             .then((res)=> res.json())
-            .then((data)=> console.log(data));
+            .then((data)=> {
+                let login = {
+                    email: payload.email,
+                    userPassword: payload.userPassword
+                }
+                context.dispatch('loginUser',login)
+            });
         },
         getAllUsers(context){
             fetch('https://fullstackapi-2.herokuapp.com/users')

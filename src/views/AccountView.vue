@@ -96,18 +96,22 @@
               />
           </div>
           <div class="mb-3">
-              <label for="password" class="form-label">Password</label>
+              <label for="password" class="form-label">New Password</label>
               <input
-                type="password"
+                type="text"
                 v-model="userPassword"
                 class="form-control"
                 name="password"
+                placeholder="Enter a New Passowrd"
                 id="password" required
               />
           </div>
           <div>
-            <div v-if="clicked">
-              
+            <div v-if="clicked" class="w-100 d-flex justify-content-center align-items-center gap-4">
+              <p class="m-0">Saving...</p>
+              <div>
+                <Loader :small="true"/>
+              </div>
             </div>
             <button v-else type="submit" class="w-100 mx-auto btn btn-grad">
               Save Changes
@@ -128,9 +132,10 @@
 <script>
 import DeleteAccountModal from '../components/DeleteAccountModal.vue';
 import LogOutModal from '../components/LogOutModal.vue';
+import Loader from '../components/Loader.vue';
 export default {
   components:{
-    DeleteAccountModal, LogOutModal
+    DeleteAccountModal, LogOutModal, Loader
   },
   data(){
     return{
@@ -200,6 +205,7 @@ export default {
     },
     updateUser(e){
       e.preventDefault();
+      this.clicked = true;
       let newUser = {
         id: this.$store.state.currentUser.id,
         firstName: this.firstName,
@@ -210,8 +216,10 @@ export default {
         phoneNumber: this.phoneNumber,
         userPassword: this.userPassword
       }
-      this.$store.dispatch('updateUser',newUser)
-      this.clicked = false;
+      this.$store.dispatch('updateUser',newUser);
+      setTimeout(()=>{
+        this.clicked = false;
+      },1500)
     }
   }
 };
@@ -220,6 +228,10 @@ export default {
 <style scoped>
 #userIcon {
   font-size: 12rem;
+}
+
+::placeholder{
+  opacity: 0.5;
 }
 
 #UserCard{

@@ -101,6 +101,31 @@ export default {
           sort.reverse();
         }
       }
+      if(this.alphabetically != 'Any'){
+        if(this.alphabetically == "asc"){
+          sort = value.sort((a,b)=>{
+            if(a.prodName < b.prodName){
+              return -1
+            }
+            if(a.prodName > b.prodName) {
+              return 1
+            }
+            return 0;
+          })
+        }
+        if(this.alphabetically =="desc"){
+          sort = value.sort((a,b)=>{
+            if(a.prodName < b.prodName){
+              return -1
+            }
+            if(a.prodName > b.prodName) {
+              return 1
+            }
+            return 0;
+          })
+          sort.reverse();
+        }
+      }
       return sort;
     },
     user(){
