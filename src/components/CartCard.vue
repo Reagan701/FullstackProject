@@ -75,5 +75,4 @@ export default {
 #cartText{
     font-size: 0.9rem;
 }
-
 </style>

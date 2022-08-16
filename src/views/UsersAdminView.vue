@@ -38,7 +38,7 @@
           <th scope="row">
             <button data-bs-toggle="modal" :data-bs-target="`#userDelete`+user.id" class="btn btn-grad">Delete</button>
           </th>
-          <div class="modal fade" style="color:black !important" :id="`userDelete`+user.id" tabindex="-1" :aria-labelledby="`userAdminLabel`+user.id" aria-hidden="true">
+          <div class="modal fade" style="color:white !important" :id="`userDelete`+user.id" tabindex="-1" :aria-labelledby="`userAdminLabel`+user.id" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -129,5 +129,13 @@ th, td {
   background-position: right center;
   color: #fff;
   text-decoration: none;
+}
+
+.modal-content{
+    background-image: linear-gradient(
+    to right,
+    #000040,
+    #00004e
+  );
 }
 </style>
