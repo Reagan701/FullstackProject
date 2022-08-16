@@ -125,4 +125,10 @@ th, td {
   text-align: center;
   padding: 8px;
 }
+@media screen and (max-width:991px) {
+  tr{
+    display: flex !important;
+    flex-direction: column !important;;
+  }
+}
 </style>

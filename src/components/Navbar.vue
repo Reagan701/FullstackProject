@@ -4,7 +4,7 @@
         <router-link class="navbar-brand" to="/about">
             <img src="https://i.postimg.cc/XqG2mcZ2/Logo2-removebg-preview.png" width="50" height="50">
         </router-link>
-        <button id="navToggle" class="mx-auto navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCol" aria-controls="navbarCol" aria-expanded="false" aria-label="Toggle Navigation">
+        <button id="navToggle" class="ms -auto navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCol" aria-controls="navbarCol" aria-expanded="false" aria-label="Toggle Navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCol">
@@ -29,7 +29,7 @@
       <div class="offcanvas-header">
         <h5 id="cartCanvasLabel">Cart</h5>
         <h5 class="m-0">Total: R{{cartTotal}}</h5>
-        <button type="button" class="text-white btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close">
+        <button type="button" class="btn-close btn-close-white text-reset" data-bs-dismiss="offcanvas" aria-label="Close">
 
         </button>
       </div>

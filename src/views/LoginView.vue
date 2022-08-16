@@ -147,7 +147,7 @@ export default {
 }
 
 #cardzone {
-  padding: 40px 50px;
+  padding: 40px 35px;
   border-radius: 10px;
   box-shadow: 0 0 14px white;
   color: white;

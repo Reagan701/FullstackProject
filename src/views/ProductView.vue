@@ -17,6 +17,7 @@
                 <p style="text-align:start;">{{ product.description }}</p>
               <div style="align-self:end">
                   <p id="priceText">R{{ product.price }}</p>
+                  <p id="addText" style="display:none">Added</p>
                 <div class="btn-grad btn">
                   <a class="text-white" @click="addProductToCart">Add To Cart</a>
                 </div>
@@ -51,6 +52,10 @@ export default {
         description: this.product.description,
         price: this.product.price,
       };
+      document.getElementById('addText').style.display = "block";
+      setTimeout(()=>{
+        document.getElementById('addText').style.display = "none";
+      },1000)
       this.$store.dispatch("AddProductToCart", newProduct);
     },
   },

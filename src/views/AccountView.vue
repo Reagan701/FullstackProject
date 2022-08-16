@@ -37,24 +37,28 @@
               />
             </div>
           </div>
-          <div class="mb-3">
+          <div class="row mb-3">
             <label for="gender" class="form-label">Gender</label><br />
-            <label for="gender" class="form-label">Male</label>
-            <input
-              v-model="gender"
-              type="radio"
-              name="gender"
-              class="mx-3 form-check-input"
-              value="Male"
-            />
-            <label for="gender" class="form-label">Female</label>
-            <input
-              v-model="gender"
-              type="radio"
-              name="gender"
-              class="mx-3 form-check-input"
-              value="Female"
-            />
+            <div class="col-md-6">
+              <label id="genderLabel" for="gender" class="form-label">Male</label>
+              <input
+                v-model="gender"
+                type="radio"
+                name="gender"
+                class="mx-3 form-check-input"
+                value="Male"
+              />
+            </div>
+            <div class="col-md-6">
+              <label id="genderLabel" for="gender" class="form-label">Female</label>
+              <input
+                v-model="gender"
+                type="radio"
+                name="gender"
+                class="mx-3 form-check-input"
+                value="Female"
+              />
+            </div>
           </div>
           <div class="mb-3">
             <label for="address" class="form-label">Address</label>
@@ -92,18 +96,20 @@
               />
           </div>
           <div class="mb-3">
-              <label for="password" class="form-label">Email</label>
+              <label for="password" class="form-label">Password</label>
               <input
-                type="email"
+                type="password"
                 v-model="userPassword"
                 class="form-control"
-                name="email"
-                id="email" required
-                @input="changeEmailColor"
+                name="password"
+                id="password" required
               />
           </div>
           <div>
-            <button type="submit" class="w-100 mx-auto btn btn-grad">
+            <div v-if="clicked">
+              
+            </div>
+            <button v-else type="submit" class="w-100 mx-auto btn btn-grad">
               Save Changes
             </button>
           </div>
@@ -135,7 +141,8 @@ export default {
       address: null,
       phoneNumber: null,
       email: null,
-      password: null,
+      userPassword: null,
+      clicked:false
     }
   },
   computed: {
@@ -194,16 +201,17 @@ export default {
     updateUser(e){
       e.preventDefault();
       let newUser = {
-        id: this.id,
+        id: this.$store.state.currentUser.id,
         firstName: this.firstName,
         lastName: this.lastName,
         gender: this.gender,
         address: this.address,
         email: this.email,
         phoneNumber: this.phoneNumber,
-        userPassword: "John123"
+        userPassword: this.userPassword
       }
       this.$store.dispatch('updateUser',newUser)
+      this.clicked = false;
     }
   }
 };
@@ -217,6 +225,10 @@ export default {
 #UserCard{
   box-shadow: 0 0 14px #eee;
   padding: 50px; 
+}
+
+#genderLabel{
+  width:66px !important;
 }
 
 .btn-grad {
@@ -242,5 +254,11 @@ export default {
   background-position: right center;
   color: #fff;
   text-decoration: none;
+}
+
+@media screen and (max-width:768px) {
+  #main{
+    padding-top:20px
+  }
 }
 </style>

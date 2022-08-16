@@ -32,7 +32,7 @@
           </th>
           <th scope="row">{{ user.phoneNumber }}</th>
           <th scope="row">{{ user.dateCreated }}</th>
-          <th scope="row">{{ user.email }}</th>
+          <th id="word" scope="row">{{ user.email }}</th>
           <th id="word" scope="row">{{ user.userPassword}}</th>
           <th scope="row">{{ user.userRole }}</th>
           <th scope="row">
@@ -43,7 +43,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" :id="`userAdminLabel`+user.id">Delete The Account</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         Are you sure?
@@ -138,5 +138,12 @@ th, td {
     #000040,
     #00004e
   );
+}
+
+@media screen and (max-width:991px) {
+  tr{
+    display: flex !important;
+    flex-direction: column !important;;
+  }
 }
 </style>
