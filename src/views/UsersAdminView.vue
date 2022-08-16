@@ -1,7 +1,7 @@
 <template>
   <div id="main" class="users container">
     <h1>ALL USERS</h1>
-    <div>
+    <div style="overflow-x:auto">
       <table class="table text-white">
       <thead>
         <tr>
