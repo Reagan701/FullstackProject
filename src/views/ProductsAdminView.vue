@@ -2,61 +2,61 @@
   <div id="main" class="products container">
     <h1>ALL PRODUCTS</h1>
       <div style="overflow-x:auto">
-              <table class="table text-white">
-      <thead>
-        <tr>
-          <th scope="col">ID</th>
-          <th scope="col">Product Name</th>
-          <th scope="col">Product Image</th>
-          <th scope="col">Description</th>
-          <th scope="col">Quantity</th>
-          <th scope="col">Category</th>
-          <th scope="col">Price</th>
-          <th scope="col">
-            ADD
-            <button
-              data-bs-target="#AddProductModal"
-              data-bs-toggle="modal"
-              class="btn-grad"
-              id="prodButton"
-            >
-              ADD
-            </button>
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="product in allProducts" :key="product.id">
-          <th scope="row" class="p-2">{{ product.id }}</th>
-          <th scope="row">{{ product.prodName }}</th>
-          <th scope="row">{{ product.prodUrl }}</th>
-          <th scope="row">{{ product.description }}</th>
-          <th scope="row">{{ product.quantity }}</th>
-          <th scope="row">{{ product.category }}</th>
-          <th scope="row">R{{ product.price }}</th>
-          <th scope="row">
-            <button
-              data-bs-toggle="modal"
-              :data-bs-target="`#editProduct` + product.id"
-              class="btn-grad"
-              id="prodButton"
-            >
-              Edit
-            </button>
-            <button
-              data-bs-toggle="modal"
-              :data-bs-target="`#deleteProduct` + product.id"
-              class="btn-grad"
-              id="prodButton"
-            >
-              Delete
-            </button>
-          </th>
-          <EditProductModal :product="product" />
-          <DeleteProductModal :product="product" />
-        </tr>
-      </tbody>
-    </table>
+        <table class="table text-white">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Product Name</th>
+              <th scope="col">Product Image</th>
+              <th scope="col">Description</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Category</th>
+              <th scope="col">Price</th>
+              <th scope="col">
+                ADD
+                <button
+                  data-bs-target="#AddProductModal"
+                  data-bs-toggle="modal"
+                  class="btn-grad"
+                  id="prodButton"
+                >
+                  ADD
+                </button>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="product in allProducts" :key="product.id">
+              <th scope="row" class="p-2">{{ product.id }}</th>
+              <th scope="row">{{ product.prodName }}</th>
+              <th scope="row">{{ product.prodUrl }}</th>
+              <th scope="row">{{ product.description }}</th>
+              <th scope="row">{{ product.quantity }}</th>
+              <th scope="row">{{ product.category }}</th>
+              <th scope="row">R{{ product.price }}</th>
+              <th scope="row">
+                <button
+                  data-bs-toggle="modal"
+                  :data-bs-target="`#editProduct` + product.id"
+                  class="btn-grad"
+                  id="prodButton"
+                >
+                  Edit
+                </button>
+                <button
+                  data-bs-toggle="modal"
+                  :data-bs-target="`#deleteProduct` + product.id"
+                  class="btn-grad"
+                  id="prodButton"
+                >
+                  Delete
+                </button>
+              </th>
+              <EditProductModal :product="product" />
+              <DeleteProductModal :product="product" />
+            </tr>
+          </tbody>
+        </table>
       </div>
     <AddProductModal />
   </div>

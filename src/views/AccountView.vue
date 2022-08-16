@@ -2,13 +2,14 @@
   <div id="main" v-if="currentUser" class="account container d-flex justify-content-center align-items-center flex-column">
   <h2 class="pb-5">MANAGE YOUR ACCOUNT</h2>
     <div id="UserCard" class="row w-100">
-      <div class="col-md-6 d-flex justify-content-center align-items-center flex-column">
+      <div class="col-md-6 d-flex justify-content-center gap-5 align-items-center flex-column">
         <i id="userIcon" class="fa-solid fa-circle-user"></i>
-
-        <button data-bs-toggle="modal" data-bs-target="#userLogout" class="btn btn-grad">Log Out</button>
+        <div class="d-flex flex-column align-items-center">
+          <button data-bs-toggle="modal" data-bs-target="#userLogout" class="btn btn-grad">Log Out</button>
+          <button data-bs-toggle="modal" data-bs-target="#userDelete" class="btn btn-grad">Delete Your Account</button>
+        </div>
         <DeleteAccountModal/>
         <LogOutModal/>
-        <button data-bs-toggle="modal" data-bs-target="#userDelete" class="btn btn-grad">Delete Your Account</button>
       </div>
       <div class="col-md-6">
         <form @submit="updateUser">
