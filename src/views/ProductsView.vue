@@ -1,29 +1,36 @@
 <template>
   <div id="main" v-if="products && user" class="container d-flex justify-content-center align-items-center flex-column">
     <div class="row">
-      <div class="col-md-12">
+
         <h1>View our Products</h1>
-        <select v-model="league" class="form-control">
-          <option value="Any">Any</option>
-          <option value="English League">English League</option>
-          <option value="Spanish League">Spanish League</option>
-          <option value="Italian League">Italian League</option>
-          <option value="German League">German League</option>
-          <option value="French League">French League</option>
-          <option value="Dutch League">Dutch League</option>
-        </select>
-        <select v-model="price">
-          <option value="Any">Any</option>
-          <option value="asc">Ascending</option>
-          <option value="desc">Descending</option>
-        </select>
-        <select v-model="alphabetically">
-          <option value="Any">Any</option>
-          <option value="asc">Ascending</option>
-          <option value="desc">Descending</option>
-        </select>
-        <input type="text" v-model="search" placeholder="text">
-      </div>
+          <div class="col-3">
+            <select v-model="league" class="form-control btn-grad">
+              <option value="Any">Filter by League</option>
+              <option value="English League">English League</option>
+              <option value="Spanish League">Spanish League</option>
+              <option value="Italian League">Italian League</option>
+              <option value="German League">German League</option>
+              <option value="French League">French League</option>
+              <option value="Dutch League">Dutch League</option>
+            </select>
+          </div>
+          <div class="col-3">
+            <select v-model="price" class="form-control btn-grad">
+              <option value="Any">Filter by Price</option>
+              <option value="asc">Lowest First</option>
+              <option value="desc">Highest First</option>
+            </select>
+          </div>
+          <div class="col-3">
+            <select v-model="alphabetically" class="form-control btn-grad">
+              <option value="Any">Filter by Alphabet</option>
+              <option value="asc">A-Z</option>
+              <option value="desc">Z-A</option>
+            </select>
+          </div>
+          <div class="col-3">
+            <input class="btn-grad form-control text-white" type="search" v-model="search" placeholder="text">
+          </div>
     </div>
     <div class="row">
       <Cards
