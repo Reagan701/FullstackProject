@@ -9,7 +9,7 @@
           <div class="card-body text-white">
             <form method="POST" @submit="registerUser">
               <div class="row mb-3">
-                <div class="col-6">
+                <div class="col-md-6">
                   <label for="firstName" class="form-label">First Name</label>
                   <input
                     @input="clearClick"
@@ -19,7 +19,7 @@
                     name="firstName"
                   />
                 </div>
-                <div class="col-6">
+                <div class="col-md-6">
                   <label for="lastName" class="form-label">Last Name</label>
                   <input
                     @input="clearClick"
@@ -30,7 +30,7 @@
                   />
                 </div>
               </div>
-              <div class="mb-1">
+              <div class="mb-3">
                 <label for="gender" class="form-label">Gender</label><br />
                 <label for="gender" class="form-label">Male</label>
                 <input
@@ -72,7 +72,7 @@
                 />
               </div>
               <div class="mb-3 row">
-                <div class="col-md-6">
+                <div class="col-md-6 mb-3">
                   <label for="email" class="form-label">Email</label>
                   <input
                     @input="clearClick"
@@ -182,6 +182,9 @@ export default {
       this.$store.commit('setRegisterError',null);
     }
   },
+  mounted(){
+    window.scrollTo(0,0);
+  }
 };
 </script>
 
@@ -200,7 +203,7 @@ export default {
   transition: 0.5s;
   background-size: 200% auto;
   color: white;
-  box-shadow: 0 0 20px #eee;
+  box-shadow: 0 0 14px #eee;
   border-radius: 10px;
   font-size: 12px;
 }
@@ -235,8 +238,14 @@ export default {
 #cardzone {
   padding: 40px 50px 40px 50px;
   border-radius: 10px;
-  box-shadow: 0 0 20px white;
+  box-shadow: 0 0 14px white;
   background-color: transparent;
+}
+
+@media screen and (max-width:400px) {
+  #cardzone {
+    padding: 40px 20px 40px 20px !important;
+  }
 }
 
 </style>

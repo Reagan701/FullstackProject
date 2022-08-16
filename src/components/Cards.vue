@@ -14,7 +14,7 @@
             <br />
             <br />
             <div class="details">
-              <p>{{ product.prodName }}</p>
+              <p id="prodName">{{ product.prodName }}</p>
               <p>R{{ product.price }}</p>
               <router-link
                 :to="{ name: 'singleProduct', params: { id: product.id } }"
@@ -54,7 +54,7 @@ a{
   transition: 0.5s;
   background-size: 200% auto;
   color: white;
-  box-shadow: 0 0 20px #eee;
+  box-shadow: 0 0 14px #eee;
   border-radius: 10px;
   font-size: 12px;
   border: none;
@@ -82,7 +82,6 @@ a{
 .card-content .card {
   position: relative;
   margin: 0 auto;
-  width: 277px !important;
   background: transparent;
   color: white;
   padding: 20px;
@@ -91,6 +90,22 @@ a{
   box-shadow: 0 0 20px white;
   overflow: hidden;
 }
+
+@media screen and (min-width:991px) {
+  .card-content .card{
+    width: 277px !important;
+  }
+}
+
+@media screen and (max-width:990px) and (min-width:576px) {
+  .card-content .card{
+    height: 447px !important;
+  }
+  #prodName{
+  height: 48px;
+  }
+}
+
 .card-content .card .content {
   position: relative;
   z-index: 2;

@@ -53,7 +53,7 @@
               </div>
               <ul>
                 <li><router-link to="/about">About</router-link></li>
-                <li><router-link v-if="user" to="/products">Products</router-link></li>
+                <li><router-link to="/products">Products</router-link></li>
                 <li><router-link to="/about">Our Services</router-link></li>
                 <li><router-link to="/contact">Contact us</router-link></li>
               </ul>
@@ -217,7 +217,6 @@ ul {
 }
 .footer-widget ul li {
   display: inline-block;
-  float: left;
   width: 50%;
   margin-bottom: 12px;
 }

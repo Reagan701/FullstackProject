@@ -10,15 +10,15 @@
         <div class="collapse navbar-collapse" id="navbarCol">
             <div class="navbar-nav mx-auto">
                 <div class="navbar-nav d-flex align-items-center">
-                    <router-link class="me-2" to="/">Home</router-link>
-                    <router-link class="mx-2" to="/about">About</router-link>
-                    <router-link v-if="user" class="mx-2" to="/products">Products</router-link>
-                    <router-link v-if="!user" class="mx-2" to="/login">Login</router-link>
-                    <router-link v-if="!user" class="mx-2" to="/register">Register</router-link>
-                    <router-link class="mx-2" to="/contact">Contact</router-link>
-                    <router-link v-if="user" class="mx-2" to="/account">Account</router-link>
-                    <router-link v-if="currentUser == 'admin'" class="mx-2" to="/admin">Admin</router-link>
-                    <button v-if="cart" class="position-relative ms-2 btn btn-grad btn-danger fa-solid fa-cart-shopping" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartCanvas" aria-controls="cartCanvas">
+                    <router-link @click="closeNav" class="mx-2" to="/">Home</router-link>
+                    <router-link @click="closeNav" class="mx-2" to="/about">About</router-link>
+                    <router-link @click="closeNav" v-if="user" class="mx-2" to="/products">Products</router-link>
+                    <router-link @click="closeNav" v-if="!user" class="mx-2" to="/login">Login</router-link>
+                    <router-link @click="closeNav" v-if="!user" class="mx-2" to="/register">Register</router-link>
+                    <router-link @click="closeNav" class="mx-2" to="/contact">Contact</router-link>
+                    <router-link @click="closeNav" v-if="user" class="mx-2" to="/account">Account</router-link>
+                    <router-link @click="closeNav" v-if="currentUser == 'admin'" class="mx-2" to="/admin">Admin</router-link>
+                    <button v-if="cart" class="position-relative mx-2 btn btn-grad btn-danger fa-solid fa-cart-shopping" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartCanvas" aria-controls="cartCanvas">
                       <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">{{cart.length}}</span>
                     </button>
                 </div>
@@ -80,6 +80,13 @@ export default {
       },
       cartTotal(){
         return this.$store.state.cartTotal;
+      }
+    },
+    methods:{
+      closeNav(){
+        if(window.innerWidth <992){
+          document.getElementById('navToggle').click();
+        }
       }
     }
 }

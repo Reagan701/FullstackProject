@@ -71,6 +71,7 @@ export default {
   },
   mounted() {
     this.$store.dispatch("getAllUsers");
+    window.scrollTo(0,0);
   },
   computed: {
     allUsers() {
@@ -87,7 +88,7 @@ export default {
 
 <style scoped>
 #main{
-  padding: 110px 0;
+  padding: 110px 0 !important;
 }
 
 #word{
@@ -120,7 +121,7 @@ th, td {
   transition: 0.5s;
   background-size: 200% auto;
   color: white;
-  box-shadow: 0 0 20px #eee;
+  box-shadow: 0 0 14px #eee;
   border-radius: 10px;
   font-size: 12px;
 }

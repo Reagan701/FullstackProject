@@ -1,6 +1,6 @@
 <template>
   <div v-if="product" id="main" class="container d-flex justify-content-center align-items-center flex-column" style="min-height:100vh">
-    <router-link class="mb-4" to="/products"
+    <router-link class="mb-5" to="/products"
       ><button class="btn-grad btn">Go Back</button></router-link
     >
       <div class="row">
@@ -12,6 +12,7 @@
             <div class="h-100 d-flex justify-content-evenly gap-5 align-items-start flex-column p-5">
               <div id="details" class="info-top">
                 <h1>{{ product.prodName }}</h1>
+                <h4 style="font-style:italic;">{{ product.category }}</h4>
               </div>
                 <p style="text-align:start;">{{ product.description }}</p>
               <div style="align-self:end">
@@ -40,6 +41,7 @@ export default {
   },
   mounted() {
     this.$store.dispatch("getSingleProduct", this.$route.params.id);
+    window.scrollTo(0,0);
   },
   methods: {
     addProductToCart() {
@@ -57,6 +59,13 @@ export default {
 
 <style scoped>
 a{text-decoration: none;}
+
+#details{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width:100%;
+}
 
 #priceText{
   text-align: end;
@@ -78,16 +87,15 @@ a{text-decoration: none;}
   height: 100%;
   margin: auto;
   background-color: transparent;
-  /* font-family: New Century Schoolbook, TeX Gyre Schola, serif; */
   font-size: 21px;
-  padding: 20px 20px 20px 20px;
+  padding: 20px;
   color:white;
   border-radius: 10px;
-  box-shadow: 0 0 20px white;
+  box-shadow: 0 0 14px white;
 }
 
 img{
-  box-shadow: 0 0 20px white;
+  box-shadow: 0 0 14px white;
   border-radius: 10px;
 }
 
@@ -110,7 +118,7 @@ img{
   transition: 0.5s;
   background-size: 200% auto;
   color: white;
-  box-shadow: 0 0 20px #eee;
+  box-shadow: 0 0 14px #eee;
   border-radius: 10px;
   font-size: 19px;
 }

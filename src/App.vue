@@ -28,7 +28,7 @@ export default {
   transition: 0.5s;
   background-size: 200% auto;
   color: white;
-  box-shadow: 0 0 20px #eee;
+  box-shadow: 0 0 14px #eee;
   border-radius: 10px;
   font-size: 12px;
 }
@@ -75,7 +75,6 @@ export default {
 }
 
 #app {
-  /* font-family: New Century Schoolbook, TeX Gyre Schola, serif; */
   font-size: 21px;
   text-align: center;
   color: red;
@@ -83,12 +82,6 @@ export default {
     #000040,
     #00004e
   );
-  /* background-image: linear-gradient(
-    to right,
-    #000046 0%,
-    #1cb5e0 51%,
-    #000046 100%
-  ); */
 }
 
 .table-dark{
@@ -124,7 +117,7 @@ nav a {
   background-repeat: no-repeat;
   min-height: 100vh;
   color: white;
-  padding-top:92px !important;
+  padding-top:117px !important;
 }
 
 nav a.router-link-exact-active {

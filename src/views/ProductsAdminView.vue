@@ -71,6 +71,7 @@ export default {
   components: { EditProductModal, DeleteProductModal, AddProductModal },
   mounted() {
     this.$store.dispatch("getProducts");
+    window.scrollTo(0,0);
   },
   computed: {
     allProducts() {
@@ -103,7 +104,7 @@ export default {
   transition: 0.5s;
   background-size: 200% auto;
   color: white;
-  box-shadow: 0 0 20px #eee;
+  box-shadow: 0 0 14px #eee;
   border-radius: 10px;
   font-size: 12px;
 }

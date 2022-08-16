@@ -112,7 +112,11 @@ We sell only the highest quality custom kits and soccer merchandise . Kit Army i
 </template>
 
 <script>
-export default {};
+export default {
+  mounted(){
+    window.scrollTo(0,0);
+  }
+};
 </script>
 
 <style scoped>
@@ -133,7 +137,7 @@ export default {};
 .shadow{
   border-radius: 10px;
   margin-bottom:10px;
-  box-shadow: 0 0 20px white !important;
+  box-shadow: 0 0 14px white !important;
 }
 
 #main {

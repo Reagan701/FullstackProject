@@ -14,7 +14,7 @@
                   <label for="email" class="form-label">Email</label>
                   <input @input="resetError" type="text" required v-model="email" class="form-control" name="email"/>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-6 mt-3 mt-lg-0">
                   <label for="password" class="form-label">Password</label>
                   <input @input="resetError" type="password" required v-model="userPassword" class="form-control" name="password"/>
                 </div>
@@ -82,6 +82,7 @@ export default {
   },
   mounted(){
     this.clicked = false;
+    window.scrollTo(0,0);
   },
   methods: {
     loginUser(e) {
@@ -118,7 +119,7 @@ export default {
   transition: 0.5s;
   background-size: 200% auto;
   color: white;
-  box-shadow: 0 0 20px #eee;
+  box-shadow: 0 0 14px #eee;
   border-radius: 10px;
   font-size: 12px;
 }
@@ -146,11 +147,17 @@ export default {
 }
 
 #cardzone {
-  padding: 50px 50px;
+  padding: 40px 50px;
   border-radius: 10px;
-  box-shadow: 0 0 20px white;
+  box-shadow: 0 0 14px white;
   color: white;
   background: transparent;
+}
+
+@media screen and (max-width:400px) {
+  #cardzone {
+    padding: 40px 20px !important;
+  }
 }
 
 </style>

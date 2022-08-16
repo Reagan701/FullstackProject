@@ -19,6 +19,9 @@ export default {
   components: {
     HelloWorld,
   },
+  mounted(){
+    window.scrollTo(0,0);
+  }
 };
 </script>
 
@@ -28,6 +31,7 @@ export default {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-position: center;
   height: 100%;
   color: white;
 }

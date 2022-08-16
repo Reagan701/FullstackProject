@@ -5,18 +5,18 @@
         <h1 class="pb-5">CONTACT US</h1>
         <div id="cardzone" class="card text-white">
           <div class="card-title text-center border-bottom">
-            <h2>Feel free to contact us if you need any assistance</h2>
+            <h2>Feel Free to Contact Us For Assistance</h2>
           </div>
           <div class="card-body">
             <form action="https://formspree.io/f/mvoleqaw" method="POST">
               <div class="mb-4 row">
-                <div class="col-lg-6">
+                <div class="col-lg-6 mt-3 mt-lg-0">
                   <label for="name" class="form-label">Name</label>
-                  <input class="form-control" name="name"/>
+                  <input class="form-control" type="text" name="name"/>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-6 mt-3 mt-lg-0">
                   <label for="email" class="form-label">Email</label>
-                  <input class="form-control" name="email"/>
+                  <input class="form-control" type="text" name="email"/>
                 </div>
                 <div class="col-lg-12 mt-3">
                   <label for="text" class="form-label">Message</label>
@@ -37,7 +37,11 @@
 </template>
 
 <script>
-
+export default {
+  mounted(){
+    window.scrollTo(0,0);
+  }
+}
 </script>
 
 <style scoped>
@@ -55,7 +59,7 @@
   transition: 0.5s;
   background-size: 200% auto;
   color: white;
-  box-shadow: 0 0 20px #eee;
+  box-shadow: 0 0 14px #eee;
   border-radius: 10px;
   font-size: 12px;
 }
@@ -79,11 +83,18 @@
 }
 
 #cardzone {
-  padding: 50px;
+  padding: 40px 50px;
   border-radius: 10px;
-  box-shadow: 0 0 20px white;
+  box-shadow: 0 0 14px white;
   color: white;
   background: transparent;
 }
+
+@media screen and (max-width:400px) {
+  #cardzone {
+    padding: 40px 20px !important;
+  }
+}
+
 
 </style>

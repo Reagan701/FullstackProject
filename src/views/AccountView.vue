@@ -14,7 +14,7 @@
       <div class="col-md-6">
         <form @submit="updateUser">
           <div class="row mb-3">
-            <div class="col-md-6">
+            <div class="col-lg-6 mb-3 mt-4 mt-md-0">
               <label for="firstName" class="form-label">First Name</label>
               <input
                 v-model="firstName"
@@ -25,7 +25,7 @@
                 @input="changeFirstNameColor"
               />
             </div>
-            <div class="col-md-6">
+            <div class="col-lg-6">
               <label for="lastName" class="form-label">Last Name</label>
               <input
                 type="text"
@@ -37,7 +37,7 @@
               />
             </div>
           </div>
-          <div class="mb-1">
+          <div class="mb-3">
             <label for="gender" class="form-label">Gender</label><br />
             <label for="gender" class="form-label">Male</label>
             <input
@@ -88,6 +88,17 @@
                 class="form-control"
                 name="email"
                 id="email"
+                @input="changeEmailColor"
+              />
+          </div>
+          <div class="mb-3">
+              <label for="password" class="form-label">Email</label>
+              <input
+                type="email"
+                v-model="userPassword"
+                class="form-control"
+                name="email"
+                id="email" required
                 @input="changeEmailColor"
               />
           </div>
@@ -142,6 +153,7 @@ export default {
       this.phoneNumber = this.$store.state.currentUser.phoneNumber;
       this.email = this.$store.state.currentUser.email;
     }
+    window.scrollTo(0,0);
   },
   methods:{
     changeFirstNameColor(){
@@ -203,7 +215,7 @@ export default {
 }
 
 #UserCard{
-  box-shadow: 0 0 20px #eee;
+  box-shadow: 0 0 14px #eee;
   padding: 50px; 
 }
 

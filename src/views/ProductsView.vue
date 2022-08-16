@@ -1,7 +1,7 @@
 <template>
   <div id="main" v-if="products && user" class="container d-flex justify-content-center align-items-center flex-column">
     <div id="sect" class="row">
-        <h1>View our Products</h1>
+        <h1 class="my-5">View our Products</h1>
           <div class="col-sm-12 col-xs-12 col-md-3 col-l-4 col-lg-3">
             <select v-model="league" class="form-control btn-grad">
               <option id="drops" value="Any">Filter by League</option>
@@ -28,10 +28,10 @@
             </select>
           </div>
           <div class="col-sm-12 col-xs-12 col-md-3 col-l-3 col-lg-3">
-            <input class="btn-grad form-control" type="search" v-model="search" placeholder="text">
+            <input class="btn-grad form-control" type="search" v-model="search" placeholder="Search...">
           </div>
     </div>
-    <div class="row">
+    <div style="min-height:100vh" class="row">
       <Cards
         v-for="product in products"
         :key="product.id"
@@ -72,6 +72,7 @@ export default {
   mounted() {
     this.$store.dispatch("getProducts");
     this.$store.dispatch("clearSingleProduct");
+    window.scrollTo(0,0);
   },
   computed: {
     products() {
@@ -129,6 +130,11 @@ export default {
   padding-top:100px;
 }
 
+::placeholder{
+  color:rgba(255, 255, 255, 0.781);
+  text-transform: inherit;
+}
+
 #registerzone {
   padding: 50px 0 0 0;
 }
@@ -156,7 +162,7 @@ input {
   transition: 0.5s;
   background-size: 200% auto;
   color: white;
-  box-shadow: 0 0 20px #eee;
+  box-shadow: 0 0 14px #eee;
   border-radius: 10px;
   font-size: 12px;
 }
